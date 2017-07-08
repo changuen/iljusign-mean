@@ -1,6 +1,8 @@
 angular.module('adminServices',[])
 .factory('Admin', function($http){
   adminFactory = {};
+
+
   adminFactory.readAristCrop = function(blob){
     return $http.post('/api/createCropImage', blob);
   };
@@ -12,6 +14,14 @@ angular.module('adminServices',[])
   adminFactory.createItem = function(itemData){
     return $http.post('/api/item', itemData);
   };
-  
+
+  adminFactory.readItems = function(){
+    return $http.get('/api/item');
+  };
+
+  adminFactory.readItem = function(item_id){
+    return $http.get('/api/item/'+item_id);
+  };
+
   return adminFactory;
 });

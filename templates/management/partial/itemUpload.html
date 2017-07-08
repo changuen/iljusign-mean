@@ -56,28 +56,34 @@
 
         <div class="col-sm-6" ng-show="item.thumbnail">
           <br>
-          <div class="form-group">
-            <label for="title">카테고리</label><span style="color: #e96725">(필수)</span>
-            <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
-              ng-options="option.name for option in item.data.availableOptions track by option.id"
-              ng-model="item.data.selectedOption">
-            </select>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="title">상품명</label><span style="color: #e96725">(필수)</span>
+                <input ng-disabled="profile.disabled" type="title" class="form-control" id="title" ng-model="item.itemData.title" placeholder="상품명을 입력해주세요.">
+            </div>
+            <div class="col-sm-6">
+              <label for="price">판매가격</label><span style="color: #e96725">(필수)</span>
+                <input ng-disabled="profile.disabled" type="price" class="form-control" id="price" ng-model="item.itemData.price" placeholder="판매가격을 입력해주세요.">
+            </div>
           </div>
-          <div class="form-group">
-            <label for="title">카테고리2</label><span style="color: #e96725">(필수)</span>
-            <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
-              ng-options="option.name for option in item.data.availableOptions track by option.id"
-              ng-model="item.data.selectedOption">
-            </select>
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="title">상품규격 1</label><span style="color: #e96725">(필수)</span>
+              <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
+                ng-options="option.name for option in item.data1.availableOptions track by option.id"
+                ng-model="item.data1.selectedOption">
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <label for="price">상품규격 2</label><span style="color: #e96725">(필수)</span>
+              <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
+                ng-options="option.name for option in item.data2.availableOptions track by option.id"
+                ng-model="item.data2.selectedOption">
+              </select>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="title">상품이름</label><span style="color: #e96725">(필수)</span>
-            <input ng-disabled="item.disabled"  type="text" class="form-control" id="title" ng-model="item.uploadData.title" placeholder="상품의 이름을 입력해주세요.">
-          </div>
-          <div class="form-group ">
-            <label for="price">상품가격</label><span style="color: #e96725">(필수)</span>
-            <input ng-disabled="item.disabled"  type="text" class="form-control" id="price" ng-model="item.uploadData.price" placeholder="상품의 가격을 입력해주세요.">
-          </div>
+
         </div>
     </div>
 </div>

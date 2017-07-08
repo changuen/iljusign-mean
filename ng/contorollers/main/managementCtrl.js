@@ -1,11 +1,63 @@
 angular.module('managementControllers',['adminServices'])
+.controller('itemsCtrl', function(Admin){
+  var app = this;
+  app.data = {
+   availableOptions: [
+     {sort: '-created', name: '최신순'},
+     {sort: '-view', name: '조회순'},
+     {sort: '-comment_count', name:'댓글순'}
+   ],
+   selectedOption:  {sort: '-created', name: '최신순'} //This sets the default value of the select in the ui
+   };
+
+    Admin.readItems().then(function(data){
+      if(data.data.success){
+        app.itemsData = data.data.result;
+      } else {
+        app.errorMsg = data.data.message;
+      }
+    });
+})
+.controller('itemCtrl', function(Admin, $stateParams){
+  var app = this;
+  var item_id = $stateParams.item_id;
+
+  app.data1 = {
+   availableOptions: [
+     {id: '0', name: '카테고리를 선택해주세요.'},
+     {id: '1', name: '시안소재'},
+     {id: '2', name: '소재'},
+     {id: '3', name: '부자재'}
+   ],
+   selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
+   };
+
+   app.data2 = {
+    availableOptions: [
+      {id: '0', name: '카테고리를 선택해주세요.'},
+      {id: '1', name: '메뉴1'},
+      {id: '2', name: '메뉴2'},
+      {id: '3', name: '메뉴3'}
+    ],
+    selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
+    };
+
+  Admin.readItem(item_id).then(function(data){
+    if(data.data.success){
+      app.itemData = data.data.result;
+    } else {
+      app.errorMsg = data.data.message;
+    }
+  });
+})
+
 .controller('itemUploadCtrl', function ($http, $timeout, $scope, Admin, $state, $window) {
     var app = this;
-    app.data = {
+    app.data1 = {
      availableOptions: [
        {id: '0', name: '카테고리를 선택해주세요.'},
-       {id: '1', name: '시트소재'},
-       {id: '2', name: '실사소재'},
+       {id: '1', name: '시안소재'},
+       {id: '2', name: '소재'},
        {id: '3', name: '부자재'}
      ],
      selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
@@ -14,9 +66,9 @@ angular.module('managementControllers',['adminServices'])
      app.data2 = {
       availableOptions: [
         {id: '0', name: '카테고리를 선택해주세요.'},
-        {id: '1', name: '기타소재'},
-        {id: '2', name: '기타소재'},
-        {id: '3', name: '기타소재'}
+        {id: '1', name: '메뉴1'},
+        {id: '2', name: '메뉴2'},
+        {id: '3', name: '메뉴3'}
       ],
       selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
       };

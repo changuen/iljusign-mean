@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-sm-6">
+    <uib-tabset active="activeJustified" justified="true">
+      <uib-tab index="0" heading="상품 이미지">
+        <div class="tabPadding">
+          <div class="photo-image">
+            <img class="img-responsive center-block" ng-src="{{item.itemData.image}}" alt="{{item.itemData.title}}"><span class="mask"></span>
+          </div>
+        </div>
+      </uib-tab>
+    </uib-tabset>
+  </div>
+
+	<div class="col-sm-6" >
+    <uib-tabset active="activeJustified" justified="true">
+      <uib-tab index="0" heading="상품 정보">
+        <div class="tabPadding">
+          <div class="table-responsive">
+      		  <table class="table table-bordered">
+      		    <tbody>
+      		      <tr>
+      		        <td>상품명</td>
+      		        <td>{{item.itemData.title}}</td>
+      		      </tr>
+      					<tr>
+      						<td>판매가격</td>
+      						<td>{{item.itemData.price}}</td>
+      					</tr>
+                <tr>
+                  <td>규격</td>
+                  <td>{{item.itemData.type}}</td>
+                <tr>
+      		    </tbody>
+      		  </table>
+      	  </div>
+          <div class="text-center">
+            <button class="btn btn-warning">정보 변경</button>
+            <button class="btn btn-danger">상품 삭제</button>
+          </div>
+        </div>
+      </uib-tab>
+    </uib-tabset>
+  </div>
+</div>
+
+<br>
+<br>
+<div>
+    <form name="outerForm" class="tab-form-demo">
+        <uib-tabset active="activeForm">
+          <uib-tab index="0" heading="상세정보">
+            <div class="tabPadding">
+              <div class="photo-image">
+                <img style="width: 100%;"class="img-responsive center-block" ng-src="{{item.itemData.explain}}" alt="{{item.itemData.title}}"><span class="mask"></span>
+              </div>
+            </div>
+          </uib-tab>
+          <uib-tab index="1" heading="상품문의">
+            <div class="tabPadding">
+            Some Tab Content
+            </div>
+          </uib-tab>
+          <uib-tab index="2" heading="배송/반품/교환">
+            <div class="tabPadding">
+            More Tab Content
+            </div>
+          </uib-tab>
+        </uib-tabset>
+    </form>
+</div>

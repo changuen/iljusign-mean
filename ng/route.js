@@ -62,7 +62,28 @@ $locationProvider.html5Mode(true);
                  }
                }
             })
-
+            .state('app.management.items',
+             {
+               url: '/items',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/items.html',
+                   controller: 'itemsCtrl',
+                   controllerAs: 'items'
+                 }
+               }
+            })
+            .state('app.management.items.show',
+             {
+               url: ':item_id',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/item.html',
+                   controller: 'itemCtrl',
+                   controllerAs: 'item'
+                 }
+               }
+            })
             .state('app.management.bannerUpload',
              {
                url: '/bannerUpload',

@@ -13,10 +13,10 @@ app.use(express.static('image'));
 app.use('/', require('./controllers/static'));
 
 
-app.use('/api/item', require('./controllers/api/item'));
-app.use('/api/createCropImage', require('./controllers/api/createCropImage'));
-app.use('/api/createPhotoImage', require('./controllers/api/createPhotoImage'));
-app.use('/api/createPhotoExplain', require('./controllers/api/createPhotoExplain'));
+app.use('/api/item', require('./controllers/api/admin/item'));
+app.use('/api/createCropImage', require('./controllers/api/admin/createCropImage'));
+app.use('/api/createPhotoImage', require('./controllers/api/admin/createPhotoImage'));
+app.use('/api/createPhotoExplain', require('./controllers/api/admin/createPhotoExplain'));
 // 전체 메뉴
 app.use('/api/header', require('./controllers/api/menu/header'));
 
