@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/ui-cropper/compile/minified/ui-cropper.css">
     <link rel="stylesheet" href="/app.css">
 </head>
 
@@ -63,12 +64,12 @@
                       <form name="logForm" ng-submit="main.doLogin(loginData, logForm.$valid)" novalidate>
                         <div ng-class = "{'has-success': (logForm.username.$valid && !logForm.username.$pristine), 'has-error': (!logForm.username.$valid && !logForm.username.$pristine) ||
                           (!logForm.username.$valid && logForm.$submitted)}">
-                          <input style="color:#e96725" ng-disabled="main.disabled" placeholder="아이디" class="form-control" type="text" name="username" ng-model="main.loginData.username" ng-pattern="/^(?!.*?[\W])(?=.*?[a-zA-Z]|=.*?[A-Z]).{3,16}$/" ng-minlength="5" ng-maxlength="25" required>
+                          <input ng-disabled="main.disabled" placeholder="아이디" class="form-control" type="text" name="username" ng-model="main.loginData.username" ng-pattern="/^(?!.*?[\W])(?=.*?[a-zA-Z]|=.*?[A-Z]).{3,16}$/" ng-minlength="5" ng-maxlength="25" required>
                         </div>
                         <br>
                         <div ng-class = "{'has-success': (logForm.password.$valid && !logForm.password.$pristine), 'has-error': (!logForm.password.$valid && !logForm.password.$pristine) ||
                           (!logForm.password.$valid && logForm.$submitted)}">
-                          <input  style="color:#e96725" ng-disabled="main.disabled" placeholder="비밀번호" class="form-control" type="password" name="password" ng-model="main.loginData.password" ng-pattern="/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/"
+                          <input  ng-disabled="main.disabled" placeholder="비밀번호" class="form-control" type="password" name="password" ng-model="main.loginData.password" ng-pattern="/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/"
                            ng-minlength="8" ng-maxlength="35" required>
                         </div>
                          <br>
@@ -92,7 +93,7 @@
         <div id="wrap" class="mainForm" ui-view>
 
           <div ui-view="header"></div>
-          <div class="container" id="body">
+          <div id="body" class="container" >
             <div id="container" ui-view="content"></div>
           </div>
           <div id="footer" ui-view="footer"></div>
@@ -104,6 +105,7 @@
         <script src="/jquery/dist/jquery.slim.min.js"></script>
         <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+        <script src="/ui-cropper/compile/minified/ui-cropper.js"></script>
         <script src="./app.js"></script>
 </body>
 </html>

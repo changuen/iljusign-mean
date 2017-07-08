@@ -1,1 +1,1 @@
-# Web Application based on MeanStack using mysql database instead of mongo database
+# Web Application based on Meanjs using mysql database instead of mongo database

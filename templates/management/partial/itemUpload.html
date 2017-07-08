@@ -1,0 +1,161 @@
+<!-- 썸네일 -->
+<!-- 썸네일 이미지 올리기 전 -->
+<!--  ng-hide="myCroppedImage" -->
+<br>
+<div class="row">
+<!-- 썸네일 이미지를 업로드 하였을 때 숨김 -->
+    <div class="col-sm-12" ng-hide="myCroppedImage">
+        <label>썸네일 이미지</label>
+        <div class="text-center">
+          <div class="jumbotron">
+              <h2>작품의 썸네일 이미지를 업로드해주세요.</h2>
+              <p>작품의 썸네일 이미지는 1024*800 사이즈를 권장합니다.</p>
+          </div>
+            <div class="">
+              <input class="btn" style="display: inline; margin-left: 70px;"type="file" id="fileInput"/>
+            </div>
+        </div>
+    </div>
+
+<!-- 썸네일 이미지 올린 후 -->
+    <div ng-show="myCroppedImage">
+<!-- 썸네일 이미지를 업로드 후 사라짐 시작-->
+        <div class="col-sm-6"  ng-hide="item.thumbnail">
+            <div class="media">
+              <div class="media-body">
+                <label>썸네일</label>
+              </div>
+              <div class="media-right">
+              </div>
+            </div>
+            <br>
+            <div class="text-center" >
+              <div class="cropArea" ng-show="myCroppedImage">
+                <ui-cropper image="item.myImage" area-type="rectangle" result-image="myCroppedImage" result-image-size='{w: 400,h: 250}' ></ui-cropper>
+              </div>
+            </div>
+        </div>
+<!-- 썸네일 이미지를 업로드 후 사라짐 종료-->
+
+        <div class="col-sm-6">
+              <div>
+                  <label>썸네일 이미지</label>
+              </div>
+              <br>
+              <div class="text-center" >
+                <div>
+                  <img style="background-color:#000000;"ng-src="{{myCroppedImage}}" />
+                </div>
+                <br>
+                <div ng-hide="item.thumbnail">
+                  <p>검은색 공간이 보이지 않도록 채워주세요.</p>
+                  <a ng-disabled="item.disabled"  ng-click="item.readCropImage({base64Url: myCroppedImage});"class="btn btn-enroll">썸네일 업로드</a>
+                </div>
+              </div>
+        </div>
+
+        <div class="col-sm-6" ng-show="item.thumbnail">
+          <br>
+          <div class="form-group">
+            <label for="title">카테고리</label><span style="color: #e96725">(필수)</span>
+            <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
+              ng-options="option.name for option in item.data.availableOptions track by option.id"
+              ng-model="item.data.selectedOption">
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="title">카테고리2</label><span style="color: #e96725">(필수)</span>
+            <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
+              ng-options="option.name for option in item.data.availableOptions track by option.id"
+              ng-model="item.data.selectedOption">
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="title">상품이름</label><span style="color: #e96725">(필수)</span>
+            <input ng-disabled="item.disabled"  type="text" class="form-control" id="title" ng-model="item.uploadData.title" placeholder="상품의 이름을 입력해주세요.">
+          </div>
+          <div class="form-group ">
+            <label for="price">상품가격</label><span style="color: #e96725">(필수)</span>
+            <input ng-disabled="item.disabled"  type="text" class="form-control" id="price" ng-model="item.uploadData.price" placeholder="상품의 가격을 입력해주세요.">
+          </div>
+        </div>
+    </div>
+</div>
+<!-- 썸네일 종료 -->
+
+
+<br>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="alert alert-info" ng-show="loading">이미지 업로드 중입니다.
+        </div>
+
+      <label>상품 메인 이미지</label>
+<!-- upload.minaThumbnail.dataUrl / 작품을 업로드 했을 때 이미지가 변환되게 ng-show & hide 속성을 추가 -->
+        <div class="text-center">
+          <div class="jumbotron" ng-hide="item.mainThumbnail.dataUrl">
+              <h2>상품의 이미지를 업로드해주세요.</h2>
+              <p>상품의 이미지는 1024*800 사이즈를 권장합니다.</p>
+          </div>
+          <div class="image-default">
+            <img  class="img-responsive center-block" ng-src="{{item.mainThumbnail.dataUrl}}">
+          </div>
+<!-- 작품이 성공적으로 업로드 완료 되었을 때 숨김 -->
+          <br>
+          <form ng-submit="item.readPhoto()" ng-hide="item.mainPhoto">
+            <label class="btn btn-success">이미지 찾기
+                <input ng-disabled="item.disabled"  type="file" file-model="item.file.upload" name="myfile" style="display: none;" onchange="angular.element(this).scope().item.mainPhotoChanged(this.files)">
+            </label>
+                <button ng-disabled="item.disabled"  class="btn btn-default">이미지 업로드</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+    <br>
+    <div class="row">
+      <div class="col-sm-12">
+      <label>상품 설명 이미지</label>
+    <!-- upload.minaThumbnail.dataUrl / 작품을 업로드 했을 때 이미지가 변환되게 ng-show & hide 속성을 추가 -->
+        <div class="text-center">
+          <div class="jumbotron" ng-hide="item.explainThumbnail.dataUrl">
+              <h2>상품 설명 이미지를 업로드해주세요.</h2>
+              <p>상품 설명 이미지는 1024*800 사이즈를 권장합니다.</p>
+          </div>
+          <div class="image-default">
+            <img  class="img-responsive center-block" ng-src="{{item.explainThumbnail.dataUrl}}">
+          </div>
+    <!-- 작품이 성공적으로 업로드 완료 되었을 때 숨김 -->
+          <br>
+          <form ng-submit="item.readPhotoExplain()" ng-hide="item.explainPhoto">
+            <label class="btn btn-success">이미지 찾기
+                <input ng-disabled="item.disabled"  type="file" file-model="item.file.upload" name="myfile" style="display: none;" onchange="angular.element(this).scope().item.explainPhotoChanged(this.files)">
+            </label>
+                <button ng-disabled="item.disabled"  class="btn btn-default">이미지 업로드</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+    <br>
+    <br>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="makeBorder"></div>
+        <div class ="row show-hide-message" ng-show="item.successMsg">
+          <div class="alert alert-success">{{item.successMsg}}</div>
+        </div>
+        <div class ="row show-hide-message" ng-show="item.errorMsg">
+          <div class="alert alert-danger">{{item.errorMsg}}</div>
+        </div>
+        <br>
+        <div class="form-group text-center">
+          <button style="width: 100%;"ng-click="item.createPhoto(item.uploadData)" ng-disabled="item.disabled"  type="submit" class="btn btn-enroll">작품 업로드</button>
+        </div>
+      </div>
+    </div>

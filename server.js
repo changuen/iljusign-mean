@@ -13,11 +13,16 @@ app.use(express.static('image'));
 app.use('/', require('./controllers/static'));
 
 
+app.use('/api/item', require('./controllers/api/item'));
+app.use('/api/createCropImage', require('./controllers/api/createCropImage'));
+app.use('/api/createPhotoImage', require('./controllers/api/createPhotoImage'));
+app.use('/api/createPhotoExplain', require('./controllers/api/createPhotoExplain'));
 // 전체 메뉴
 app.use('/api/header', require('./controllers/api/menu/header'));
 
 // middleware
 app.use('/api/me', require('./controllers/api/user/me'));
+app.use('/api/permission', require('./controllers/api/user/permission'));
 
 // user/reset
 app.use('/api/resetusername', require('./controllers/api/user/reset/username'));

@@ -1,7 +1,7 @@
 var app = angular.module('app');
 app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 $urlRouterProvider.otherwise('/');
-$locationProvider.hashPrefix(''); 
+$locationProvider.hashPrefix('');
 $locationProvider.html5Mode(true);
 
  $stateProvider
@@ -9,17 +9,100 @@ $locationProvider.html5Mode(true);
              url: '/',
              views:{
                'header': {
-               templateUrl: '/menues/mainMenu.html',
-               controller: 'mainMenuController'
+               templateUrl: '/menues/header.html'
                },
                'content': {
-               templateUrl: '/main/home.html'
+               templateUrl: '/main/form.html'
+               },
+               'menu@app': {
+                 templateUrl: '/menues/mainMenu.html'
+               },
+               'account@app': {
+                 templateUrl: '/main/account.html'
+               },
+               'contents@app': {
+                 templateUrl: '/main/home.html'
                },
                'footer': {
                templateUrl: '/company/footer.html'
                }
              }
             })
+
+            .state('app.category', {
+              url: 'category',
+              views: {
+                'subMenu@app': {
+                  templateUrl: '/menues/subMenu.html'
+                },
+                'contents@app': {
+                  templateUrl: '/categoryes/items/form.html'
+                }
+              }
+            })
+
+            .state('app.board', {
+              url: 'board',
+              views: {
+                'contents@app': {
+                  templateUrl: '/categoryes/board/form.html'
+                }
+              }
+            })
+
+            .state('app.management',
+             {
+               url: 'management',
+               views:{
+                 'content@' : {
+                   templateUrl: '/management/form.html',
+                 },
+                 'menu@app.management': {
+                   templateUrl: '/management/menu.html'
+                 }
+               }
+            })
+
+            .state('app.management.bannerUpload',
+             {
+               url: '/bannerUpload',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/bannerUpload.html'
+                 }
+               }
+            })
+            .state('app.management.itemUpload',
+             {
+               url: '/itemUpload',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/itemUpload.html',
+                   controller: 'itemUploadCtrl',
+                   controllerAs: 'item'
+                 }
+               }
+            })
+            .state('app.management.orderStatus',
+             {
+               url: '/orderStatus',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/orderStatus.html'
+                 }
+               }
+            })
+            .state('app.management.members',
+             {
+               url: '/members',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/members.html'
+                 }
+               }
+            })
+
+
 
 
             .state('registerStep1',
