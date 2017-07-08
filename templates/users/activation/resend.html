@@ -1,0 +1,42 @@
+<div id="resetForm">
+  <div>
+    <a class="go-home" ng-href="/" >
+      <p>siteLogo</p>
+    </a>
+  </div>
+
+  <div class="resetForm">
+    <p class="title">이메일 인증</p>
+    <div class ="row show-hide-message" ng-show="resend.successMsg">
+      <div class="alert alert-success">{{resend.successMsg}}</div>
+    </div>
+    <div class ="row show-hide-message" ng-show="resend.errorMsg">
+      <div class="alert alert-danger">{{resend.errorMsg}}&nbsp
+        <a ng-show="resend.expired" ui-sref="resend"><button type="button" class="btn btn-success">Resend Activated Link</button></a>
+      </div>
+    </div>
+
+
+
+    <form name="logForm" ng-submit="resend.checkCredentials(loginData, logForm.$valid)" novalidate>
+
+      <div ng-class = "{'has-success': (logForm.username.$valid && !logForm.username.$pristine), 'has-error': (!logForm.username.$valid && !logForm.username.$pristine) ||
+        (!logForm.username.$valid && logForm.$submitted)}">
+        <input ng-disabled="resend.disabled" placeholder="아이디" class="form-control" type="text" name="username" ng-model="resend.loginData.username" ng-pattern="/^(?!.*?[\W])(?=.*?[a-zA-Z]|=.*?[A-Z]).{3,16}$/" ng-minlength="5" ng-maxlength="25" required>
+        <p class="help-block" ng-show="(!logForm.username.$pristine && logForm.username.$error.required) || (logForm.$submitted && logForm.username.$error.required)">값을 입력해주세요.</p>
+      </div>
+      <br>
+
+      <div ng-class = "{'has-success': (logForm.password.$valid && !logForm.password.$pristine), 'has-error': (!logForm.password.$valid && !logForm.password.$pristine) ||
+        (!logForm.password.$valid && logForm.$submitted)}">
+        <input ng-disabled="resend.disabled"  placeholder="비밀번호" class="form-control" type="password" name="password" ng-model="resend.loginData.password" ng-pattern="/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/"
+         ng-minlength="8" ng-maxlength="35" required>
+        <p class="help-block" ng-show="(!logForm.password.$pristine && logForm.password.$error.required) || (logForm.$submitted && logForm.password.$error.required)">값을 입력해주세요.</p>
+      </div>
+      <br>
+      <input ng-disabled="resend.disabled"  class="btn btn-enroll btn-block" type="submit" value="확인">
+      <br>
+    </form>
+
+</div>
+</div>

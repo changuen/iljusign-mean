@@ -1,0 +1,66 @@
+<div id="resetForm">
+  <div>
+    <a class="go-home" ng-href="/" >
+      <p>siteLogo</p>
+    </a>
+  </div>
+
+  <div class="resetForm">
+    <p class="title">회원가입 </p>
+      <div class ="row show-hide-message" ng-show="register.successMsg">
+        <div class="alert alert-success">{{register.successMsg}}</div>
+      </div>
+      <div class ="row show-hide-message" ng-show="register.errorMsg">
+        <div class="alert alert-danger">{{register.errorMsg}}</div>
+      </div>
+      <form name="regForm" ng-submit="register.regStep2(register.regData, regForm.$valid, confirmed)" novalidate>
+        <div ng-class = "{'has-success': (regForm.username.$valid && !regForm.username.$pristine), 'has-error': (!regForm.username.$valid && !regForm.username.$pristine) ||
+          (!regForm.username.$valid && regForm.$submitted)}">
+          <label >아이디</label>
+          <input ng-disabled="register.disabled" placeholder="최소 5개 이상의 글자를 입력해주세요."class="form-control" type="text" name="username" ng-model="register.regData.username" ng-pattern="/^(?!.*?[\W])(?=.*?[a-zA-Z]|=.*?[A-Z]).{3,16}$/" ng-minlength="5" ng-maxlength="25" required>
+          <ul ng-show="(!regForm.username.$pristine && regForm.username.$error.pattern) || (!regForm.username.$pristine && regForm.username.$error.minlength) ||
+          (!regForm.username.$pristine && regForm.username.$error.maxlength)" class="help-block" >
+          <li>Must not contain any special characters or spaces</li>
+          <li>Must be at least 5 characters but no more than 25</li>
+          </ul>
+        </div>
+        <br>
+        <div ng-class = "{'has-success': (regForm.email.$valid && !regForm.email.$pristine), 'has-error': (!regForm.email.$valid && !regForm.email.$pristine) ||
+          (!regForm.email.$valid && regForm.$submitted)}">
+          <label>이메일</label>
+          <input ng-disabled="register.disabled"  placeholder="특수문자 입력이 불가합니다." class="form-control" type="email" name="email" ng-model="register.regData.email" ng-minlength="5" ng-maxlength="30" ng-pattern="/^\w+@[a-zA-z_]+?\.[a-zA-Z]{2,3}$/" required>
+          <ul ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) || (!regForm.email.$pristine && regForm.email.$error.minlength) ||
+          (!regForm.email.$pristine && regForm.email.$error.maxlength)" class="help-block" >
+            <li>Must contain "@"</li>
+            <li>Must not contain any special characters</li>
+            <li>Must be at least 5 characters but no more than 30</li>
+          </ul>
+        </div>
+        <br>
+        <div ng-class = "{'has-success': (regForm.firstPassword.$valid && !regForm.firstPassword.$pristine), 'has-error': (!regForm.firstPassword.$valid && !regForm.firstPassword.$pristine) ||
+          (!regForm.firstPassword.$valid && regForm.$submitted)}">
+          <label>비밀번호</label>
+          <input ng-disabled="register.disabled"  placeholder="비밀번호를 입력해주세요."class="form-control" type="password" name="firstPassword" ng-model="firstPassword" ng-pattern="/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/"
+                 ng-minlength="8" ng-maxlength="35" required>
+          <ul ng-show="(!regForm.firstPassword.$pristine && regForm.firstPassword.$error.pattern) || (!regForm.firstPassword.$pristine && regForm.firstPassword.$error.minlength) ||
+          (!regForm.firstPassword.$pristine && regForm.firstPassword.$error.maxlength)" class="help-block" >
+            <li>Must contain at least one upper case letter</li>
+            <li>Must contain at least one lower case letter</li>
+            <li>Must contain at least one number</li>
+            <li>Must contain at least one special character</li>
+            <li>Must contain at least 8 characters but no more than 35</li>
+          </ul>
+        </div>
+        <br>
+        <div ng-class="{ 'has-success':confirmed && !regForm.confirmPassword.$error.required, 'has-error':(!confirmed && !regForm.confirmPassword.$error.required) || (regForm.confirmPassword.$error.required && !regForm.confirmPassword.$pristine) || (regForm.$submitted && regForm.confirmPassword.$error.required) }">
+        <label>비밀번호 확인</label>
+          <input ng-disabled="register.disabled" class="form-control" type="password" name="confirmPassword" placeholder="비밀번호를 다시 한번 입력해주세요." match="{{[firstPassword]}}" ng-change="register.regData.password = confirm" ng-model="confirm" required>
+          <p class="help-block" ng-show="!confirmed && !regForm.confirmPassword.$pristine && regForm.firstPassword.$valid">비밀번호가 일치하지 않습니다.</p>
+        </div>
+        <div>
+        <button ng-disabled="register.disabled" class="btn btn-block btn-enroll" type="submit">회원가입</button>
+        </div>
+      </form>
+
+</div>
+</div>

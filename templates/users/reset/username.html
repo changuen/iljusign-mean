@@ -1,0 +1,30 @@
+<div id="resetForm">
+  <div>
+    <a class="go-home" ng-href="/" >
+      <p>siteLogo</p>
+    </a>
+  </div>
+
+  <div class="resetForm">
+    <p class="title">아이디 찾기</p>
+    <div class ="row show-hide-message" ng-show="username.successMsg">
+      <div class="alert alert-success">{{username.successMsg}}</div>
+    </div>
+    <div class ="row show-hide-message" ng-show="username.errorMsg">
+      <div class="alert alert-danger">{{username.errorMsg}}
+      </div>
+    </div>
+
+
+
+    <form name="userForm" ng-submit="username.sendUsername(userData, userForm.$valid);" novalidate>
+        <div>
+          <input ng-disabled="username.disabled"  placeholder="이메일" class="form-control" type="text" name="email" ng-model="username.userData.email" required>
+        </div>
+        <div>
+          <button style="width:100%;" ng-disabled="username.disabled"  class="btn btn-enroll" type="submit">확인</button>
+        </div>
+   </form>
+
+</div>
+</div>

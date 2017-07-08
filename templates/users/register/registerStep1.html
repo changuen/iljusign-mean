@@ -1,0 +1,51 @@
+<div id="resetForm">
+  <div>
+    <a class="go-home" ng-href="/" >
+      <p>siteLogo</p>
+    </a>
+  </div>
+
+<div class="resetForm">
+    <div>
+      <p class="title">개인 가입 약관 동의</p>
+    </div>
+    <div class ="row show-hide-message" ng-show="register.successMsg">
+      <div class="alert alert-success">{{register.successMsg}}</div>
+    </div>
+    <div class ="row show-hide-message" ng-show="register.errorMsg">
+      <div class="alert alert-danger">{{register.errorMsg}}</div>
+    </div>
+    <form name="regForm" ng-submit="register.regStep1(register.regData)" novalidate>
+      <fieldset>
+        <div class="box_terms">
+          <h5 class="tit_terms">서비스 약관 동의</h5>
+          <div class="cont_terms">
+              <P>서비스 약관</P>
+          </div>
+          <div class="check_agree text-center">
+            <label>서비스 약관에 동의합니다. <input id = "termsAgree" name="termsAgree" type="checkbox" ng-model="register.regData.terms" class="input_check"></label>
+          </div>
+        </div>
+
+
+        <div class="box_terms" >
+          <h5 class="tit_terms">개인정보 수집 및 이용 동의</h5>
+          <div class="cont_terms">
+            <P>개인정보 수집 및 이용 동의</P>
+          </div>
+          <div class="check_agree text-center">
+            <label>개인정보 수집 및 이용에 동의합니다. <input id = "termsAgree" name="termsAgree" type="checkbox" class="input_check" ng-model="register.regData.privacy"></label>
+          </div>
+        </div>
+      </fieldset>
+
+        <div>
+          <div class="row">
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn-block btn-enroll">동의</button>
+            </div>
+          </div>
+        </div>
+  </form>
+</div>
+</div>

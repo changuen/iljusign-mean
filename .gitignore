@@ -1,0 +1,6 @@
+*.log
+/mysql.js
+/node_modules
+/controllers/api/privacy
+/assets/images/
+/assets/video/

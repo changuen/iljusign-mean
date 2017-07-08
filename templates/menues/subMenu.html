@@ -1,0 +1,6 @@
+<div class="scrollmenu">
+<!-- 여기서 카테고리에 대한 분류를 시작해야하는데 -->
+  <div class="container">
+      <a ng-repeat="header in headers" ui-sref="app.artist({code: header.code})"  ui-sref-active="active">{{header.description}}</a>
+  </div>
+</div>
