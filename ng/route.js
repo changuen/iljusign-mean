@@ -15,7 +15,9 @@ $locationProvider.html5Mode(true);
                templateUrl: '/main/form.html'
                },
                'menu@app': {
-                 templateUrl: '/menues/mainMenu.html'
+                 templateUrl: '/menues/mainMenu.html',
+                 controller: 'mainMenuCtrl',
+                 controllerAs: 'mainMenu'
                },
                'account@app': {
                  templateUrl: '/main/account.html'
@@ -30,16 +32,32 @@ $locationProvider.html5Mode(true);
             })
 
             .state('app.category', {
-              url: 'category',
+              url: 'category=:type1',
               views: {
                 'subMenu@app': {
                   templateUrl: '/menues/subMenu.html'
+                  // controller: 'subMenuCtrl',
+                  // controllerAs: 'subMenu'
                 },
                 'contents@app': {
-                  templateUrl: '/categoryes/items/form.html'
+                  templateUrl: '/categoryes/items/form.html',
+                  controller: 'itemsCtrl',
+                  controllerAs: 'items'
                 }
               }
             })
+
+            .state('app.category.show', {
+              url: '/item:item_id',
+              views: {
+                'contents@app': {
+                  templateUrl: '/categoryes/items/item.html',
+                  controller: 'itemCtrl',
+                  controllerAs: 'item'
+                }
+              }
+            })
+
 
             .state('app.board', {
               url: 'board',
@@ -122,9 +140,6 @@ $locationProvider.html5Mode(true);
                  }
                }
             })
-
-
-
 
             .state('registerStep1',
              {

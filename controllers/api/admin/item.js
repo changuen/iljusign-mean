@@ -14,7 +14,7 @@ try{
               res.status(201).send({success:false, message:'올바른 상품 제목을 입력해주세요.'});
           } else if(req.body.price === '' || req.body.price === undefined || req.body.price === null){
               res.status(201).send({success:false, message:'올바른 상품 가격 입력해주세요.'});
-          } else if(req.body.type === '' || req.body.type === undefined || req.body.type === null) {
+          } else if(req.body.type1 === '' || req.body.type1 === undefined || req.body.type1 === null) {
               res.status(201).send({success:false, message:'올바른 상품 타입을 선택해주세요.'});
           } else if(req.body.image === '' || req.body.image === undefined || req.body.image === null) {
               res.status(201).send({success:false, message:'올바른 상품 이미지를 선택해주세요.'});
@@ -26,7 +26,8 @@ try{
 
             var insertSql = 'INSERT INTO items set ?';
             var insertValue = {
-              type: req.body.type,
+              type1: req.body.type1,
+              // type2: '0',
               title: req.body.title,
               price: req.body.price,
               image: req.body.image,
@@ -39,6 +40,7 @@ try{
                 if(err){
                   res.status(201).send({success:false, message: err});
                 } else{
+                  console.log(results);
                   if(!results){
                     res.status(201).send({success:false, message:'상품이 등록 실패!'});
                   } else {

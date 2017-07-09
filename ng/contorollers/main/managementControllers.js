@@ -236,13 +236,13 @@ angular.module('managementControllers',['adminServices'])
 // 작가 작품 업로드
       this.createPhoto = function(uploadData){
         $scope.$emit('LOAD');
-
+        console.log(uploadData);
         if(uploadData === undefined || uploadData === null || uploadData === ''){
           $window.alert('빈칸을 모두 입력해주세요.');
           app.disabled = false;
             $scope.$emit('UNLOAD');
         } else {
-          if(app.data.selectedOption.id === '0'){
+          if(app.data1.selectedOption.id === '0'){
             $scope.$emit('UNLOAD');
             app.disabled = false;
             $window.alert('상품 타입을 선택해주세요.');
@@ -266,11 +266,12 @@ angular.module('managementControllers',['adminServices'])
               app.uploadData = {
                 title: uploadData.title,
                 price: uploadData.price,
-                type: app.data.selectedOption.id,
+                type1: app.data1.selectedOption.id,
                 thumbnail: app.thumbnailPath,
                 explain: app.explainImagePath,
                 image: app.mainImagePath
               };
+              console.log(app.uploadData);
               Admin.createItem(app.uploadData).then(function(data){
                 if(data.data.success){
                   $scope.$emit('UNLOAD');

@@ -18,7 +18,7 @@ app.use('/api/createCropImage', require('./controllers/api/admin/createCropImage
 app.use('/api/createPhotoImage', require('./controllers/api/admin/createPhotoImage'));
 app.use('/api/createPhotoExplain', require('./controllers/api/admin/createPhotoExplain'));
 // 전체 메뉴
-app.use('/api/header', require('./controllers/api/menu/header'));
+app.use('/api/menu', require('./controllers/api/menu/menu'));
 
 // middleware
 app.use('/api/me', require('./controllers/api/user/me'));

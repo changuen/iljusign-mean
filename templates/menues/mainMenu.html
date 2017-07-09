@@ -1,12 +1,7 @@
 <div class="scrollmenu">
   <div class="container">
-    <a ui-sref="app.category"  ui-sref-active="active">시트소재</a>
     <a ui-sref="app.board"  ui-sref-active="active">시안확인</a>
     <a ui-sref="#"  ui-sref-active="active">갤러리</a>
-    <a ui-sref="#"  ui-sref-active="active">실사소재</a>
-    <a ui-sref="#"  ui-sref-active="active">부자재</a>
-    <a ui-sref="#"  ui-sref-active="active">아크릴</a>
-    <a ui-sref="#"  ui-sref-active="active">배너&포인트 간판</a>
-    <a ui-sref="#"  ui-sref-active="active">LED&스카시</a>
+    <a ui-sref="app.category({type1: menu.type1})" ng-repeat="menu in mainMenu.mainMenues">{{menu.description}}</a>
   </div>
 </div>

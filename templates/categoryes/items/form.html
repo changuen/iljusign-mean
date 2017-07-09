@@ -1,1 +1,32 @@
-<p>콘텐츠 입니다</p>
+    <div class="row">
+        <form class="navbar-form navbar-right hidden-xs ">
+          <input type="text" class="form-control" ng-model="search" placeholder="검색어를 입력해주세요.">
+            <select class="form-control" name="mySelect" id="mySelect"
+              ng-options="option.name for option in items.data.availableOptions track by option.sort"
+              ng-model="items.data.selectedOption" >
+            </select>
+        </form>
+
+    </div>
+
+    <div class="row container-fluid">
+      <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="photo in items.itemsData | filter:search |orderBy : data.selectedOption.sort ">
+        <div class="card">
+              <div class="card-image">
+                <a ui-sref=".show({item_id: photo.item_id})" ui-sref-active="active">
+                  <img class="img-responsive" ng-src="{{photo.thumbnail}}">
+                </a>
+              </div>
+              <div class="card-content">
+                  <p>이름 : {{photo.title}}</p>
+              </div>
+              <div class="card-action">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12" style="text-align:left">
+                     <p class="text-left">가격 : {{photo.price}}</p>
+                   </div>
+                 </div>
+              </div>
+          </div>
+        </div>
+    </div>
