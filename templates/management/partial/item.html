@@ -27,18 +27,25 @@
           </div>
           <br>
           <div class="row">
-            <div class="col-sm-6">
-              <label for="title">상품규격 1</label>
+            <div class="col-sm-4">
+              <label for="title">상품 타입1</label>
               <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
                 ng-options="option.name for option in item.data1.availableOptions track by option.id"
                 ng-model="item.data1.selectedOption">
               </select>
             </div>
-            <div class="col-sm-6">
-              <label for="price">상품규격 2</label>
+            <div class="col-sm-4">
+              <label for="price">상품 타입2</label>
               <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
                 ng-options="option.name for option in item.data2.availableOptions track by option.id"
                 ng-model="item.data2.selectedOption">
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <label for="title">상품 규격</label>
+              <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
+                ng-options="option.name for option in item.data1.availableOptions track by option.id"
+                ng-model="item.data1.selectedOption">
               </select>
             </div>
           </div>

@@ -14,38 +14,26 @@ try{
               res.status(201).send({success:false, message:'올바른 상품 제목을 입력해주세요.'});
           } else if(req.body.price === '' || req.body.price === undefined || req.body.price === null){
               res.status(201).send({success:false, message:'올바른 상품 가격 입력해주세요.'});
-          } else if(req.body.type1 === '' || req.body.type1 === undefined || req.body.type1 === null) {
-              res.status(201).send({success:false, message:'올바른 상품 타입을 선택해주세요.'});
-          } else if(req.body.image === '' || req.body.image === undefined || req.body.image === null) {
-              res.status(201).send({success:false, message:'올바른 상품 이미지를 선택해주세요.'});
-          } else if(req.body.explain === '' || req.body.explain === undefined || req.body.explain === null) {
-              res.status(201).send({success:false, message:'올바른 상품 설명을 입력해주세요.'});
-          } else if(req.body.thumbnail === '' || req.body.thumbnail === undefined || req.body.thumbnail === null) {
-              res.status(201).send({success:false, message:'올바른 썸네일을 입력해주세요.'});
+          } else if(req.body.type === '' || req.body.type === undefined || req.body.type === null) {
+              res.status(201).send({success:false, message:'올바른 상품 타입1을 선택해주세요.'});
           } else {
 
-            var insertSql = 'INSERT INTO items set ?';
+            var insertSql = 'INSERT INTO item set ?';
             var insertValue = {
-              type1: req.body.type1,
-              // type2: '0',
-              title: req.body.title,
+              type: req.body.type,
+              name: req.body.title,
               price: req.body.price,
-              image: req.body.image,
               thumbnail: req.body.thumbnail,
-              explain: req.body.explain
+              explain: req.body.explain,
+              image: req.body.image
             };
-
+            console.log(insertValue);
             connection.query(insertSql, insertValue, function (error, results, next) {
-            // databases에서  select 문으로 중복된 사용자 찾아야함.
                 if(err){
-                  res.status(201).send({success:false, message: err});
+                  throw err;
                 } else{
                   console.log(results);
-                  if(!results){
-                    res.status(201).send({success:false, message:'상품이 등록 실패!'});
-                  } else {
-                    res.status(201).send({success:true, message:'상품이 등록 성공!'});
-                  }
+                    res.status(201).send({success:true, message:'상품 등록 성공!'});
                 }
             });
 
@@ -70,7 +58,7 @@ try{
         return next(err);
       }
       else {
-        var selectSql = 'select * from items';
+        var selectSql = 'select * from item_detail';
           connection.query(selectSql,  function (err, result, next) {
           if(err){
                 res.send(err);

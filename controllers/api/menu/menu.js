@@ -15,8 +15,7 @@ try{
 				//Select a record.
           connection.query(selectSql, function (err, result, next) {
           if(err){
-            console.error('SQL error: ', err);
-            return next(err);
+            res.json({success:false, message:'불러오기 실패!'});
           }
 					else {
             if(!result){

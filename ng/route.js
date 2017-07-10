@@ -111,17 +111,6 @@ $locationProvider.html5Mode(true);
                  }
                }
             })
-            .state('app.management.itemUpload',
-             {
-               url: '/itemUpload',
-               views:{
-                 'contents@app.management': {
-                   templateUrl: '/management/partial/itemUpload.html',
-                   controller: 'itemUploadCtrl',
-                   controllerAs: 'item'
-                 }
-               }
-            })
             .state('app.management.orderStatus',
              {
                url: '/orderStatus',

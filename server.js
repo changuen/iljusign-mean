@@ -14,6 +14,8 @@ app.use('/', require('./controllers/static'));
 
 
 app.use('/api/item', require('./controllers/api/admin/item'));
+app.use('/api/item_type', require('./controllers/api/admin/item_type'));
+
 app.use('/api/createCropImage', require('./controllers/api/admin/createCropImage'));
 app.use('/api/createPhotoImage', require('./controllers/api/admin/createPhotoImage'));
 app.use('/api/createPhotoExplain', require('./controllers/api/admin/createPhotoExplain'));

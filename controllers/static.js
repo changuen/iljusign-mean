@@ -6,7 +6,7 @@ var router = express.Router();
 var morgan = require('morgan');
 var mysql = require('mysql');
 var connection = require('express-myconnection'); // express-myconnection module
-var bodyParser = require('body-Parser');
+var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 
 router.use(bodyParser.json());

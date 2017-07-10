@@ -1,77 +1,187 @@
 angular.module('managementControllers',['adminServices'])
-.controller('itemsCtrl', function(Admin){
+.controller('itemTypeCtrl', function(Admin, $state){
   var app = this;
-  app.data = {
-   availableOptions: [
-     {sort: '-created', name: '최신순'},
-     {sort: '-view', name: '조회순'},
-     {sort: '-comment_count', name:'댓글순'}
-   ],
-   selectedOption:  {sort: '-created', name: '최신순'} //This sets the default value of the select in the ui
-   };
-
-    Admin.readItems().then(function(data){
-      if(data.data.success){
-        app.itemsData = data.data.result;
-      } else {
-        app.errorMsg = data.data.message;
-      }
-    });
-})
-.controller('itemCtrl', function(Admin, $stateParams){
-  var app = this;
-  var item_id = $stateParams.item_id;
-
-  app.data1 = {
-   availableOptions: [
-     {id: '0', name: '카테고리를 선택해주세요.'},
-     {id: '1', name: '시안소재'},
-     {id: '2', name: '소재'},
-     {id: '3', name: '부자재'}
-   ],
-   selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
-   };
-
-   app.data2 = {
-    availableOptions: [
-      {id: '0', name: '카테고리를 선택해주세요.'},
-      {id: '1', name: '메뉴1'},
-      {id: '2', name: '메뉴2'},
-      {id: '3', name: '메뉴3'}
-    ],
-    selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
-    };
-
-  Admin.readItem(item_id).then(function(data){
+  Admin.readType().then(function(data){
     if(data.data.success){
-      app.itemData = data.data.result;
+      app.typeDatas = data.data.result;
     } else {
       app.errorMsg = data.data.message;
     }
   });
 })
 
+.controller('createTypeCtrl', function(Admin, $state){
+  var app = this;
+  app.kindValue = [];
+  app.findList = [];
+  app.type_tiny = [];
+
+  this.createType = function(data){
+    app.errorMsg = false;
+    app.typeData = {
+      type1: data.code1,
+      type1_description: data.type1,
+      type2: data.code2,
+      type2_description: data.type2,
+      kind: app.type_tiny.toString()
+    };
+
+    Admin.createType(app.typeData).then(function(data){
+      if(data.data.success){
+        app.success = data.data.message;
+        $state.reload();
+      } else {
+        app.errorMsg = data.data.message;
+      }
+
+    });
+  };
+  this.addLine = function(){
+    app.findList.push({find: app.kindValue});
+    app.type_tiny.push(app.kindValue);
+  };
+})
+
+.controller('itemsCtrl', function(Admin, $http, $state){
+  var app = this;
+  app.kindValue = [];
+
+  app.data1 = {
+   availableOptions: [
+     {id: '0', name: '카테고리를 선택해주세요.', type1:'', type2:''}
+   ],
+   selectedOption: {id: '0', name: '카테고리를 선택해주세요.', type1:'', type2:''}
+   };
+
+
+
+  app.data4 = {
+    availableOptions: [
+      {id: '0', name: '카테고리를 선택해주세요.'},
+    ],
+    selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
+    };
+
+
+
+    Admin.readItems().then(function(data){
+      app.errorMsg = false;
+      if(data.data.success){
+        app.itemsData = data.data.result;
+        // var type = app.itemsData;
+        // for(i=0;i<type.length;i++){
+        //   app.data3.availableOptions[i+1] = {
+        //     id: i+1,
+        //     name: type[1].kind
+        //   }
+        // }
+      } else {
+        app.errorMsg = data.data.message;
+      }
+    });
+
+    // Admin.readType().then(function(data){
+    //   if(data.data.success){
+    //     var type = data.data.result;
+    //     console.log(type);
+    //     for(i=0;i<type.length;i++){
+    //       app.data1.availableOptions[i+1] = {
+    //         id: i+1,
+    //         name: type[i].type1_description+'\t-\t'+type[i].type2_description,
+    //         type1: type[i].type1,
+    //         type2: type[i].type2
+    //       };
+    //     }
+    //   } else {
+    //     app.errorMsg = data.data.message;
+    //   }
+    // });
+
+
+
+     this.createItem = function(itemData){
+       app.errorMsg = false;
+       app.itemData = {
+         name: itemData.name,
+         price: itemData.price,
+         type1:  app.data1.selectedOption.type1,
+         type2:  app.data1.selectedOption.type2,
+         kind: app.itemKind
+       };
+
+     Admin.createItem(app.itemData).then(function(data){
+         if(data.data.success){
+           app.successMsg = data.data.message;
+           $state.reload();
+         } else {
+           app.errorMsg = data.data.message;
+         }
+       });
+     };
+
+})
+
+
+
+
+
+
+.controller('itemCtrl', function(Admin, $stateParams, $scope){
+  var app = this;
+  var item_id = $stateParams.item_id;
+
+  app.data1 = {
+   availableOptions: [
+     {id: '0', name: '카테고리를 선택해주세요.'}
+   ],
+   selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
+   };
+
+  Admin.readItem(item_id).then(function(data){
+    if(data.data.success){
+      app.itemData = data.data.result;
+      var res = app.itemData.kind.split(",");
+      for(i=0;i<res.length;i++){
+        app.data1.availableOptions[i+1] = {
+          id: i+1,
+          name: res[i]
+        };
+      }
+    } else {
+      app.errorMsg = data.data.message;
+    }
+  });
+})
+
+
+
+
+
 .controller('itemUploadCtrl', function ($http, $timeout, $scope, Admin, $state, $window) {
+
     var app = this;
-    app.data1 = {
+
+    app.data = {
      availableOptions: [
        {id: '0', name: '카테고리를 선택해주세요.'},
-       {id: '1', name: '시안소재'},
-       {id: '2', name: '소재'},
-       {id: '3', name: '부자재'}
      ],
      selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
      };
 
-     app.data2 = {
-      availableOptions: [
-        {id: '0', name: '카테고리를 선택해주세요.'},
-        {id: '1', name: '메뉴1'},
-        {id: '2', name: '메뉴2'},
-        {id: '3', name: '메뉴3'}
-      ],
-      selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
-      };
+// 카테고리 타입 가져오기
+     Admin.readType().then(function(data){
+       if(data.data.success){
+         var type = data.data.result;
+         for(i=0; i<type.length;i++){
+           app.data.availableOptions[i+1] = {
+             name: type[i].type1_description+'-'+type[i].type2_description,
+             id: type[i].item_type_id
+           };
+         }
+       } else {
+         app.errorMsg = data.data.message;
+       }
+     });
 
 // 파일의 경로만 저장하기 메인 이미지 만들기
     this.file = {};
@@ -124,7 +234,7 @@ angular.module('managementControllers',['adminServices'])
         });
       };
 
-// 메인 작품이미지 업로드 되었는지 보여주기
+// 작품 설명 이미지 업로드 되었는지 보여주기
     this.explainPhotoChanged = function(files) {
     $scope.$emit('LOAD');
           if (files.length > 0 && files[0].name.match(/\.(png|jpeg|jpg)$/)) {
@@ -145,9 +255,9 @@ angular.module('managementControllers',['adminServices'])
       };
 
 
-// 메인 작품 이미지 업로드해서 경로 저장
+// 작품 설명  이미지 업로드해서 경로 저장
     this.readPhotoExplain = function(){
-// 메인 이미지 업로드 여부
+// 작품 설명  업로드 여부
       $scope.$emit('LOAD');
       app.explainPhoto = false;
       app.disabled = true;
@@ -236,13 +346,12 @@ angular.module('managementControllers',['adminServices'])
 // 작가 작품 업로드
       this.createPhoto = function(uploadData){
         $scope.$emit('LOAD');
-        console.log(uploadData);
         if(uploadData === undefined || uploadData === null || uploadData === ''){
           $window.alert('빈칸을 모두 입력해주세요.');
           app.disabled = false;
             $scope.$emit('UNLOAD');
         } else {
-          if(app.data1.selectedOption.id === '0'){
+          if(app.data.selectedOption.id === '0'){
             $scope.$emit('UNLOAD');
             app.disabled = false;
             $window.alert('상품 타입을 선택해주세요.');
@@ -266,7 +375,7 @@ angular.module('managementControllers',['adminServices'])
               app.uploadData = {
                 title: uploadData.title,
                 price: uploadData.price,
-                type1: app.data1.selectedOption.id,
+                type: app.data.selectedOption.id,
                 thumbnail: app.thumbnailPath,
                 explain: app.explainImagePath,
                 image: app.mainImagePath

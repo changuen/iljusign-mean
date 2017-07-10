@@ -2,7 +2,13 @@ angular.module('adminServices',[])
 .factory('Admin', function($http){
   adminFactory = {};
 
+  adminFactory.createType = function(typeData){
+    return $http.post('/api/item_type', typeData);
+  };
 
+  adminFactory.readType = function(){
+    return $http.get('/api/item_type');
+  };
   adminFactory.readAristCrop = function(blob){
     return $http.post('/api/createCropImage', blob);
   };
