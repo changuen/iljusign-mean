@@ -4,7 +4,7 @@
       <uib-tab index="0" heading="상품 이미지">
         <div class="tabPadding">
           <div class="photo-image">
-            <img class="img-responsive center-block" ng-src="{{item.itemData.image}}" alt="{{item.itemData.title}}"><span class="mask"></span>
+            <img class="img-responsive center-block" ng-src="{{item.itemData.image}}" alt="{{item.itemData.name}}"><span class="mask"></span>
           </div>
         </div>
       </uib-tab>
@@ -17,36 +17,22 @@
         <div class="tabPadding">
           <div class="row">
             <div class="col-sm-6">
-              <label for="title">상품명</label>
-                <input ng-disabled="profile.disabled" type="title" class="form-control" id="title" ng-model="item.itemData.title" placeholder="상품명을 입력해주세요.">
+              <label for="name">상품명</label>
+                <input ng-disabled="item.disabled" type="text" class="form-control" id="name" ng-model="item.itemData.name" placeholder="상품명을 입력해주세요.">
             </div>
             <div class="col-sm-6">
               <label for="price">판매가격</label>
-                <input ng-disabled="profile.disabled" type="price" class="form-control" id="price" ng-model="item.itemData.price" placeholder="판매가격을 입력해주세요.">
+                <input ng-disabled="item.disabled" type="number" class="form-control" id="price" ng-model="item.itemData.price" placeholder="판매가격을 입력해주세요.">
             </div>
           </div>
           <br>
           <div class="row">
-            <div class="col-sm-4">
-              <label for="title">상품 타입1</label>
-              <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
-                ng-options="option.name for option in item.data1.availableOptions track by option.id"
-                ng-model="item.data1.selectedOption">
-              </select>
-            </div>
-            <div class="col-sm-4">
-              <label for="price">상품 타입2</label>
-              <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
-                ng-options="option.name for option in item.data2.availableOptions track by option.id"
-                ng-model="item.data2.selectedOption">
-              </select>
-            </div>
-            <div class="col-sm-4">
-              <label for="title">상품 규격</label>
-              <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
-                ng-options="option.name for option in item.data1.availableOptions track by option.id"
-                ng-model="item.data1.selectedOption">
-              </select>
+            <div class="col-sm-6">
+              <label for="title">상품분류</label><span style="color: #e96725">(선택)</span>
+                  <select  ng-disabled="item.disabled"  class="form-control" name="mySelect" id="mySelect"
+                    ng-options="option.name for option in item.data.availableOptions track by option.id"
+                    ng-model="item.data.selectedOption">
+                  </select>
             </div>
           </div>
           <br>

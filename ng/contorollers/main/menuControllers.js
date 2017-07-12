@@ -12,10 +12,10 @@ angular.module('menuControllers',['menuServices'])
 //
 // .controller('subMenuCtrl', function (Menu, $stateParams) {
 //   var app = this;
-//   var mainMenuType = $stateParams.type1;
-//   Menu.readSubMenu(mainMenuType).then(function(data){
+//   var subType = $stateParams.type;
+//   Menu.readSubMenu(subType).then(function(data){
 //     if(data.data.success){
-//       console.log(data);
+//       app.subMenues = data.data.result;
 //     } else {
 //     }
 //   });

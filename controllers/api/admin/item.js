@@ -58,7 +58,7 @@ try{
         return next(err);
       }
       else {
-        var selectSql = 'select * from item_detail';
+        var selectSql = 'select * from item';
           connection.query(selectSql,  function (err, result, next) {
           if(err){
                 res.send(err);
@@ -91,7 +91,7 @@ try{
       }
       else {
         var item_id = req.params.item_id;
-        var selectSql = 'select * from items where item_id = ?';
+        var selectSql = 'select * from item inner join item_type on item.type = item_type.item_type_id where item_id = ?';
           connection.query(selectSql,  item_id, function (err, result, next) {
           if(err){
                 res.send(err);

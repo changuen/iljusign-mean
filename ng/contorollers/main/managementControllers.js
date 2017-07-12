@@ -1,4 +1,4 @@
-angular.module('managementControllers',['adminServices'])
+angular.module('managementControllers',['adminServices', 'menuServices'])
 .controller('itemTypeCtrl', function(Admin, $state){
   var app = this;
   Admin.readType().then(function(data){
@@ -10,15 +10,40 @@ angular.module('managementControllers',['adminServices'])
   });
 })
 
-.controller('createTypeCtrl', function(Admin, $state){
+.controller('createTypeCtrl', function(Admin, $state, $http, Menu){
   var app = this;
   app.kindValue = [];
   app.findList = [];
   app.type_tiny = [];
 
+
+  app.data = {
+   availableOptions: [
+     {id: '0', name: '카테고리를 선택해주세요.'},
+   ],
+   selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
+   };
+
+   Menu.readMainMenu().then(function(data){
+     if(data.data.success){
+       var type = data.data.result;
+       for(i=0; i<type.length;i++){
+         app.data.availableOptions[i+1] = {
+           name: type[i].name,
+           id: type[i].category_id
+         };
+       }
+     } else {
+       app.errorMsg = data.data.message;
+     }
+   });
+
+
+
   this.createType = function(data){
     app.errorMsg = false;
     app.typeData = {
+      category: app.data.selectedOption.id,
       type1: data.code1,
       type1_description: data.type1,
       type2: data.code2,
@@ -42,113 +67,52 @@ angular.module('managementControllers',['adminServices'])
   };
 })
 
-.controller('itemsCtrl', function(Admin, $http, $state){
+.controller('itemsCtrl', function(Admin, $state){
   var app = this;
-  app.kindValue = [];
-
-  app.data1 = {
-   availableOptions: [
-     {id: '0', name: '카테고리를 선택해주세요.', type1:'', type2:''}
-   ],
-   selectedOption: {id: '0', name: '카테고리를 선택해주세요.', type1:'', type2:''}
-   };
-
-
-
-  app.data4 = {
-    availableOptions: [
-      {id: '0', name: '카테고리를 선택해주세요.'},
-    ],
-    selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
-    };
-
-
-
-    Admin.readItems().then(function(data){
-      app.errorMsg = false;
-      if(data.data.success){
-        app.itemsData = data.data.result;
-        // var type = app.itemsData;
-        // for(i=0;i<type.length;i++){
-        //   app.data3.availableOptions[i+1] = {
-        //     id: i+1,
-        //     name: type[1].kind
-        //   }
-        // }
-      } else {
-        app.errorMsg = data.data.message;
-      }
-    });
-
-    // Admin.readType().then(function(data){
-    //   if(data.data.success){
-    //     var type = data.data.result;
-    //     console.log(type);
-    //     for(i=0;i<type.length;i++){
-    //       app.data1.availableOptions[i+1] = {
-    //         id: i+1,
-    //         name: type[i].type1_description+'\t-\t'+type[i].type2_description,
-    //         type1: type[i].type1,
-    //         type2: type[i].type2
-    //       };
-    //     }
-    //   } else {
-    //     app.errorMsg = data.data.message;
-    //   }
-    // });
-
-
-
-     this.createItem = function(itemData){
-       app.errorMsg = false;
-       app.itemData = {
-         name: itemData.name,
-         price: itemData.price,
-         type1:  app.data1.selectedOption.type1,
-         type2:  app.data1.selectedOption.type2,
-         kind: app.itemKind
-       };
-
-     Admin.createItem(app.itemData).then(function(data){
-         if(data.data.success){
-           app.successMsg = data.data.message;
-           $state.reload();
-         } else {
-           app.errorMsg = data.data.message;
-         }
-       });
-     };
+  Admin.readItems().then(function(data){
+    if(data.data.success){
+      app.itemsData = data.data.result;
+    } else {
+    }
+  });
 
 })
-
-
-
 
 
 
 .controller('itemCtrl', function(Admin, $stateParams, $scope){
   var app = this;
   var item_id = $stateParams.item_id;
-
-  app.data1 = {
+  app.data = {
    availableOptions: [
-     {id: '0', name: '카테고리를 선택해주세요.'}
+     {id: '0', name: '카테고리를 선택해주세요.'},
    ],
    selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
    };
 
+// 카테고리 타입 가져오기
+    Admin.readType().then(function(data){
+      if(data.data.success){
+        var type = data.data.result;
+        for(i=0; i<type.length;i++){
+          app.data.availableOptions[i+1] = {
+            name: type[i].type1_description+'-'+type[i].type2_description,
+            id: type[i].item_type_id
+          };
+        }
+      } else {
+        app.errorMsg = data.data.message;
+      }
+    });
+
   Admin.readItem(item_id).then(function(data){
     if(data.data.success){
       app.itemData = data.data.result;
-      var res = app.itemData.kind.split(",");
-      for(i=0;i<res.length;i++){
-        app.data1.availableOptions[i+1] = {
-          id: i+1,
-          name: res[i]
-        };
-      }
+      app.data.selectedOption = {
+        id : app.itemData.type
+      };
     } else {
-      app.errorMsg = data.data.message;
+
     }
   });
 })
@@ -158,9 +122,7 @@ angular.module('managementControllers',['adminServices'])
 
 
 .controller('itemUploadCtrl', function ($http, $timeout, $scope, Admin, $state, $window) {
-
     var app = this;
-
     app.data = {
      availableOptions: [
        {id: '0', name: '카테고리를 선택해주세요.'},
@@ -380,7 +342,6 @@ angular.module('managementControllers',['adminServices'])
                 explain: app.explainImagePath,
                 image: app.mainImagePath
               };
-              console.log(app.uploadData);
               Admin.createItem(app.uploadData).then(function(data){
                 if(data.data.success){
                   $scope.$emit('UNLOAD');

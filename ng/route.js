@@ -32,17 +32,17 @@ $locationProvider.html5Mode(true);
             })
 
             .state('app.category', {
-              url: 'category=:type1',
+              url: 'category=:type',
               views: {
                 'subMenu@app': {
-                  templateUrl: '/menues/subMenu.html'
+                  templateUrl: '/menues/subMenu.html',
                   // controller: 'subMenuCtrl',
                   // controllerAs: 'subMenu'
                 },
                 'contents@app': {
                   templateUrl: '/categoryes/items/form.html',
-                  controller: 'itemsCtrl',
-                  controllerAs: 'items'
+                  controller: 'getTypeItemsCtrl',
+                  controllerAs: 'getTypeItems'
                 }
               }
             })
@@ -52,8 +52,8 @@ $locationProvider.html5Mode(true);
               views: {
                 'contents@app': {
                   templateUrl: '/categoryes/items/item.html',
-                  controller: 'itemCtrl',
-                  controllerAs: 'item'
+                  controller: 'getTypeItemCtrl',
+                  controllerAs: 'getTypeItem'
                 }
               }
             })

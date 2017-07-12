@@ -2,45 +2,36 @@
     <uib-tabset active="activeForm">
 <!-- 상품분류표 -->
       <uib-tab index="0" heading="상품 분류표">
-          <div class="tabPadding" ng-controller="itemTypeCtrl as itemType">
+          <div class="tabPadding text-center" ng-controller="itemTypeCtrl as itemType">
             <br>
             <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>상품분류코드</th>
-                    <th>상품 대분류[코드]</th>
-                    <th>상품 소분류[코드]</th>
-                    <th>상품 규격</th>
+                    <th>카테고리</th>
+                    <th>분류코드</th>
+                    <th>대분류코드</th>
+                    <th>대분류코드명</th>
+                    <th>소분류코드</th>
+                    <th>소분류코드명</th>
+                    <th>상품상세규격</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="">
                   <tr ng-repeat="type in itemType.typeDatas">
+                    <td>{{type.name}}</td>
                     <td>{{type.item_type_id}}</td>
-                    <td>{{type.type1_description}}[{{type.type1}}]</td>
-                    <td>{{type.type2_description}}[{{type.type2}}]</td>
+                    <td>{{type.type1}}</td>
+                    <td>{{type.type1_description}}</td>
+                    <td>{{type.type2}}</td>
+                    <td>{{type.type2_description}}</td>
                     <td>{{type.kind}}</td>
                   </tr>
                 </tbody>
               </table>
           </div>
       </uib-tab>
-
-
-<!-- ================================ 상품 관리 ====================================== -->
-      <uib-tab index="1" heading="상품 관리">
-        <div class="tabPadding" ng-controller="createTypeCtrl as createType">
-          <div class ="row show-hide-message" ng-show="createType.successMsg">
-            <div class="alert alert-success">{{createType.successMsg}}</div>
-          </div>
-          <div class ="row show-hide-message" ng-show="createType.errorMsg">
-            <div class="alert alert-danger">{{createType.errorMsg}}</div>
-          </div>
-        </div>
-      </uib-tab>
-
-
 <!-- ================================ 상품 분류표 등록 ====================================== -->
-      <uib-tab index="2" heading="상품 분류표 등록">
+<uib-tab index="1" heading="상품 분류표 등록">
         <div class="tabPadding" ng-controller="createTypeCtrl as createType">
           <div class ="row show-hide-message" ng-show="createType.successMsg">
             <div class="alert alert-success">{{createType.successMsg}}</div>
@@ -48,74 +39,125 @@
           <div class ="row show-hide-message" ng-show="createType.errorMsg">
             <div class="alert alert-danger">{{createType.errorMsg}}</div>
           </div>
-
-          <div class="row text-center" style="border-bottom: 1px solid #000000;">
-            <div class="col-sm-6">
-              <p>상품 대분류</p>
-            </div>
-            <div class="col-sm-6">
-              <p>상품 소분류</p>
-            </div>
-          </div>
-          <br>
-          <div class="row text-center">
-            <div class="col-sm-6" >
-              <div class="row" >
-                <div class="col-sm-4">
-                  <input ng-disabled="createType.disabled" type="number" class="form-control" id="code1" data-ng-model="createType.itemData.code1" placeholder="ex) 00, 01">
-                </div>
-                <div class="col-sm-8">
-                  <input ng-disabled="createType.disabled" type="text" class="form-control" id="type1" data-ng-model="createType.itemData.type1" placeholder="ex) 시트소재, 실사소재">
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="row">
-                <div class="col-sm-4">
-                  <input ng-disabled="createType.disabled" type="number" class="form-control" id="code2" data-ng-model="createType.itemData.code2" placeholder="ex) 00, 01">
-                </div>
-                <div class="col-sm-8">
-                  <input ng-disabled="createType.disabled" type="text" class="form-control" id="type2" data-ng-model="createType.itemData.type2" placeholder="ex) 시트소재, 실사소재">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <br>
-          <div class="row text-center" style="border-bottom: 1px solid #000000;">
-            <div class="col-sm-6">
-              <p>상품 규격</p>
-            </div>
-            <div class="col-sm-6">
-              <p>상품 규격 추가</p>
-            </div>
-          </div>
+          <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>대분류코드</th>
+                  <th>대분류코드명</th>
+                  <th>소분류코드</th>
+                  <th>소분류코드명</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input ng-disabled="createType.disabled" type="number" class="form-control" id="code1" data-ng-model="createType.itemData.code1" placeholder="ex) 00, 01">
+                  </td>
+                  <td>
+                    <input ng-disabled="createType.disabled" type="text" class="form-control" id="type1" data-ng-model="createType.itemData.type1" placeholder="ex) 시트소재, 실사소재">
+                  </td>
+                  <td>
+                    <input ng-disabled="createType.disabled" type="number" class="form-control" id="code2" data-ng-model="createType.itemData.code2" placeholder="ex) 00, 01">
+                  </td>
+                  <td>
+                    <input ng-disabled="createType.disabled" type="text" class="form-control" id="type2" data-ng-model="createType.itemData.type2" placeholder="ex) 시트소재 부 메뉴, 부자재 부 메뉴">
+                  </td>
+                </tr>
+              </tbody>
+          </table>
           <br>
           <div class="row">
-            <div class="col-sm-6" >
-              <div class="row" >
-                <li ng-repeat="list in createType.findList">{{list.find}}</li>
-              </div>
+            <div class="col-sm-6">
+              <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>상품 규격</th>
+                      <th>상품 규격 추가</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <li ng-repeat="list in createType.findList">{{list.find}}</li>
+                      </td>
+                      <td>
+                        <div class="input-group">
+                          <input ng-disabled="createType.disabled" type="kind" class="form-control" id="kind" data-ng-model="createType.kindValue" placeholder="ex) 실사소재 길이 800m">
+                          <a class="input-group-addon btn btn-default" ng-click="createType.addLine(createType.kindValue)">추가</a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+              </table>
             </div>
             <div class="col-sm-6">
-              <div class="row">
-                <div class="col-sm-9">
-                 <input ng-disabled="profile.disabled" type="kind" class="form-control" id="kind" data-ng-model="createType.kindValue" placeholder="상품 규격을 입력해주세요.">
-               </div>
-               <div class="col-sm-3">
-                   <button class="btn btn-default" ng-click="createType.addLine(createType.kindValue)">추가</button>
-               </div>
-              </div>
+              <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>카테고리</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <select  ng-disabled="createType.disabled"  class="form-control" name="mySelect" id="mySelect"
+                          ng-options="option.name for option in createType.data.availableOptions track by option.id"
+                          ng-model="createType.data.selectedOption">
+                        </select>
+                      <td>
+                    </tr>
+                  </tbody>
+              </table>
             </div>
           </div>
-          <br>
+
           <br>
           <div>
             <button class="btn btn-success" style="width:100%;" ng-click="createType.createType(createType.itemData);">상품 분류 등록</button>
           </div>
         </div>
+</uib-tab>
 
-      </uib-tab>
+
+
+<!-- ================================ 상품 관리 ====================================== -->
+<uib-tab index="2" heading="상품 관리">
+        <div class="tabPadding">
+          <div class ="row show-hide-message" ng-show="items.successMsg">
+            <div class="alert alert-success">{{items.successMsg}}</div>
+          </div>
+          <div class ="row show-hide-message" ng-show="items.errorMsg">
+            <div class="alert alert-danger">{{items.errorMsg}}</div>
+          </div>
+          <div class="row">
+          </div>
+
+          <div class="row container-fluid">
+            <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="photo in items.itemsData | filter:search |orderBy : data.selectedOption.sort ">
+              <div class="card">
+                    <div class="card-image">
+                      <a ui-sref=".show({item_id: photo.item_id})" ui-sref-active="active">
+                        <img class="img-responsive" ng-src="{{photo.thumbnail}}">
+                      </a>
+                    </div>
+                    <div class="card-content">
+                        <p>이름 : {{photo.name}}</p>
+                    </div>
+                    <div class="card-action">
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-12" style="text-align:left">
+                           <p class="text-left">가격 : {{photo.price}}</p>
+                         </div>
+                       </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+        </div>
+</uib-tab>
+
+
 
 <!-- ================================ 상품 등록 ====================================== -->
 

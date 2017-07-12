@@ -11,7 +11,7 @@ try{
       }
       else {
 
-        var selectSql = 'select * from item_type1';
+        var selectSql = 'select * from category;';
 				//Select a record.
           connection.query(selectSql, function (err, result, next) {
           if(err){
@@ -35,7 +35,7 @@ catch(ex){
 }
 });
 
-router.get('/:mainMenuType', function(req, res, next){
+router.get('/:subType', function(req, res, next){
 try{
 
     req.getConnection(function(err, connection) {
@@ -46,10 +46,10 @@ try{
       }
       else {
 
-        var mainMenuType = req.params.mainMenuType;
-        var selectSql = 'select * from item_type2 where type1 = ?';
+        var subType = req.params.subType;
+        var selectSql = 'select * from item_type where category_id = ?';
 				//Select a record.
-          connection.query(selectSql, mainMenuType, function (err, result, next) {
+          connection.query(selectSql, subType, function (err, result, next) {
           if(err){
             console.error('SQL error: ', err);
             return next(err);

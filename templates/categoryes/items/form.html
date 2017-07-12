@@ -2,15 +2,15 @@
         <form class="navbar-form navbar-right hidden-xs ">
           <input type="text" class="form-control" ng-model="search" placeholder="검색어를 입력해주세요.">
             <select class="form-control" name="mySelect" id="mySelect"
-              ng-options="option.name for option in items.data.availableOptions track by option.sort"
-              ng-model="items.data.selectedOption" >
+              ng-options="option.name for option in getTypeItems.data.availableOptions track by option.sort"
+              ng-model="getTypeItems.data.selectedOption" >
             </select>
         </form>
 
     </div>
 
     <div class="row container-fluid">
-      <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="photo in items.itemsData | filter:search |orderBy : data.selectedOption.sort ">
+      <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="photo in getTypeItems.itemsData | filter:search |orderBy : data.selectedOption.sort ">
         <div class="card">
               <div class="card-image">
                 <a ui-sref=".show({item_id: photo.item_id})" ui-sref-active="active">
@@ -18,7 +18,8 @@
                 </a>
               </div>
               <div class="card-content">
-                  <p>이름 : {{photo.title}}</p>
+
+                  <p><span style="color: red">{{photo.type1_description}}</span> - {{photo.name}}</p>
               </div>
               <div class="card-action">
                   <div class="row">

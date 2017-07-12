@@ -4,7 +4,7 @@
       <uib-tab index="0" heading="상품 이미지">
         <div class="tabPadding">
           <div class="photo-image">
-            <img class="img-responsive center-block" ng-src="{{item.itemData.image}}" alt="{{item.itemData.title}}"><span class="mask"></span>
+            <img class="img-responsive center-block" ng-src="{{getTypeItem.itemData.image}}" alt="{{getTypeItem.itemData.title}}"><span class="mask"></span>
           </div>
         </div>
       </uib-tab>
@@ -20,15 +20,15 @@
       		    <tbody>
       		      <tr>
       		        <td>상품명</td>
-      		        <td>{{item.itemData.title}}</td>
+      		        <td>{{getTypeItem.itemData.name}}</td>
       		      </tr>
       					<tr>
       						<td>판매가격</td>
-      						<td>{{item.itemData.price}}</td>
+      						<td>{{getTypeItem.itemData.price}}</td>
       					</tr>
                 <tr>
                   <td>규격</td>
-                  <td>{{item.itemData.type}}</td>
+                  <td>{{getTypeItem.itemData.type}}</td>
                 <tr>
       		    </tbody>
       		  </table>
@@ -51,7 +51,7 @@
           <uib-tab index="0" heading="상세정보">
             <div class="tabPadding">
               <div class="photo-image">
-                <img style="width: 100%;"class="img-responsive center-block" ng-src="{{item.itemData.explain}}" alt="{{item.itemData.title}}"><span class="mask"></span>
+                <img style="width: 100%;"class="img-responsive center-block" ng-src="{{getTypeItem.itemData.explain}}" alt="{{getTypeItem.itemData.name}}"><span class="mask"></span>
               </div>
             </div>
           </uib-tab>
