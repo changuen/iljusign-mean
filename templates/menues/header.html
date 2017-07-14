@@ -24,9 +24,9 @@
               <li ng-show="main.isLoggedIn" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{main.user.username}}&nbsp<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a ui-sref="#" ui-sref-active="active">계정정보</a></li>
-                  <li><a ui-sref="#" ui-sref-active="active">주문정보</a></li>
-                  <li><a ui-sref="#" ui-sref-active="active">장바구니</a></li>
+                  <li><a ui-sref="app.user" ui-sref-active="active">계정정보</a></li>
+                  <li><a ui-sref="app.commerceDetail" ui-sref-active="active">주문정보</a></li>
+                  <li><a ui-sref="app.basket" ui-sref-active="active">장바구니</a></li>
                   <li role="separator" class="divider"></li>
                   <!-- <li class="dropdown-header">Nav header</li> -->
                   <li><a href="/" ng-click="main.logout()">접속 종료</a></li>

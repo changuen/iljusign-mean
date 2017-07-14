@@ -29,7 +29,7 @@ try{
             if(!user[0]){
               res.json({success:false, message:'No user was found'});
             } else {
-              var newToken = jwt.sign({username: user[0].username, user_id:user[0].user_id, permission:user[0].permission}, config.secret, {expiresIn:'2h'});
+              var newToken = jwt.sign({username: user[0].username, user_id:user[0].user_id, permission:user[0].permission}, config.secret, {expiresIn:'6h'});
               res.json({success:true, token:newToken});
             }
           }

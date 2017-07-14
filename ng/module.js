@@ -6,7 +6,8 @@ angular.module('app',[
     'mainControllers',
     'emailControllers',
     'managementControllers',
-    'contentControllers',
+    'typeControllers',
+    'orderControllers',
     'uiCropper'
 ]).config(function($httpProvider){
   $httpProvider.interceptors.push('AuthInterceptors');

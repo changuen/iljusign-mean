@@ -1,0 +1,262 @@
+<!-- 상품확인 -->
+<label for="list-group">상품확인</label>
+<div class="list-group">
+  <ul class="list-group">
+      <li class="list-group-item active">
+        <div class="row">
+          <div class="col-sm-3">
+            <label>상품명</label>
+          </div>
+          <div class="col-sm-3">
+            <label>상품 종류</label>
+          </div>
+          <div class="col-sm-2">
+            <label>수량</label>
+          </div>
+          <div class="col-sm-2">
+            <label>가격</label>
+          </div>
+          <div class="col-sm-2">
+            <label>합계</label>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-3">
+            <label>{{readOrder.orderData.name}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>상품 종류</label>
+          </div>
+          <div class="col-sm-2">
+            <label>{{readOrder.orderData.amount}}</label>
+          </div>
+          <div class="col-sm-2">
+            <label>{{readOrder.orderData.price}}원</label>
+          </div>
+          <div class="col-sm-2">
+            <label>{{readOrder.orderData.price*readOrder.orderData.amount}}원</label>
+          </div>
+        </div>
+      </li>
+  </ul>
+</div>
+
+<label for="list-group">배송정보</label>
+<div class="row">
+  <div class="col-sm-8">
+<!-- 배송주소 -->
+    <div class="list-group">
+      <ul class="list-group">
+          <li class="list-group-item active">
+            <div class="row">
+              <div class="col-sm-3">
+                <label>Daum 배송지 APi</label>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-sm-3">
+                <label>이름</label>
+              </div>
+              <div class="col-sm-9">
+              </div>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </div>
+<!-- 주문고객 -->
+  <div class="col-sm-4">
+    <div class="list-group">
+      <ul class="list-group">
+          <li class="list-group-item active">
+            <div class="row">
+              <div class="col-sm-12">
+                <label>주문고객</label>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row" style="margin-bottom: 5px;">
+              <div class="col-sm-4">
+                <label>이름</label>
+              </div>
+              <div class="col-sm-8">
+                <input class="form-control" type="text" placeholder="ex) 주문고객이름">
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 5px;">
+              <div class="col-sm-4">
+                <label>핸드폰</label>
+              </div>
+              <div class="col-sm-8">
+                <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 5px;">
+              <div class="col-sm-4">
+                <label>일반전화</label>
+              </div>
+              <div class="col-sm-8">
+                <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
+              </div>
+            </div>
+            <div class="row" style="margin-bottom: 5px;">
+              <div class="col-sm-4">
+                <label>이메일</label>
+              </div>
+              <div class="col-sm-8">
+                <input class="form-control" type="text" placeholder="ex) asdfa@ilju.com">
+              </div>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<label for="list-group">결제정보</label>
+<div class="list-group">
+  <div class="row">
+    <div class="col-sm-9">
+      <ul class="list-group">
+          <li class="list-group-item active">
+            <div class="row">
+              <div class="col-sm-3">
+                <label>결제방법</label>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-sm-3">
+                <label>입금은행 / </label>
+                <label>입금자</label>
+              </div>
+              <div class="col-sm-9">
+                <div class="container-fluid">
+                  <form class="form-inline">
+                   <div class="form-group">
+                     <label for="focusedInput"></label>
+                     <input class="form-control" type="text" placeholder="ex) 신한은행">
+                   </div>
+                   <div class="form-group">
+                     <label for="focusedInput"></label>
+                     <input class="form-control" id="focusedInput" type="text" placeholder="임금자를 입력해주세요.">
+                   </div>
+                 </form>
+               </div>
+              </div>
+            </div>
+            </form>
+
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-sm-3">
+                <label>무통장입금 안내</label>
+              </div>
+              <div class="col-sm-9">
+                  <ul class="smsg_l">
+                      <li>정확한 주문 금액<strong>(원 단위까지)</strong> 입금 요망</li>
+                      <li>주문 완료 후 7일 이내에 미입금시 주문 자동 취소</li>
+                      <li>지역별 총알배송 가능 주문시간까지 입금 확인 되면 총알배송 가능</li>
+                      <li>증권사 현금카드, 제휴카드 이체 불가</li>
+                      <li>은행업무 시간이 아닌 경우 입금 확인이 지연될 수 있음(토요일, 공휴일 등)</li>
+                      <li>은행 수수료 부과 및 예약이체(불가) 주의</li>
+                      <li>해외송금 시 국민은행 가상계좌이용불가</li>
+                  </ul>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-sm-3">
+                <label>현금영수증</label>
+              </div>
+              <div class="col-sm-9">
+
+                <ul class="smsg_l rcp_h2">
+                  <form>
+                    <label class="radio-inline"><input type="radio" name="optradio" checked>현금영수증 신청</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">신청안함</label>
+
+                  </form>
+                  <br>
+                  <div>
+                    <form>
+                      <label class="radio-inline"><input type="radio" name="optradio">휴대폰번호</label>
+                      <div class="input-group">
+                        <span class="input-group-addon">휴대폰번호(소득공제)</span>
+                        <input id="msg" type="text" class="form-control" name="msg" placeholder=" - 없이 입력하세요.">
+                      </div>
+                    <br>
+                      <label class="radio-inline"><input type="radio" name="optradio">사업자번호</label>
+                      <div class="input-group">
+                        <span class="input-group-addon">사업자번호(지출증빙)</span>
+                        <input id="msg" type="text" class="form-control" name="msg" placeholder=" - 없이 입력하세요.">
+                      </div>
+                    </form>
+                  </div>
+                  <br>
+                    <li><strong>현금성 결제수단</strong> : 무통장입금,계좌이체,예치금,YES24상품권,가족계좌</li>
+                    <li>세금계산서와 동시 발행 불가</li>
+                    <li>배송 완료일 익일 국세청 홈페이지에서 발행 확인 가능</li>
+                    <li>발행한 현금영수증은 [마이페이지>주문내역/배송조회] 수정 및 취소 가능</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-sm-3">
+                <label>소비자 피해 보상보험 가입</label>
+              </div>
+              <div class="col-sm-9">
+                <ul class="smsg_l rcp_h2">
+                    <li>"전자상거래 등에서의 소비자보호에 관한 법률"에 따라 현금 결제 시 서울보증보험㈜가 제공하는 소비자 피해보상보험을 신청할 수 있도록 해드리고 있습니다. (2013.11.29부터 시행).</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+      </ul>
+    </div>
+    <div class="col-sm-3">
+      <ul class="list-group">
+          <li class="list-group-item active text-center">
+            <div class="row">
+              <div class="col-sm-12">
+                <label>최종 결제금액</label>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item text-center">
+            <div class="row">
+              <div class="col-sm-12">
+                <label>{{readOrder.orderData.price*readOrder.orderData.amount}}원</label>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-sm-12" style="font-size: 0.8em;">
+                <span> 주문하실 상품, 가격, 배송정보, 할인정보 등을 확인하였으며, 구매에 동의하시겠습니까?<span>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="">동의합니다.<br>(전자상거래법 제 8조 제2항)</label>
+                  </div>
+              </div>
+            </div>
+            <div>
+              <button ng-click="readOrder.confirmOrder()" style="width: 100%;"class="btn btn-success">주문하기</button>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>

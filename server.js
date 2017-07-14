@@ -13,6 +13,9 @@ app.use(express.static('image'));
 app.use('/', require('./controllers/static'));
 
 
+
+app.use('/api/basket', require('./controllers/api/order/basket'));
+app.use('/api/makeOrder', require('./controllers/api/order/makeOrder'));
 app.use('/api/item', require('./controllers/api/admin/item'));
 app.use('/api/item_type', require('./controllers/api/admin/item_type'));
 

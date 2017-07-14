@@ -30,6 +30,32 @@ $locationProvider.html5Mode(true);
                }
              }
             })
+            .state('app.user', {
+              url: 'user',
+              views: {
+                'contents@app': {
+                  templateUrl: '/users/partial/user.html',
+                }
+              }
+            })
+            .state('app.commerceDetail', {
+              url: 'commerce-detail',
+              views: {
+                'contents@app': {
+                  templateUrl: '/users/partial/commerceDetail.html',
+                }
+              }
+            })
+            .state('app.basket', {
+              url: 'basket',
+              views: {
+                'contents@app': {
+                  templateUrl: '/users/partial/basket.html',
+                  controller: 'basketCtrl',
+                  controllerAs: 'basket'
+                }
+              }
+            })
 
             .state('app.category', {
               url: 'category=:type',
@@ -58,6 +84,27 @@ $locationProvider.html5Mode(true);
               }
             })
 
+            .state('app.makeOrder', {
+              url: 'makeOrder',
+              views: {
+                'contents@app': {
+                  templateUrl: '/order/makeOrder.html',
+                  controller: 'readOrderCtrl',
+                  controllerAs: 'readOrder'
+                }
+              }
+            })
+
+            .state('app.confirmOrder', {
+              url: 'confirmOrder',
+              views: {
+                'contents@app': {
+                  templateUrl: '/order/confirmOrder.html',
+                  controller: 'readOrderCtrl',
+                  controllerAs: 'readOrderCtrl'
+                }
+              }
+            })
 
             .state('app.board', {
               url: 'board',

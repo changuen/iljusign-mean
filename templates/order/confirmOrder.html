@@ -1,0 +1,134 @@
+<div class="container-fluid text-center">
+  <h2>박찬근님, 항상 일주기획을 이용해주셔서 감사합니다.!</h2>
+  <h3>[주문번호:123123] 결제가 안전하게 처리되었습니다.</h3>
+  <div class="panel panel-default" style="background-color: gray;">
+    <div class="panel-body">박찬근님, 무통장입금해주세요. 입금완료 후 배송됩니다.</div>
+    <div class="panel-body">입금계좌: 기업은행 123123123--212 / 예금주: 박찬근 / 입금액: 14,2200원</div>
+  </div>
+</div>
+
+<!-- 배송정보 -->
+<div class="container-fluid">
+  <label for="list-group">배송정보</label>
+  <div class="list-group">
+    <ul class="list-group">
+        <li class="list-group-item active">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>받는분</label>
+            </div>
+            <div class="col-sm-9">
+              <label>배송지</label>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>{{readOrder.orderData.name}}</label>
+            </div>
+            <div class="col-sm-3">
+              <label>상품 종류</label>
+            </div>
+          </div>
+        </li>
+    </ul>
+  </div>
+</div>
+
+<!-- 상품확인 -->
+<div class="container-fluid">
+  <label for="list-group">상품확인</label>
+  <div class="list-group">
+    <ul class="list-group">
+        <li class="list-group-item active">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>상품명</label>
+            </div>
+            <div class="col-sm-3">
+              <label>상품 종류</label>
+            </div>
+            <div class="col-sm-2">
+              <label>수량</label>
+            </div>
+            <div class="col-sm-2">
+              <label>가격</label>
+            </div>
+            <div class="col-sm-2">
+              <label>합계</label>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>{{readOrder.orderData.name}}</label>
+            </div>
+            <div class="col-sm-3">
+              <label>상품 종류</label>
+            </div>
+            <div class="col-sm-2">
+              <label>{{readOrder.orderData.amount}}</label>
+            </div>
+            <div class="col-sm-2">
+              <label>{{readOrder.orderData.price}}원</label>
+            </div>
+            <div class="col-sm-2">
+              <label>{{readOrder.orderData.price*readOrder.orderData.amount}}원</label>
+            </div>
+          </div>
+        </li>
+    </ul>
+  </div>
+</div>
+
+<!-- 상품확인 -->
+<div class="container-fluid">
+  <label for="list-group">결제정보</label>
+  <div class="list-group">
+    <ul class="list-group">
+        <li class="list-group-item active">
+          <div class="row">
+            <div class="col-sm-4">
+              <label>결제수단</label>
+            </div>
+            <div class="col-sm-4">
+              <label>배송비?</label>
+            </div>
+            <div class="col-sm-4">
+              <label>최종 결제금액</label>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+              <div class="col-sm-4">
+                <label></label>
+              </div>
+              <div class="col-sm-4">
+                <label></label>
+              </div>
+              <div class="col-sm-4">
+                <label></label>
+              </div>
+          </div>
+        </li>
+        <br>
+        <span> 현금 영수증 발행여부</span>
+        </li>
+    </ul>
+  </div>
+</div>
+
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <button style="width: 100%;" class="btn btn-danger"><span>주문 내역확인</span></button>
+    </div>
+    <div class="col-sm-6">
+      <button style="width: 100%;" class="btn btn-success"><span>메인 화면으로</span></button>
+    </div>
+  </div>
+</div>

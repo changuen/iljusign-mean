@@ -39,7 +39,6 @@ angular.module('managementControllers',['adminServices', 'menuServices'])
    });
 
 
-
   this.createType = function(data){
     app.errorMsg = false;
     app.typeData = {

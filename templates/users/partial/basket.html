@@ -1,0 +1,51 @@
+<div class ="row show-hide-message" ng-show="basket.successMsg">
+  <div class="alert alert-success">{{basket.successMsg}}</div>
+</div>
+<div class ="row show-hide-message" ng-show="basket.errorMsg">
+  <div class="alert alert-danger">{{basket.errorMsg}}</div>
+</div>
+
+<!-- 상품확인 -->
+<label for="list-group">상품확인</label>
+<div class="list-group">
+  <ul class="list-group">
+      <li class="list-group-item active">
+        <div class="row">
+          <div class="col-sm-3">
+            <label>상품명</label>
+          </div>
+          <div class="col-sm-3">
+            <label>상품 종류</label>
+          </div>
+          <div class="col-sm-2">
+            <label>수량</label>
+          </div>
+          <div class="col-sm-2">
+            <label>가격</label>
+          </div>
+          <div class="col-sm-2">
+            <label>합계</label>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item" ng-repeat = "item in basket.basketData">
+        <div class="row">
+          <div class="col-sm-3">
+            <label>{{item.name}}</label>
+          </div>
+          <div class="col-sm-3">
+            <label>상품 종류</label>
+          </div>
+          <div class="col-sm-2">
+            <input style="width: 50px;" type="number" class="form-control" id="amount" ng-model="item.amount">
+          </div>
+          <div class="col-sm-2">
+            <label>{{item.price}}원</label>
+          </div>
+          <div class="col-sm-2">
+            <label>{{item.price * item.amount}}원</label>
+          </div>
+        </div>
+      </li>
+  </ul>
+</div>

@@ -1,4 +1,10 @@
 <div class="row">
+  <div class ="row show-hide-message" ng-show="getTypeItem.successMsg">
+    <div class="alert alert-success">{{getTypeItem.successMsg}}</div>
+  </div>
+  <div class ="row show-hide-message" ng-show="getTypeItem.errorMsg">
+    <div class="alert alert-danger">{{getTypeItem.errorMsg}}</div>
+  </div>
   <div class="col-sm-6">
     <uib-tabset active="activeJustified" justified="true">
       <uib-tab index="0" heading="상품 이미지">
@@ -28,14 +34,27 @@
       					</tr>
                 <tr>
                   <td>규격</td>
-                  <td>{{getTypeItem.itemData.type}}</td>
+                  <td>
+                    <select  ng-disabled="getTypeItem.disabled"  class="form-control" name="mySelect" id="mySelect"
+                      ng-options="option.name for option in getTypeItem.data.availableOptions track by option.id"
+                      ng-model="getTypeItem.data.selectedOption">
+                    </select>
+                  </td>
+                <tr>
+                <tr>
+                  <td>수량</td>
+                  <td>
+                    <a class="btn" ng-click="getTypeItem.minus()"><i class="fa fa-minus" aria-hidden="true"></i><a/>
+                    <input style="width: 50px;" type="number" class="form-control" id="amount" ng-model="getTypeItem.amount">
+                    <a class="btn" ng-click="getTypeItem.plus()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                  </td>
                 <tr>
       		    </tbody>
       		  </table>
       	  </div>
           <div class="text-center">
-            <button class="btn btn-warning">장바구니</button>
-            <button class="btn btn-success">주문하기</button>
+            <button ng-click="getTypeItem.createBasket({item_id: getTypeItem.itemData.item_id, amount: getTypeItem.amount, })"class="btn btn-warning">장바구니에 넣기</button>
+            <button ng-click="getTypeItem.createOrder({item_type_id: getTypeItem.itemData.item_type_id , amount: getTypeItem.amount, kindOf: getTypeItem.data.selectedOption})"class="btn btn-success">주문하기</button>
           </div>
         </div>
       </uib-tab>
