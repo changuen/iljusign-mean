@@ -10,7 +10,8 @@
       <tr>
         <th>#</th>
         <th>카테고리</th>
-        <th>소분류명</th>
+        <th>분류코드</th>
+        <th>분류코드명</th>
         <th>상품옵션</th>
         <th>상품가격</th>
       </tr>
@@ -23,6 +24,9 @@
                    ng-options="option.name for option in updateType.data.availableOptions track by option.id"
                    ng-model="updateType.data.selectedOption">
           </select>
+        </td>
+        <td>
+          <input ng-disabled="updateType.disabled" type="text" class="form-control" id="code1" data-ng-model="updateType.updataData.type_code">
         </td>
         <td>
           <input ng-disabled="updateType.disabled" type="text" class="form-control" id="code1" data-ng-model="updateType.updataData.type_description">

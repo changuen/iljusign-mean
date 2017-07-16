@@ -134,7 +134,8 @@ angular.module('managementControllers',['adminServices', 'menuServices', 'orderS
     app.errorMsg = false;
     app.typeData = {
       category: app.data.selectedOption.id,
-      type_description: data.type,
+      type_description: data.type_description,
+      type_code: data.type_code,
       kind: app.type_tiny.toString(),
       price: app.type_price.toString()
     };

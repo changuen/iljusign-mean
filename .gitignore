@@ -2,7 +2,5 @@
 /mysql.js
 /node_modules
 /controllers/api/privacy/*.js
-/assets/images/items/explain/*.*
-/assets/images/items/main/*.*
-/assets/images/items/thumbnail/*.*
+/assets/images/items/
 /assets/video/

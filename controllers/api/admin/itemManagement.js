@@ -82,6 +82,7 @@ try{
         var updateValue = {
           category_id: req.body.category_id,
           type_description: req.body.type_description,
+          type_code: req.body.type_code,
           kind: req.body.kind,
           price: req.body.price,
         };

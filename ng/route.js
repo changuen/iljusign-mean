@@ -58,13 +58,23 @@ $locationProvider.html5Mode(true);
             })
 
             .state('app.category', {
-              url: 'category=:type',
+              url: 'category=:category_id',
               views: {
                 'subMenu@app': {
                   templateUrl: '/menues/subMenu.html',
-                  // controller: 'subMenuCtrl',
-                  // controllerAs: 'subMenu'
+                  controller: 'subMenuCtrl',
+                  controllerAs: 'subMenu'
                 },
+                'contents@app': {
+                  templateUrl: '/categoryes/items/form.html',
+                  controller: 'getTypeItemsCtrl',
+                  controllerAs: 'getTypeItems'
+                }
+              }
+            })
+            .state('app.category.item_type', {
+              url: '/item_type=:type_code',
+              views: {
                 'contents@app': {
                   templateUrl: '/categoryes/items/form.html',
                   controller: 'getTypeItemsCtrl',

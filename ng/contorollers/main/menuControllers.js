@@ -34,7 +34,6 @@ angular.module('menuControllers',['menuServices'])
       category_id: data.category_id,
       name: data.name
     };
-    console.log(updateData);
       Menu.updateMenu(updateData).then(function(data){
         if(data.data.success){
           app.successMsg = data.data.message;
@@ -58,4 +57,17 @@ angular.module('menuControllers',['menuServices'])
     });
   };
 
+})
+
+.controller('subMenuCtrl', function (Menu, $state, $stateParams, $http) {
+  var app = this;
+  var category_id = $stateParams.category_id;
+
+  $http.get('/api/category/'+category_id).then(function(data){
+    if(data.data.success){
+      app.subMenuDatas = data.data.result;
+    } else {
+
+    }
+  });
 });

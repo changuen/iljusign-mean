@@ -1,15 +1,29 @@
 angular.module('typeControllers',['orderServices'])
 .controller('getTypeItemsCtrl', function ($stateParams, $http) {
   var app = this;
-  var type = $stateParams.type;
-  $http.get('/api/item_type/'+type).then(function(data){
-    if(data.data.success){
-      app.itemsData = data.data.result;
-    } else {
-      app.errorMsg = data.data.message;
 
-    }
-  });
+  var category_id = $stateParams.category_id;
+  if(!$stateParams.type_code){
+    $http.get('/api/item_type/'+category_id).then(function(data){
+      if(data.data.success){
+        app.itemsData = data.data.result;
+      } else {
+        app.errorMsg = data.data.message;
+      }
+    });
+  } else {
+    var type_code =  $stateParams.type_code;
+    $http.get('/api/item_type/'+category_id,
+    {  params: {type_code : type_code }}
+  ).then(function(data){
+      if(data.data.success){
+        app.itemsData = data.data.result;
+      } else {
+        app.errorMsg = data.data.message;
+      }
+    });
+  }
+
 })
 
 

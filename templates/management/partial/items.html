@@ -15,7 +15,8 @@
                       <tr>
                         <th>#</th>
                         <th>카테고리</th>
-                        <th>분류명</th>
+                        <th>분류코드</th>
+                        <th>분류코드명</th>
                         <th>상품옵션</th>
                         <th>상품가격</th>
                         <th>비고</th>
@@ -25,6 +26,7 @@
                       <tr class="text-center" ng-repeat="type in readType.typeDatas">
                         <td>{{type.item_type_id}}</td>
                         <td>{{type.name}}</td>
+                        <td>{{type.type_code}}</td>
                         <td>{{type.type_description}}</td>
                         <td class="text-left" >
                             <li style="padding-left: 15px;" ng-repeat="kind in type.kind track by $index">{{kind}}</li>
@@ -56,7 +58,7 @@
               <thead>
                 <tr>
                   <th>카테고리</th>
-
+                  <th>분류코드</th>
                   <th>분류코드명</th>
                 </tr>
               </thead>
@@ -69,7 +71,10 @@
                     </select>
                   </td>
                   <td>
-                    <input ng-disabled="createType.disabled" type="text" class="form-control" id="type" data-ng-model="createType.itemData.type" placeholder="ex) 시트소재 부 메뉴, 부자재 부 메뉴">
+                    <input ng-disabled="createType.disabled" type="number" class="form-control" id="type" data-ng-model="createType.itemData.type_code" placeholder="ex) 00, 01">
+                  </td>
+                  <td>
+                    <input ng-disabled="createType.disabled" type="text" class="form-control" id="type" data-ng-model="createType.itemData.type_description" placeholder="ex) 시트소재 부 메뉴, 부자재 부 메뉴">
                   </td>
                 </tr>
               </tbody>
