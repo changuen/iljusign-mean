@@ -127,6 +127,20 @@ $locationProvider.html5Mode(true);
                  }
                }
             })
+
+            .state('app.management.category',
+             {
+               url: 'category',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/category.html',
+                   controller: 'mainMenuCtrl',
+                   controllerAs: 'mainMenu'
+                 }
+               }
+            })
+
+
             .state('app.management.items',
              {
                url: '/items',
@@ -138,14 +152,38 @@ $locationProvider.html5Mode(true);
                  }
                }
             })
-            .state('app.management.items.show',
+
+            .state('app.management.items.update',
+             {
+               url: '/update:item_type',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/type/update.html',
+                   controller: 'updateTypeCtrl',
+                   controllerAs: 'updateType'
+                 }
+               }
+            })
+            .state('app.management.items.updateItem',
+             {
+               url: '/update/item:item_id',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/item/update.html',
+                   controller: 'updateItemCtrl',
+                   controllerAs: 'updateItem'
+                 }
+               }
+            })
+
+            .state('app.management.items.readItem',
              {
                url: ':item_id',
                views:{
                  'contents@app.management': {
-                   templateUrl: '/management/partial/item.html',
-                   controller: 'itemCtrl',
-                   controllerAs: 'item'
+                   templateUrl: '/management/partial/item/read.html',
+                   controller: 'readItemCtrl',
+                   controllerAs: 'readItem'
                  }
                }
             })

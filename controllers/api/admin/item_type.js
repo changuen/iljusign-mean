@@ -67,8 +67,6 @@ catch(ex){
 });
 
 
-
-
 router.post('/', function(req, res, next){
 try{
 
@@ -82,11 +80,9 @@ try{
         var insertSql = 'insert into item_type set ?';
         var insertValue = {
           category_id: req.body.category,
-          type1: req.body.type1,
-          type1_description: req.body.type1_description,
-          type2: req.body.type2,
-          type2_description: req.body.type2_description,
-          kind: req.body.kind
+          type_description: req.body.type_description,
+          kind: req.body.kind,
+          price: req.body.price
         };
           connection.query(insertSql, insertValue, function (err, result, next) {
           if(err){

@@ -1,5 +1,80 @@
 var router = require('express').Router();
 
+
+router.put('/:item_id', function(req, res, next){
+try{
+
+    req.getConnection(function(err, connection) {
+      if(err)
+      {
+        console.error('SQL Connection error: ', err);
+        return next(err);
+      }
+      else {
+
+        var updateSql = 'UPDATE item SET ? WHERE item_id = ?';
+
+        var updateValue = req.body;
+        var item_id = req.params.item_id;
+
+        connection.query(updateSql, [updateValue, item_id], function (err, result, next) {
+          if(err){
+                res.send(err);
+          }
+          else {
+            if(result === undefined){
+              res.json({success:false, message:'상품 변경 실패!'});
+            } else {
+              res.json({success:true, message:'상품 변경 성공!'});
+            }
+
+        }
+  });
+}
+});
+}
+catch(ex){
+  console.error("Internal error: "+ex);
+  return next(ex);
+}
+});
+
+
+
+router.delete('/:item_id', function(req, res, next){
+try{
+
+    req.getConnection(function(err, connection) {
+      if(err)
+      {
+        console.error('SQL Connection error: ', err);
+        return next(err);
+      }
+      else {
+        var deleteSql = 'delete from item where item_id = ?';
+        var item_id = req.params.item_id;
+          connection.query(deleteSql,  item_id, function (err, result, next) {
+          if(err){
+            res.json({success:false, message: err});
+          }
+          else {
+            if(!result){
+              res.json({success:false, message:'상품 삭제 실패!'});
+            } else {
+              res.json({success:true, message:'상품 삭제 성공!'});
+            }
+          }
+        });
+        }
+  });
+}
+catch(ex){
+  console.error("Internal error: "+ex);
+  return next(ex);
+}
+});
+
+
 router.post('/', function(req, res, next){
 try{
 
@@ -12,8 +87,6 @@ try{
       else {
           if(req.body.title === '' || req.body.title === undefined || req.body.title === null){
               res.status(201).send({success:false, message:'올바른 상품 제목을 입력해주세요.'});
-          } else if(req.body.price === '' || req.body.price === undefined || req.body.price === null){
-              res.status(201).send({success:false, message:'올바른 상품 가격 입력해주세요.'});
           } else if(req.body.type === '' || req.body.type === undefined || req.body.type === null) {
               res.status(201).send({success:false, message:'올바른 상품 타입1을 선택해주세요.'});
           } else {
@@ -22,17 +95,14 @@ try{
             var insertValue = {
               type: req.body.type,
               name: req.body.title,
-              price: req.body.price,
               thumbnail: req.body.thumbnail,
               explain: req.body.explain,
               image: req.body.image
             };
-            console.log(insertValue);
             connection.query(insertSql, insertValue, function (error, results, next) {
                 if(err){
                   throw err;
                 } else{
-                  console.log(results);
                     res.status(201).send({success:true, message:'상품 등록 성공!'});
                 }
             });
@@ -58,7 +128,7 @@ try{
         return next(err);
       }
       else {
-        var selectSql = 'select * from item';
+        var selectSql = 'select item.*, item_type.type_description from item inner join item_type on item.type = item_type.item_type_id';
           connection.query(selectSql,  function (err, result, next) {
           if(err){
                 res.send(err);

@@ -1,6 +1,8 @@
 *.log
 /mysql.js
 /node_modules
-/controllers/api/privacy
-/assets/images/
+/controllers/api/privacy/*.js
+/assets/images/items/explain/*.*
+/assets/images/items/main/*.*
+/assets/images/items/thumbnail/*.*
 /assets/video/

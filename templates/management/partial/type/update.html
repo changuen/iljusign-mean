@@ -1,0 +1,50 @@
+<div style="margin-top: 25px;"class="text-center">
+  <div class ="row show-hide-message" ng-show="updateType.successMsg">
+    <div class="alert alert-success">{{updateType.successMsg}}</div>
+  </div>
+  <div class ="row show-hide-message" ng-show="updateType.errorMsg">
+    <div class="alert alert-danger">{{updateType.errorMsg}}</div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>카테고리</th>
+        <th>소분류명</th>
+        <th>상품옵션</th>
+        <th>상품가격</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center">
+        <td>{{updateType.updataData.item_type_id}}</td>
+        <td>
+          <select  ng-disabled="updateType.disabled"  class="form-control" name="mySelect" id="mySelect"
+                   ng-options="option.name for option in updateType.data.availableOptions track by option.id"
+                   ng-model="updateType.data.selectedOption">
+          </select>
+        </td>
+        <td>
+          <input ng-disabled="updateType.disabled" type="text" class="form-control" id="code1" data-ng-model="updateType.updataData.type_description">
+        </td>
+        <td>
+          <input ng-disabled="updateType.disabled" type="text" class="form-control" id="code1" data-ng-model="updateType.updataData.kind">
+        </td>
+        <td>
+          <input ng-disabled="updateType.disabled" type="text" class="form-control" id="code1" data-ng-model="updateType.updataData.price">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+      <div>
+        <div class="row">
+          <div class="col-sm-6">
+            <a ng-click="updateType.updateType(updateType.updataData);"style="width: 100%;" class="btn btn-success">상품타입수정</a>
+          </div>
+          <div class="col-sm-6">
+            <a ui-sref="app.management.items" style="width: 100%;" class="btn btn-danger">취소</a>
+          </div>
+        </div>
+      </div>
+    </div>

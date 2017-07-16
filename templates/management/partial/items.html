@@ -2,33 +2,45 @@
     <uib-tabset active="activeForm">
 <!-- 상품분류표 -->
       <uib-tab index="0" heading="상품 분류표">
-          <div class="tabPadding text-center" ng-controller="itemTypeCtrl as itemType">
-            <br>
-            <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>카테고리</th>
-                    <th>분류코드</th>
-                    <th>대분류코드</th>
-                    <th>대분류코드명</th>
-                    <th>소분류코드</th>
-                    <th>소분류코드명</th>
-                    <th>상품상세규격</th>
-                  </tr>
-                </thead>
-                <tbody class="">
-                  <tr ng-repeat="type in itemType.typeDatas">
-                    <td>{{type.name}}</td>
-                    <td>{{type.item_type_id}}</td>
-                    <td>{{type.type1}}</td>
-                    <td>{{type.type1_description}}</td>
-                    <td>{{type.type2}}</td>
-                    <td>{{type.type2_description}}</td>
-                    <td>{{type.kind}}</td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
+          <div class="tabPadding" ng-controller="readTypeCtrl as readType">
+                <div class ="row show-hide-message" ng-show="readType.successMsg">
+                  <div class="alert alert-success">{{readType.successMsg}}</div>
+                </div>
+                <div class ="row show-hide-message" ng-show="readType.errorMsg">
+                  <div class="alert alert-danger">{{readType.errorMsg}}</div>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>카테고리</th>
+                        <th>분류명</th>
+                        <th>상품옵션</th>
+                        <th>상품가격</th>
+                        <th>비고</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="text-center" ng-repeat="type in readType.typeDatas">
+                        <td>{{type.item_type_id}}</td>
+                        <td>{{type.name}}</td>
+                        <td>{{type.type_description}}</td>
+                        <td class="text-left" >
+                            <li style="padding-left: 15px;" ng-repeat="kind in type.kind track by $index">{{kind}}</li>
+                        </td>
+                        <td class="text-left">
+                            <li style="padding-left: 15px;" ng-repeat="price in type.price track by $index">{{price}}원</li>
+                        </td>
+                        <td>
+                          <button class="btn btn-warning" ui-sref=".update({item_type: type.item_type_id})"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></button>
+                          <button class="btn btn-danger" ng-click="readType.deleteType({item_type: type.item_type_id})"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
       </uib-tab>
 <!-- ================================ 상품 분류표 등록 ====================================== -->
 <uib-tab index="1" heading="상품 분류표 등록">
@@ -39,78 +51,62 @@
           <div class ="row show-hide-message" ng-show="createType.errorMsg">
             <div class="alert alert-danger">{{createType.errorMsg}}</div>
           </div>
-          <table class="table table-bordered">
+          <div class="table-responsive">
+            <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th>대분류코드</th>
-                  <th>대분류코드명</th>
-                  <th>소분류코드</th>
-                  <th>소분류코드명</th>
+                  <th>카테고리</th>
+
+                  <th>분류코드명</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
-                    <input ng-disabled="createType.disabled" type="number" class="form-control" id="code1" data-ng-model="createType.itemData.code1" placeholder="ex) 00, 01">
+                    <select  ng-disabled="createType.disabled"  class="form-control" name="mySelect" id="mySelect"
+                      ng-options="option.name for option in createType.data.availableOptions track by option.id"
+                      ng-model="createType.data.selectedOption">
+                    </select>
                   </td>
                   <td>
-                    <input ng-disabled="createType.disabled" type="text" class="form-control" id="type1" data-ng-model="createType.itemData.type1" placeholder="ex) 시트소재, 실사소재">
-                  </td>
-                  <td>
-                    <input ng-disabled="createType.disabled" type="number" class="form-control" id="code2" data-ng-model="createType.itemData.code2" placeholder="ex) 00, 01">
-                  </td>
-                  <td>
-                    <input ng-disabled="createType.disabled" type="text" class="form-control" id="type2" data-ng-model="createType.itemData.type2" placeholder="ex) 시트소재 부 메뉴, 부자재 부 메뉴">
+                    <input ng-disabled="createType.disabled" type="text" class="form-control" id="type" data-ng-model="createType.itemData.type" placeholder="ex) 시트소재 부 메뉴, 부자재 부 메뉴">
                   </td>
                 </tr>
               </tbody>
-          </table>
-          <br>
-          <div class="row">
-            <div class="col-sm-6">
-              <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>상품 규격</th>
-                      <th>상품 규격 추가</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <li ng-repeat="list in createType.findList">{{list.find}}</li>
-                      </td>
-                      <td>
-                        <div class="input-group">
-                          <input ng-disabled="createType.disabled" type="kind" class="form-control" id="kind" data-ng-model="createType.kindValue" placeholder="ex) 실사소재 길이 800m">
-                          <a class="input-group-addon btn btn-default" ng-click="createType.addLine(createType.kindValue)">추가</a>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-              </table>
-            </div>
-            <div class="col-sm-6">
-              <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>카테고리</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <select  ng-disabled="createType.disabled"  class="form-control" name="mySelect" id="mySelect"
-                          ng-options="option.name for option in createType.data.availableOptions track by option.id"
-                          ng-model="createType.data.selectedOption">
-                        </select>
-                      </td>
-                    </tr>
-                  </tbody>
-              </table>
-            </div>
+            </table>
           </div>
+          <br>
 
+<!-- 상품 옵션 추가 -->
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>상품 옵션 추가</th>
+                    <th>상품 옵션</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center" >
+                    <td>
+                      <div class="input-group">
+                        <input ng-disabled="createType.disabled" type="text" class="form-control" id="kind" data-ng-model="createType.kindData.kindValue" placeholder="ex) 실사소재 길이 800m">
+                        <input ng-disabled="createType.disabled" type="number" class="form-control" id="kind" data-ng-model="createType.kindData.kindPrice" placeholder="ex) 실사가격 0000원">
+                        <a class="input-group-addon btn btn-default" ng-click="createType.addLine(createType.kindData)">추가</a>
+                      </div>
+                    </td>
+                    <td class="text-left">
+                      <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="list in createType.kindList">
+                          {{list.kind}}({{list.price}}원)
+                        </li>
+                      </ul>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           <br>
           <div>
             <button class="btn btn-success" style="width:100%;" ng-click="createType.createType(createType.itemData);">상품 분류 등록</button>
@@ -136,52 +132,56 @@
             <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="photo in items.itemsData | filter:search |orderBy : data.selectedOption.sort ">
               <div class="card">
                     <div class="card-image">
-                      <a ui-sref=".show({item_id: photo.item_id})" ui-sref-active="active">
+                      <a ui-sref=".readItem({item_id: photo.item_id})" ui-sref-active="active">
                         <img class="img-responsive" ng-src="{{photo.thumbnail}}">
                       </a>
                     </div>
-                    <div class="card-content">
-                        <p>이름 : {{photo.name}}</p>
+                    <div class="card-content text-center">
+                      <span><label>{{photo.type_description}}</label>&nbsp;-&nbsp;{{photo.name}}</span>
                     </div>
                     <div class="card-action">
                         <div class="row">
-                          <div class="col-xs-12 col-sm-12" style="text-align:left">
-                           <p class="text-left">가격 : {{photo.price}}</p>
-                         </div>
+                          <div class="text-center">
+                            <button class="btn btn-warning" ui-sref=".updateItem({item_id: photo.item_id})"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></button>
+                            <button class="btn btn-danger" ng-click="items.deleteItem({item_id: photo.item_id})"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
+                          </div>
                        </div>
                     </div>
                 </div>
               </div>
           </div>
-
         </div>
 </uib-tab>
-
-
 
 <!-- ================================ 상품 등록 ====================================== -->
 
 <uib-tab index="3" heading="상품 등록" >
-  <div class="tabPadding"     ng-controller="itemUploadCtrl as upload">
+  <div class="tabPadding"   ng-controller="createItemCtrl as createItem">
         <div class="row">
           <div class="col-sm-4">
-            <label for="title">상품명</label><span style="color: #e96725">(필수)</span>
-              <input ng-disabled="upload.disabled" type="title" class="form-control" id="title" ng-model="upload.itemData.title" placeholder="상품명을 입력해주세요.">
+            <label for="title">카테고리</label><span style="color: #e96725">(필수)</span>
+            <div class="input-group">
+              <select  ng-disabled="createItem.disabled"  class="form-control" name="mySelect" id="mySelect"
+                ng-options="option.name for option in createItem.data.availableOptions track by option.id"
+                ng-model="createItem.data.selectedOption">
+              </select>
+              <a class="input-group-addon btn btn-default" ng-click="createItem.readMenu(createItem.data.selectedOption)">확인</a>
+            </div>
           </div>
           <div class="col-sm-4">
-            <label for="price">판매가격</label><span style="color: #e96725">(필수)</span>
-              <input ng-disabled="upload.disabled" type="number" class="form-control" id="price" ng-model="upload.itemData.price" placeholder="판매가격을 입력해주세요.">
-          </div>
-          <div class="col-sm-4">
-            <label for="title">상품분류</label><span style="color: #e96725">(선택)</span>
+            <label for="title">상품분류</label><span style="color: #e96725">(필수)</span>
             <div class="row">
               <div class="col-sm-12">
-                <select  ng-disabled="upload.disabled"  class="form-control" name="mySelect" id="mySelect"
-                  ng-options="option.name for option in upload.data.availableOptions track by option.id"
-                  ng-model="upload.data.selectedOption">
+                <select  ng-disabled="createItem.disabled"  class="form-control" name="mySelect" id="mySelect"
+                  ng-options="option.name for option in createItem.data2.availableOptions track by option.id"
+                  ng-model="createItem.data2.selectedOption">
                 </select>
               </div>
             </div>
+          </div>
+          <div class="col-sm-4">
+            <label for="title">상품명</label><span style="color: #e96725">(필수)</span>
+            <input ng-disabled="createItem.disabled" type="title" class="form-control" id="title" ng-model="createItem.itemData.title" placeholder="상품명을 입력해주세요.">
           </div>
         </div>
         <br>
@@ -205,7 +205,7 @@
         <div class="row">
             <div ng-show="myCroppedImage">
         <!-- 썸네일 이미지를 업로드 후 사라짐 시작-->
-                <div class="col-sm-6"  ng-hide="upload.thumbnail">
+                <div class="col-sm-6"  ng-hide="createItem.thumbnail">
                     <div class="media">
                       <div class="media-body">
                         <label>썸네일</label>
@@ -216,7 +216,7 @@
                     <br>
                     <div class="text-center" >
                       <div class="cropArea" ng-show="myCroppedImage">
-                        <ui-cropper image="upload.myImage" area-type="rectangle" result-image="myCroppedImage" result-image-size='{w: 400,h: 250}' ></ui-cropper>
+                        <ui-cropper image="createItem.myImage" area-type="rectangle" result-image="myCroppedImage" result-image-size='{w: 400,h: 250}' ></ui-cropper>
                       </div>
                     </div>
                 </div>
@@ -232,9 +232,9 @@
                           <img style="background-color:#000000;"ng-src="{{myCroppedImage}}" />
                         </div>
                         <br>
-                        <div ng-hide="upload.thumbnail">
+                        <div ng-hide="createItem.thumbnail">
                           <p>검은색 공간이 보이지 않도록 채워주세요.</p>
-                          <a ng-disabled="upload.disabled"  ng-click="upload.readCropImage({base64Url: myCroppedImage});"class="btn btn-enroll">썸네일 업로드</a>
+                          <a ng-disabled="createItem.disabled"  ng-click="createItem.readCropImage({base64Url: myCroppedImage});"class="btn btn-enroll">썸네일 업로드</a>
                         </div>
                       </div>
                 </div>
@@ -252,20 +252,20 @@
               <label>상품 메인 이미지</label>
         <!-- upload.minaThumbnail.dataUrl / 작품을 업로드 했을 때 이미지가 변환되게 ng-show & hide 속성을 추가 -->
                 <div class="text-center">
-                  <div class="jumbotron" ng-hide="upload.mainThumbnail.dataUrl">
+                  <div class="jumbotron" ng-hide="createItem.mainThumbnail.dataUrl">
                       <h2>상품의 이미지를 업로드해주세요.</h2>
                       <p>상품의 이미지는 1024*800 사이즈를 권장합니다.</p>
                   </div>
                   <div class="image-default">
-                    <img  class="img-responsive center-block" ng-src="{{upload.mainThumbnail.dataUrl}}">
+                    <img  class="img-responsive center-block" ng-src="{{createItem.mainThumbnail.dataUrl}}">
                   </div>
         <!-- 작품이 성공적으로 업로드 완료 되었을 때 숨김 -->
                   <br>
-                  <div  ng-hide="upload.mainPhoto">
+                  <div  ng-hide="createItem.mainPhoto">
                     <label class="btn btn-success">이미지 찾기
-                        <input ng-disabled="upload.disabled"  type="file" file-model="upload.file.upload" name="myfile" style="display: none;" onchange="angular.element(this).scope().upload.mainPhotoChanged(this.files)">
+                        <input ng-disabled="createItem.disabled"  type="file" file-model="createItem.file.upload" name="myfile" style="display: none;" onchange="angular.element(this).scope().createItem.mainPhotoChanged(this.files)">
                     </label>
-                        <button ng-disabled="upload.disabled" ng-click="upload.readPhoto()" class="btn btn-default">이미지 업로드</button>
+                        <button ng-disabled="createItem.disabled" ng-click="createItem.readPhoto()" class="btn btn-default">이미지 업로드</button>
                   </div>
                 </div>
               </div>
@@ -279,26 +279,24 @@
               <label>상품 설명 이미지</label>
             <!-- upload.minaThumbnail.dataUrl / 작품을 업로드 했을 때 이미지가 변환되게 ng-show & hide 속성을 추가 -->
                 <div class="text-center">
-                  <div class="jumbotron" ng-hide="upload.explainThumbnail.dataUrl">
+                  <div class="jumbotron" ng-hide="createItem.explainThumbnail.dataUrl">
                       <h2>상품 설명 이미지를 업로드해주세요.</h2>
                       <p>상품 설명 이미지는 1024*800 사이즈를 권장합니다.</p>
                   </div>
                   <div class="image-default">
-                    <img  class="img-responsive center-block" ng-src="{{upload.explainThumbnail.dataUrl}}">
+                    <img  class="img-responsive center-block" ng-src="{{createItem.explainThumbnail.dataUrl}}">
                   </div>
             <!-- 작품이 성공적으로 업로드 완료 되었을 때 숨김 -->
                   <br>
-                  <div ng-hide="upload.explainPhoto">
+                  <div ng-hide="createItem.explainPhoto">
                     <label class="btn btn-success">이미지 찾기
-                        <input ng-disabled="upload.disabled"  type="file" file-model="upload.file.upload" name="myfile" style="display: none;" onchange="angular.element(this).scope().upload.explainPhotoChanged(this.files)">
+                        <input ng-disabled="createItem.disabled"  type="file" file-model="createItem.file.upload" name="myfile" style="display: none;" onchange="angular.element(this).scope().createItem.explainPhotoChanged(this.files)">
                     </label>
-                        <button ng-disabled="upload.disabled"  ng-click="upload.readPhotoExplain()" class="btn btn-default">이미지 업로드</button>
+                        <button ng-disabled="createItem.disabled"  ng-click="createItem.readPhotoExplain()" class="btn btn-default">이미지 업로드</button>
                   </div>
                 </div>
               </div>
         </div>
-
-
 
             <br>
             <br>
@@ -306,15 +304,15 @@
         <div class="row">
               <div class="col-sm-12">
                 <div id="makeBorder"></div>
-                <div class ="row show-hide-message" ng-show="upload.successMsg">
-                  <div class="alert alert-success">{{upload.successMsg}}</div>
+                <div class ="row show-hide-message" ng-show="createItem.successMsg">
+                  <div class="alert alert-success">{{createItem.successMsg}}</div>
                 </div>
-                <div class ="row show-hide-message" ng-show="upload.errorMsg">
-                  <div class="alert alert-danger">{{upload.errorMsg}}</div>
+                <div class ="row show-hide-message" ng-show="createItem.errorMsg">
+                  <div class="alert alert-danger">{{createItem.errorMsg}}</div>
                 </div>
                 <br>
                 <div class="form-group text-center">
-                  <button style="width: 100%;" ng-click="upload.createPhoto(upload.itemData)" ng-disabled="upload.disabled"  type="submit" class="btn btn-enroll">작품 업로드</button>
+                  <button style="width: 100%;" ng-click="createItem.createPhoto(createItem.itemData)" ng-disabled="createItem.disabled"  type="submit" class="btn btn-enroll">작품 업로드</button>
                 </div>
               </div>
         </div>

@@ -1,0 +1,72 @@
+<form name="outerForm" class="tab-form-demo">
+  <uib-tabset active="activeForm">
+<!-- 상품분류표 -->
+    <uib-tab index="0" heading="카테고리">
+      <div class="tabPadding" >
+    <div class ="row show-hide-message" ng-show="mainMenu.successMsg">
+      <div class="alert alert-success">{{mainMenu.successMsg}}</div>
+    </div>
+    <div class ="row show-hide-message" ng-show="mainMenu.errorMsg">
+      <div class="alert alert-danger">{{mainMenu.errorMsg}}</div>
+    </div>
+
+
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>카테고리코드</th>
+            <th>카테고리코드명</th>
+            <th>비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat= "menu in mainMenu.mainMenues">
+            <td class="text-center">
+                <input ng-disabled="mainMenu.disabled" type="text" class="form-control" id="kind" data-ng-model="menu.category_id" placeholder="ex) 실사소재, 시트소재">
+            </td>
+            <td>
+                <input ng-disabled="mainMenu.disabled" type="text" class="form-control" id="kind" data-ng-model="menu.name" placeholder="ex) 실사소재, 시트소재">
+            </td>
+            <td class="text-center">
+                <button class="btn btn-warning" ng-click="mainMenu.update({category_id: menu.category_id, name: menu.name})"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></button>
+                <button class="btn btn-danger" ng-click="mainMenu.delete({category_id: menu.category_id})"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+      </div>
+    </uib-tab>
+    <uib-tab index="1" heading="카테고리 등록">
+      <div class="tabPadding" >
+        <div class ="row show-hide-message" ng-show="mainMenu.successMsg">
+          <div class="alert alert-success">{{mainMenu.successMsg}}</div>
+        </div>
+        <div class ="row show-hide-message" ng-show="mainMenu.errorMsg">
+          <div class="alert alert-danger">{{mainMenu.errorMsg}}</div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>카테고리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="input-group">
+                    <input ng-disabled="mainMenu.disabled" type="text" class="form-control" id="kind" data-ng-model="menuData.name" placeholder="ex) 실사소재, 시트소재">
+                    <a class="input-group-addon btn btn-default" ng-click="mainMenu.createMenu(menuData)">추가</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </uib-tab>
+  </uib-tabset>
+</form>

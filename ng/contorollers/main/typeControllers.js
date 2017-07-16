@@ -1,4 +1,4 @@
-angular.module('typeControllers',[])
+angular.module('typeControllers',['orderServices'])
 .controller('getTypeItemsCtrl', function ($stateParams, $http) {
   var app = this;
   var type = $stateParams.type;
@@ -13,10 +13,9 @@ angular.module('typeControllers',[])
 })
 
 
-.controller('getTypeItemCtrl', function(Admin, $stateParams, $window, $state, $http){
+.controller('getTypeItemCtrl', function(Admin, $stateParams, $window, $state, Order){
   var app = this;
   var item_id = $stateParams.item_id;
-
   app.data = {
    availableOptions: [
      {id: '0', name: '카테고리를 선택해주세요.'},
@@ -38,19 +37,20 @@ angular.module('typeControllers',[])
     }
   };
 
-
   this.createBasket = function(data){
     var basketData = {
       item_id: data.item_id,
       amount: data.amount
     };
-    $http.post('/api/basket', basketData).then(function(data){
+
+    Order.createBasket(basketData).then(function(data){
       if(data.data.success){
         $window.alert(data.data.message);
       } else {
         $window.alert(data.data.message);
       }
     });
+
     // $window.alert('상품을 장바구니에 담았습니다.');
   };
 
@@ -61,19 +61,20 @@ angular.module('typeControllers',[])
       kindOf: data.kindOf.name,
       item_type_id: data.item_type_id
     };
-    $http.post('/api/makeOrder',orderData).then(function(data){
-      if(data.data.success){
-        app.successMsg = data.data.message;
-        $state.go('app.makeOrder');
-      } else {
-        app.errorMsg = data.data;
-      }
-    });
+
+    Order.createOrder(orderData).then(function(data){
+        if(data.data.success){
+          app.successMsg = data.data.message;
+          $state.go('app.makeOrder');
+        } else {
+          app.errorMsg = data.data;
+        }
+      });
+
   };
 
   Admin.readItem(item_id).then(function(data){
     if(data.data.success){
-      var asdf = ['1','2'];
       var type = data.data.result.kind.split(',');
       app.itemData = data.data.result;
       for(i=0; i<type.length;i++){

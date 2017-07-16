@@ -2,6 +2,22 @@ angular.module('adminServices',[])
 .factory('Admin', function($http){
   adminFactory = {};
 
+  adminFactory.deleteItem = function(item_id){
+    return $http.delete('/api/item/'+item_id);
+  };
+
+  adminFactory.deleteType = function(item_type_id){
+    return $http.delete('/api/itemManagement/'+item_type_id);
+  };
+
+  adminFactory.readUpdateType = function(item_type){
+    return $http.get('/api/itemManagement/'+item_type);
+  };
+
+  adminFactory.updateUpdateType = function(updateData){
+    return $http.put('/api/itemManagement', updateData);
+  };
+
   adminFactory.createType = function(typeData){
     return $http.post('/api/item_type', typeData);
   };
