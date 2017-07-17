@@ -82,6 +82,16 @@ $locationProvider.html5Mode(true);
                 }
               }
             })
+            .state('app.category.item_type.show', {
+              url: '/item:item_id',
+              views: {
+                'contents@app': {
+                  templateUrl: '/categoryes/items/item.html',
+                  controller: 'getTypeItemCtrl',
+                  controllerAs: 'getTypeItem'
+                }
+              }
+            })
 
             .state('app.category.show', {
               url: '/item:item_id',

@@ -6,7 +6,11 @@ angular.module('typeControllers',['orderServices'])
   if(!$stateParams.type_code){
     $http.get('/api/item_type/'+category_id).then(function(data){
       if(data.data.success){
-        app.itemsData = data.data.result;
+        if(data.data.result.length === 0 ){
+          app.errorMsg = '등록된 상품이 없습니다.';
+        } else {
+          app.itemsData = data.data.result;
+        }
       } else {
         app.errorMsg = data.data.message;
       }
@@ -17,7 +21,11 @@ angular.module('typeControllers',['orderServices'])
     {  params: {type_code : type_code }}
   ).then(function(data){
       if(data.data.success){
-        app.itemsData = data.data.result;
+        if(data.data.result.length === 0 ){
+          app.errorMsg = '등록된 상품이 없습니다.';
+        } else {
+          app.itemsData = data.data.result;
+        }
       } else {
         app.errorMsg = data.data.message;
       }
