@@ -3,7 +3,6 @@
   "dependencies": {
     "angular": "^1.6.1",
     "angular-ui-bootstrap": "^2.5.0",
-    "angular-ui-router": "^1.0.3",
     "base64-img": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.16.0",
@@ -28,7 +27,6 @@
     "mysql": "^2.13.0",
     "nodemailer": "^4.0.1",
     "nodemailer-sendgrid-transport": "^0.2.0",
-    "ui-bootstrap": "^0.1.10",
     "ui-cropper": "^1.0.4"
   },
   "devDependencies": {
