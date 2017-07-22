@@ -67,7 +67,7 @@ try{
             if(!result){
               res.json({success:false, message:'카테고리 삭제 실패!'});
             } else {
-              res.json({success:true, message:'카테고리 삭제 성공!', result: result});
+              res.json({success:true, message:'카테고리 삭제 성공!'});
             }
 					}
 				});

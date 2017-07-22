@@ -1,42 +1,55 @@
 <!-- 상품확인 -->
+<div class ="row show-hide-message" ng-show="readOrder.successMsg">
+  <div class="alert alert-success">{{readOrder.successMsg}}</div>
+</div>
+<div class ="row show-hide-message" ng-show="readOrder.errorMsg">
+  <div class="alert alert-danger">{{readOrder.errorMsg}}</div>
+</div>
+<div ng-hide="readOrder.getItemFail">
 <label for="list-group">상품확인</label>
 <div class="list-group">
   <ul class="list-group">
       <li class="list-group-item active">
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <label>상품명</label>
           </div>
           <div class="col-sm-3">
-            <label>상품 종류</label>
+            <label>옵션</label>
           </div>
           <div class="col-sm-2">
             <label>수량</label>
           </div>
           <div class="col-sm-2">
-            <label>가격</label>
+            <label>상품가격</label>
           </div>
           <div class="col-sm-2">
-            <label>합계</label>
+            <label>상품 총 가격</label>
+          </div>
+          <div class="col-sm-1">
+            <label>비고</label>
           </div>
         </div>
       </li>
       <li class="list-group-item">
-        <div class="row">
+        <div class="row" ng-repeat="order in readOrder.orderData" style="margin-top: 5px;">
+          <div class="col-sm-2">
+            <label>{{order.name}}</label>
+          </div>
           <div class="col-sm-3">
-            <label>{{readOrder.orderData.name}}</label>
-          </div>
-          <div class="col-sm-3">
-            <label>상품 종류</label>
+            <label>{{order.kind_of}}</label>
           </div>
           <div class="col-sm-2">
-            <label>{{readOrder.orderData.amount}}</label>
+            <label>{{order.amount}}</label>
           </div>
           <div class="col-sm-2">
-            <label>{{readOrder.orderData.price}}원</label>
+            <label>{{order.price}}원</label>
           </div>
           <div class="col-sm-2">
-            <label>{{readOrder.orderData.price*readOrder.orderData.amount}}원</label>
+            <label>{{order.price*order.amount}}원</label>
+          </div>
+          <div class="col-sm-1">
+            <a ng-click="readOrder.delete({item_id: order.order_item_id})" class="btn btn-danger">삭제</a>
           </div>
         </div>
       </li>
@@ -51,18 +64,32 @@
       <ul class="list-group">
           <li class="list-group-item active">
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm-12">
                 <label>Daum 배송지 APi</label>
               </div>
             </div>
           </li>
           <li class="list-group-item">
             <div class="row">
-              <div class="col-sm-3">
-                <label>이름</label>
+              <div class="col-sm-4">
+                <input class="form-control" type="text" placeholder="우편번호" ng-model="readOrder.sigunguCode">
               </div>
-              <div class="col-sm-9">
+              <div class="col-sm-4">
+                <a ng-click="readOrder.readAddress()" class="btn btn-default" >우편번호 찾기</a>
               </div>
+            </div>
+            <div class="row" style="margin-top: 5px;">
+                <div class="col-sm-6">
+                  <input class="form-control" type="text" ng-model="readOrder.roadAddress" placeholder="도로명주소">
+                </div>
+                <div class="col-sm-6">
+                  <input class="form-control" type="text" ng-model="readOrder.jibunAddress" placeholder="지번주소">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 5px;">
+                <div class="col-sm-12">
+                  <input class="form-control" type="text" ng-model="readOrder.addressDetail" placeholder="상세주소">
+                </div>
             </div>
           </li>
       </ul>
@@ -183,7 +210,7 @@
                 <ul class="smsg_l rcp_h2">
                   <form>
                     <label class="radio-inline"><input type="radio" name="optradio" checked>현금영수증 신청</label>
-                    <label class="radio-inline"><input type="radio" name="optradio">신청안함</label>
+                    <label class="radio-inline"><input type="radio" name="optradio" >신청안함</label>
 
                   </form>
                   <br>
@@ -259,4 +286,5 @@
       </ul>
     </div>
   </div>
+</div>
 </div>

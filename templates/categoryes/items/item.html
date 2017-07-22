@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <div class="row">
   <div class ="row show-hide-message" ng-show="getTypeItem.successMsg">
     <div class="alert alert-success">{{getTypeItem.successMsg}}</div>
@@ -29,32 +30,38 @@
       		        <td>{{getTypeItem.itemData.name}}</td>
       		      </tr>
       					<tr>
-      						<td>판매가격</td>
-      						<td>{{getTypeItem.itemData.price}}</td>
+      						<td>상품가격</td>
+      						<td>{{getTypeItem.data.selectedOption.id}}</td>
       					</tr>
                 <tr>
-                  <td>규격</td>
+                  <td>옵션</td>
                   <td>
                     <select  ng-disabled="getTypeItem.disabled"  class="form-control" name="mySelect" id="mySelect"
                       ng-options="option.name for option in getTypeItem.data.availableOptions track by option.id"
                       ng-model="getTypeItem.data.selectedOption">
                     </select>
                   </td>
-                <tr>
+                </tr>
                 <tr>
                   <td>수량</td>
                   <td>
-                    <a class="btn" ng-click="getTypeItem.minus()"><i class="fa fa-minus" aria-hidden="true"></i><a/>
-                    <input style="width: 50px;" type="number" class="form-control" id="amount" ng-model="getTypeItem.amount">
-                    <a class="btn" ng-click="getTypeItem.plus()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                    <input type="number" class="form-control" id="amount" ng-model="getTypeItem.amount">
                   </td>
+                </tr>
                 <tr>
+                  <td>상품 총 가격</td>
+                  <td><p>{{getTypeItem.amount*getTypeItem.data.selectedOption.id}}원</p></td>
+                </tr>
       		    </tbody>
       		  </table>
       	  </div>
-          <div class="text-center">
-            <button ng-click="getTypeItem.createBasket({item_id: getTypeItem.itemData.item_id, amount: getTypeItem.amount, })"class="btn btn-warning">장바구니에 넣기</button>
-            <button ng-click="getTypeItem.createOrder({item_type_id: getTypeItem.itemData.item_type_id , amount: getTypeItem.amount, kindOf: getTypeItem.data.selectedOption})"class="btn btn-success">주문하기</button>
+          <div class="row">
+            <div class="col-sm-6">
+              <a style="width: 100%;" ng-click="getTypeItem.createBasket({item_id: getTypeItem.itemData.item_id})" class="btn btn-warning">장바구니</a>
+            </div>
+            <div class="col-sm-6">
+              <a style="width: 100%;" ng-click="getTypeItem.createOrder({item_id: getTypeItem.itemData.item_id, amount: getTypeItem.amount, price: getTypeItem.data.selectedOption.id, kind_of: getTypeItem.data.selectedOption.name})" class="btn btn-success">구매하기</a>
+            </div>
           </div>
         </div>
       </uib-tab>
@@ -86,4 +93,5 @@
           </uib-tab>
         </uib-tabset>
     </form>
+</div>
 </div>

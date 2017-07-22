@@ -3,3 +3,4 @@
 /controllers/api/privacy/*.js
 /assets/images/items/
 /assets/video/
+/node_modules/

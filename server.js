@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.use(compression());
-// app.use(bodyParser.json());
+
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 

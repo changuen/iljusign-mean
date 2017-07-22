@@ -46,25 +46,11 @@ angular.module('typeControllers',['orderServices'])
    };
 
    app.amount = 1;
-  this.plus = function(){
-    app.amount++;
-  };
-
-  this.minus = function(){
-    if(app.amount <= 0){
-      $window.alert('올바른 수량을 입력해주세요.');
-      app.amount = 1;
-    } else {
-      app.amount--;
-    }
-  };
 
   this.createBasket = function(data){
     var basketData = {
       item_id: data.item_id,
-      amount: data.amount
     };
-
     Order.createBasket(basketData).then(function(data){
       if(data.data.success){
         $window.alert(data.data.message);
@@ -72,16 +58,15 @@ angular.module('typeControllers',['orderServices'])
         $window.alert(data.data.message);
       }
     });
-
-    // $window.alert('상품을 장바구니에 담았습니다.');
   };
 
   this.createOrder = function(data){
+
     var orderData = {
-      item_id: item_id,
+      item_id: data.item_id,
       amount: data.amount,
-      kindOf: data.kindOf.name,
-      item_type_id: data.item_type_id
+      kind_of: data.kind_of,
+      price: data.price
     };
 
     Order.createOrder(orderData).then(function(data){
@@ -97,17 +82,27 @@ angular.module('typeControllers',['orderServices'])
 
   Admin.readItem(item_id).then(function(data){
     if(data.data.success){
-      var type = data.data.result.kind.split(',');
+      var kind = data.data.result.kind.split(',');
+      var temp = data.data.result.price.split(',');
+      var price = [];
+      for(i=0;i<temp.length;i++){
+        price[i] = Number(temp[i]);
+      }
       app.itemData = data.data.result;
-      for(i=0; i<type.length;i++){
+      app.data.selectedOption = {
+        id : price[0],
+        name: kind[0]
+      };
+
+      for(i=0; i<price.length; i++){
         app.data.availableOptions[i+1] = {
-          name: type[i],
-          id: i+1
+          name: kind[i],
+          id: price[i]
         };
       }
     } else {
       app.errorMsg = data.data.message;
-
     }
   });
+
 });

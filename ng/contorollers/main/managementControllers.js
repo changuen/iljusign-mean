@@ -188,7 +188,6 @@ angular.module('managementControllers',['adminServices', 'menuServices', 'orderS
     app.errorMsg = false;
     if(data.data.success){
       app.itemsData = data.data.result;
-      console.log(app.itemsData);
     } else {
       app.errorMsg = data.data.message;
     }

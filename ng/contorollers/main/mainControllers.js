@@ -1,9 +1,7 @@
 angular.module('mainControllers',['authServices', 'userServices'])
 .controller('mainCtrl', function(Auth, $timeout, $location, $state, $rootScope, $scope, $window, $interval, User, AuthToken){
   var app = this;
-
   app.loadme = false;
-
   $scope.$on('LOAD', function(){
     $scope.loading = true;
   });
