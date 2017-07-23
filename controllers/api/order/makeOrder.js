@@ -103,7 +103,6 @@ try{
               if(results === undefined){
                 res.json({success:false, message: "주문 아이템 불러오기 실패!"});
               } else {
-                console.log(results[0]);
                 res.json({success:true, message: "주문 아이템 불러오기 성공!", result: results});
               }
             }

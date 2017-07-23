@@ -25,11 +25,50 @@ $locationProvider.html5Mode(true);
                'contents@app': {
                  templateUrl: '/main/home.html'
                },
+               'quickMenu@app': {
+                 templateUrl: '/main/quickMenu.html'
+               },
                'footer': {
                templateUrl: '/company/footer.html'
                }
              }
             })
+
+            .state('app.registerStep1',
+             {
+               url: 'register/step1',
+               views: {
+                 'contents@app': {
+                   templateUrl: '/users/register/registerStep1.html',
+                   controller: 'regCtrl',
+                   controllerAs: 'register'
+                 }
+               }
+
+            })
+
+            .state('app.registerStep2',
+             {
+               url: 'register/step2',
+               views: {
+                 'contents@app': {
+                   templateUrl: '/users/register/registerStep2.html',
+                   controller: 'regCtrl',
+                   controllerAs: 'register'
+                  }
+                 }
+
+            })
+
+            .state('app.login', {
+              url: 'login',
+              views: {
+                'contents@app': {
+                  templateUrl: '/users/login/login.html',
+                }
+              }
+            })
+
             .state('app.user', {
               url: 'user',
               views: {
@@ -235,23 +274,6 @@ $locationProvider.html5Mode(true);
                }
             })
 
-            .state('registerStep1',
-             {
-               url: '/register/step1',
-               controller: 'regCtrl',
-               controllerAs: 'register',
-               templateUrl: '/users/register/registerStep1.html',
-               authenticated: false
-            })
-
-            .state('registerStep2',
-             {
-               url: '/register/step2',
-               controller: 'regCtrl',
-               controllerAs: 'register',
-               templateUrl: '/users/register/registerStep2.html',
-               authenticated: false
-            })
 
             .state('resetusername',
             {

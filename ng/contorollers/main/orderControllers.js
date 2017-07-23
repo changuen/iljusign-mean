@@ -34,7 +34,15 @@ angular.module('orderControllers',['orderServices'])
         app.errorMsg = '선택된 상품이 없습니다.';
         $state.go('app');
       } else {
+      var itemPrice = [];
+      app.allItemPrice = 0;
       app.orderData = data.data.result;
+      for(i=0; i<app.orderData.length; i++){
+        itemPrice[i] = app.orderData[i].price * app.orderData[i].amount
+      }
+      for(i=0;i<itemPrice.length;i++){
+        app.allItemPrice = app.allItemPrice + itemPrice[i];
+      }
     }
     } else {
       app.errorMsg = data.data.message;

@@ -56,7 +56,7 @@
   </ul>
 </div>
 
-<label for="list-group">배송정보</label>
+<label for="list-group">배송주소</label>
 <div class="row">
   <div class="col-sm-8">
 <!-- 배송주소 -->
@@ -65,31 +65,89 @@
           <li class="list-group-item active">
             <div class="row">
               <div class="col-sm-12">
-                <label>Daum 배송지 APi</label>
+                <label>배송정보</label>
               </div>
             </div>
           </li>
           <li class="list-group-item">
+<!-- 배송방법 -->
             <div class="row">
-              <div class="col-sm-4">
-                <input class="form-control" type="text" placeholder="우편번호" ng-model="readOrder.sigunguCode">
+              <div class="col-sm-3">
+                <label>배송방법</label>
               </div>
-              <div class="col-sm-4">
-                <a ng-click="readOrder.readAddress()" class="btn btn-default" >우편번호 찾기</a>
+              <div class="col-sm-9">
+                <p>일반택배</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+<!-- 배송지선택 -->
+            <div class="row">
+              <div class="col-sm-3">
+                <label>배송지</label>
+              </div>
+              <div class="col-sm-9">
+                <form>
+                  <label class="radio-inline"><input type="radio" name="optradio" checked>최근 배송지</label>
+                  <label class="radio-inline"><input type="radio" name="optradio">새로입력</label>
+                </form>
+              </div>
+            </div>
+<!-- 이름 -->
+<div class="row" style="margin-top: 5px;">
+              <div class="col-sm-3">
+                <label>이름</label>
+              </div>
+              <div class="col-sm-3">
+                <input class="form-control" type="text" placeholder="이름">
+              </div>
+            </div>
+<!-- 배송주소 -->
+            <div class="row" style="margin-top: 5px;">
+              <div class="col-sm-3">
+                <label>배송주소</label>
+              </div>
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <input class="form-control" type="text" placeholder="우편번호" ng-model="readOrder.sigunguCode">
+                  </div>
+                  <div class="col-sm-4">
+                    <a ng-click="readOrder.readAddress()" class="btn btn-default" >우편번호 찾기</a>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-12">
+                      <input class="form-control" type="text" ng-model="readOrder.roadAddress" placeholder="도로명주소를 입력해주세요.">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-12">
+                      <input class="form-control" type="text" ng-model="readOrder.jibunAddress" placeholder="지번주소를 입력해주세요.">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-12">
+                      <input class="form-control" type="text" ng-model="readOrder.addressDetail" placeholder="상세주소를 입력해주세요.">
+                    </div>
+                </div>
               </div>
             </div>
             <div class="row" style="margin-top: 5px;">
-                <div class="col-sm-6">
-                  <input class="form-control" type="text" ng-model="readOrder.roadAddress" placeholder="도로명주소">
-                </div>
-                <div class="col-sm-6">
-                  <input class="form-control" type="text" ng-model="readOrder.jibunAddress" placeholder="지번주소">
-                </div>
+              <div class="col-sm-3">
+                <label>핸드폰</label>
+              </div>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
+              </div>
             </div>
             <div class="row" style="margin-top: 5px;">
-                <div class="col-sm-12">
-                  <input class="form-control" type="text" ng-model="readOrder.addressDetail" placeholder="상세주소">
-                </div>
+              <div class="col-sm-3">
+                <label>일반전화</label>
+              </div>
+              <div class="col-sm-6">
+                <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
+              </div>
             </div>
           </li>
       </ul>
@@ -180,7 +238,6 @@
               </div>
             </div>
             </form>
-
           </li>
           <li class="list-group-item">
             <div class="row">
@@ -266,7 +323,7 @@
           <li class="list-group-item text-center">
             <div class="row">
               <div class="col-sm-12">
-                <label>{{readOrder.orderData.price*readOrder.orderData.amount}}원</label>
+                <label>{{readOrder.allItemPrice}}원</label>
               </div>
             </div>
           </li>

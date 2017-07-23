@@ -10,7 +10,7 @@ angular.module('userControllers',['userServices'])
           if((regData.terms) && (regData.privacy)) {
                 app.successMsg = '약관에 성공적으로 동의하셨습니다.';
                 app.disabled = true;
-                $state.go('registerStep2');
+                $state.go('app.registerStep2');
           } else {
                 app.errorMsg = '약관에 동의해야만 회원가입을 진행할 수 있습니다.';
                 app.disabled = false;

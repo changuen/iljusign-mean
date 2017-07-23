@@ -19,8 +19,8 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li ng-hide="main.isLoggedIn"><a ng-click="main.login()">로그인</a></li>
-              <li ng-hide="main.isLoggedIn"><a ui-sref="registerStep1" >회원가입</a></li>
+              <li ng-hide="main.isLoggedIn"><a ui-sref="app.login">로그인</a></li>
+              <li ng-hide="main.isLoggedIn"><a ui-sref="app.registerStep1" >회원가입</a></li>
               <li ng-show="main.isLoggedIn" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{main.user.username}}&nbsp<span class="caret"></span></a>
                 <ul class="dropdown-menu">
