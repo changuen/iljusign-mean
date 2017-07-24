@@ -17,6 +17,7 @@
                         <th>카테고리</th>
                         <th>분류코드</th>
                         <th>분류코드명</th>
+                        <th>상품명</th>
                         <th>상품옵션</th>
                         <th>상품가격</th>
                         <th>비고</th>
@@ -28,6 +29,7 @@
                         <td>{{type.name}}</td>
                         <td>{{type.type_code}}</td>
                         <td>{{type.type_description}}</td>
+                        <td>{{type.item_name}}</td>
                         <td class="text-left" >
                             <li style="padding-left: 15px;" ng-repeat="kind in type.kind track by $index">{{kind}}</li>
                         </td>
@@ -80,9 +82,6 @@
               </tbody>
             </table>
           </div>
-          <br>
-
-          <br>
           <div>
             <button class="btn btn-success" style="width:100%;" ng-click="createType.createType(createType.itemData);">상품 분류 등록</button>
           </div>

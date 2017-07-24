@@ -10,7 +10,7 @@ try{
         return next(err);
       }
       else {
-        var selectSql = 'select item_type.*, category.name from item_type inner join category on item_type.category_id = category.category_id;';
+        var selectSql = 'select item_type.*, category.name, item.kind, item.price, item.item_name from ((item_type inner join category on item_type.category_id = category.category_id) inner join item on item_type.item_type_id = item.type);';
           connection.query(selectSql, function (err, result, next) {
           if(err){
                 res.send(err);
