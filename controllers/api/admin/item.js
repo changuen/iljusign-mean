@@ -95,9 +95,11 @@ try{
             var insertValue = {
               type: req.body.type,
               name: req.body.title,
-              thumbnail: req.body.thumbnail,
-              explain: req.body.explain,
-              image: req.body.image
+              // thumbnail: req.body.thumbnail,
+              // explain: req.body.explain,
+              // image: req.body.image,
+              kind: req.body.kind,
+              price: req.body.price
             };
             connection.query(insertSql, insertValue, function (error, results, next) {
                 if(err){

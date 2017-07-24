@@ -82,36 +82,6 @@
           </div>
           <br>
 
-<!-- 상품 옵션 추가 -->
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>상품 옵션 추가</th>
-                    <th>상품 옵션</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="text-center" >
-                    <td>
-                      <div class="input-group">
-                        <input ng-disabled="createType.disabled" type="text" class="form-control" id="kind" data-ng-model="createType.kindData.kindValue" placeholder="ex) 실사소재 길이 800m">
-                        <input ng-disabled="createType.disabled" type="number" class="form-control" id="kind" data-ng-model="createType.kindData.kindPrice" placeholder="ex) 실사가격 0000원">
-                        <a class="input-group-addon btn btn-default" ng-click="createType.addLine(createType.kindData)">추가</a>
-                      </div>
-                    </td>
-                    <td class="text-left">
-                      <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="list in createType.kindList">
-                          {{list.kind}}({{list.price}}원)
-                        </li>
-                      </ul>
-                    </td>
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           <br>
           <div>
             <button class="btn btn-success" style="width:100%;" ng-click="createType.createType(createType.itemData);">상품 분류 등록</button>
@@ -189,6 +159,38 @@
             <input ng-disabled="createItem.disabled" type="title" class="form-control" id="title" ng-model="createItem.itemData.title" placeholder="상품명을 입력해주세요.">
           </div>
         </div>
+
+<br>
+<!-- 상품 옵션 추가 -->
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>상품 옵션 추가</th>
+                    <th>상품 옵션</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center" >
+                    <td>
+                      <div class="input-group">
+                        <input ng-disabled="createItem.disabled" type="text" class="form-control" id="kind" data-ng-model="createItem.kindData.kindValue" placeholder="ex) 실사소재 길이 800m">
+                        <input ng-disabled="createItem.disabled" type="number" class="form-control" id="kind" data-ng-model="createItem.kindData.kindPrice" placeholder="ex) 실사가격 0000원">
+                        <a class="input-group-addon btn btn-default" ng-click="createItem.addLine(createItem.kindData)">추가</a>
+                      </div>
+                    </td>
+                    <td class="text-left">
+                      <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="list in createItem.kindList">
+                          {{list.kind}}({{list.price}}원)
+                        </li>
+                      </ul>
+                    </td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
         <br>
         <br>
         <div class="row">

@@ -135,9 +135,7 @@ angular.module('managementControllers',['adminServices', 'menuServices', 'orderS
     app.typeData = {
       category: app.data.selectedOption.id,
       type_description: data.type_description,
-      type_code: data.type_code,
-      kind: app.type_tiny.toString(),
-      price: app.type_price.toString()
+      type_code: data.type_code
     };
 
     Admin.createType(app.typeData).then(function(data){
@@ -566,6 +564,34 @@ angular.module('managementControllers',['adminServices', 'menuServices', 'orderS
 .controller('createItemCtrl', function ($http, $timeout, $scope, Admin, $state, $window, Menu) {
     var app = this;
 
+
+      app.kindList = [];
+      app.type_tiny = [];
+      app.type_price = [];
+
+      this.addLine = function(kindData){
+        if(!kindData){
+          $window.alert('정확한 값을 입력해주세요.');
+        } else {
+          if(kindData.kindValue === null || kindData.kindValue === undefined || kindData.kindValue === '')
+          {
+            $window.alert('옵션명을 입력해주세요.');
+          } else if(kindData.kindPrice === null || kindData.kindPrice === undefined || kindData.kindPrice === ''){
+            $window.alert('옵션 가격을 입력해주세요.');
+          } else {
+            app.kindList.push(
+              {
+                kind: kindData.kindValue,
+                price: kindData.kindPrice
+              }
+            );
+            app.type_tiny.push(kindData.kindValue);
+            app.type_price.push(kindData.kindPrice);
+          }
+        }
+
+      };
+
      app.data = {
       availableOptions: [
         {id: '0', name: '카테고리를 선택해주세요.'},
@@ -807,29 +833,34 @@ angular.module('managementControllers',['adminServices', 'menuServices', 'orderS
             $scope.$emit('UNLOAD');
             app.disabled = false;
             $window.alert('상품 분류을 선택해주세요.');
-          } else if(app.mainImagePath === undefined || app.mainImagePath ===  null || app.mainImagePath === ''){
-            $scope.$emit('UNLOAD');
-            app.disabled = false;
-            $window.alert('상품 이미지를 입력해주세요.');
           } else if(uploadData.title === undefined || uploadData.title ===  null || uploadData.title=== ''){
             $scope.$emit('UNLOAD');
             app.disabled = false;
             $window.alert('상품 제목를 입력해주세요.');
-          } else if(app.explainImagePath === undefined || app.explainImagePath === null || app.explainImagePath === '') {
-            $scope.$emit('UNLOAD');
-            app.disabled = false;
-            $window.alert('상품 설명 이미지를 업로드해주세요.');
-          } else if(app.thumbnailPath === undefined || app.thumbnailPath === null || app.thumbnailPath === '') {
-            $scope.$emit('UNLOAD');
-            app.disabled = false;
-            $window.alert('썸네일 이미지를 업로드해주세요.');
-          } else {
+          }
+          //   else if(app.mainImagePath === undefined || app.mainImagePath ===  null || app.mainImagePath === ''){
+          //   $scope.$emit('UNLOAD');
+          //   app.disabled = false;
+          //   $window.alert('상품 이미지를 입력해주세요.');
+          // }
+          // else if(app.explainImagePath === undefined || app.explainImagePath === null || app.explainImagePath === '') {
+          //   $scope.$emit('UNLOAD');
+          //   app.disabled = false;
+          //   $window.alert('상품 설명 이미지를 업로드해주세요.');
+          // } else if(app.thumbnailPath === undefined || app.thumbnailPath === null || app.thumbnailPath === '') {
+          //   $scope.$emit('UNLOAD');
+          //   app.disabled = false;
+          //   $window.alert('썸네일 이미지를 업로드해주세요.');
+          // }
+          else {
               app.uploadData = {
                 title: uploadData.title,
                 type: app.data2.selectedOption.id,
-                thumbnail: app.thumbnailPath,
-                explain: app.explainImagePath,
-                image: app.mainImagePath
+                // thumbnail: app.thumbnailPath,
+                // explain: app.explainImagePath,
+                // image: app.mainImagePath,
+                kind: app.type_tiny.toString(),
+                price: app.type_price.toString()
               };
               Admin.createItem(app.uploadData).then(function(data){
                 if(data.data.success){

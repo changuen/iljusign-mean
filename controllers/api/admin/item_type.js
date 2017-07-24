@@ -101,9 +101,7 @@ try{
         var insertValue = {
           category_id: req.body.category,
           type_description: req.body.type_description,
-          type_code: req.body.type_code,
-          kind: req.body.kind,
-          price: req.body.price
+          type_code: req.body.type_code
         };
           connection.query(insertSql, insertValue, function (err, result, next) {
           if(err){
