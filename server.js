@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static('image'));
 app.use('/', require('./controllers/static'));
 
+app.use('/api/delivery', require('./controllers/api/order/delivery'));
 app.use('/api/category', require('./controllers/api/admin/category'));
 app.use('/api/basket', require('./controllers/api/order/basket'));
 app.use('/api/makeOrder', require('./controllers/api/order/makeOrder'));

@@ -1,8 +1,5 @@
 var router = require('express').Router();
 
-
-
-
 router.delete('/:item_id', function(req, res, next){
 try{
 
@@ -81,6 +78,41 @@ catch(ex){
 }
 });
 
+router.get('/:user_id', function(req, res, next){
+try{
+
+    req.getConnection(function(err, connection) {
+      if(err)
+      {
+        console.error('SQL Connection error: ', err);
+        return next(err);
+      }
+      else {
+
+        var selectSql = 'select item.*, order_item.* from order_item inner join item on item.item_id = order_item.item_id where user_id = ?;';
+        var user_id = req.params.user_id;
+
+        connection.query(selectSql, user_id, function (error, results, next) {
+            if(err){
+              throw err;
+            } else{
+              if(results === undefined){
+                res.json({success:false, message: "주문 아이템 불러오기 실패!"});
+              } else {
+                res.json({success:true, message: "주문 아이템 불러오기 성공!", result: results});
+              }
+            }
+        });
+
+      }
+  });
+}
+catch(ex){
+  console.error("Internal error: "+ex);
+  return next(ex);
+}
+});
+
 
 router.get('/', function(req, res, next){
 try{
@@ -93,7 +125,7 @@ try{
       }
       else {
 
-        var selectSql = 'select item.*, order_item.* from order_item inner join item on item.item_id = order_item.item_id where user_id = ?;';
+        var selectSql = 'select item.*, order_item.*, delivery.* from ((order_item inner join item on item.item_id = order_item.item_id) inner join delivery on order_item.user_id = delivery.user_id) where delivery.user_id = ?;';
         var user_id = req.decoded.user_id;
 
         connection.query(selectSql, user_id, function (error, results, next) {

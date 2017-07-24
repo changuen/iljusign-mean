@@ -1,4 +1,8 @@
-    <p class="title">안전한 회원가입을 위해 본인인증을 진행해주세요.</p>
+<div>
+  <h1>본인 인증</h1>
+  <div style="border-bottom: 1px solid #000000"></div>
+  <br>
+</div>
       <div class ="row show-hide-message" ng-show="register.successMsg">
         <div class="alert alert-success">{{register.successMsg}}</div>
       </div>
@@ -6,34 +10,33 @@
         <div class="alert alert-danger">{{register.errorMsg}}</div>
       </div>
       <form name="regForm" ng-submit="register.regStep2(register.regData, regForm.$valid, confirmed)" novalidate>
-        <br>
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-4">
               <label>이름</label>
               <input id="msg" type="text" class="form-control input-lg" name="msg" placeholder="ex) 홍길동">
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-4">
               <label>생년월일</label>
               <input id="msg" type="text" class="form-control input-lg" name="msg" placeholder="ex) 2000.10.10">
           </div>
-        </div>
-        <br>
-
-
-        <div ng-class = "{'has-success': (regForm.email.$valid && !regForm.email.$pristine), 'has-error': (!regForm.email.$valid && !regForm.email.$pristine) ||
-          (!regForm.email.$valid && regForm.$submitted)}">
-          <label>이메일</label>
-          <input ng-disabled="register.disabled"  placeholder="본인 인증을 위한 이메일 주소가 필요합니다." class="form-control  input-lg" type="email" name="email" ng-model="register.regData.email" ng-minlength="5" ng-maxlength="30" ng-pattern="/^\w+@[a-zA-z_]+?\.[a-zA-Z]{2,3}$/" required>
-          <ul ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) || (!regForm.email.$pristine && regForm.email.$error.minlength) ||
-          (!regForm.email.$pristine && regForm.email.$error.maxlength)" class="help-block" >
-            <li>Must contain "@"</li>
-            <li>Must not contain any special characters</li>
-            <li>Must be at least 5 characters but no more than 30</li>
-          </ul>
+          <div class="col-sm-4">
+              <div ng-class = "{'has-success': (regForm.email.$valid && !regForm.email.$pristine), 'has-error': (!regForm.email.$valid && !regForm.email.$pristine) ||
+                (!regForm.email.$valid && regForm.$submitted)}">
+                <label>이메일</label>
+                <input ng-disabled="register.disabled"  placeholder="본인 인증을 위한 이메일 주소가 필요합니다." class="form-control  input-lg" type="email" name="email" ng-model="register.regData.email" ng-minlength="5" ng-maxlength="30" ng-pattern="/^\w+@[a-zA-z_]+?\.[a-zA-Z]{2,3}$/" required>
+                <ul ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) || (!regForm.email.$pristine && regForm.email.$error.minlength) ||
+                (!regForm.email.$pristine && regForm.email.$error.maxlength)" class="help-block" >
+                  <li>Must contain "@"</li>
+                  <li>Must not contain any special characters</li>
+                  <li>Must be at least 5 characters but no more than 30</li>
+                </ul>
+              </div>
+          </div>
         </div>
         <br>
       <div>
-        <button ng-disabled="register.disabled" class="btn btn-block btn-enroll" type="submit">인증메일 받기</button>
+        <button ng-disabled="register.disabled" class="btn btn-block btn-success input-lg" type="submit">인증메일 받기</button>
         </div>
+        <br>
         <p>입력하신 이메일로 인증메일이 발송되었습니다. 인증메일을 통해서 회원가입을 진행해 주세요.</p>
       </form>

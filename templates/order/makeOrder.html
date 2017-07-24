@@ -57,6 +57,7 @@
 </div>
 
 <label for="list-group">배송주소</label>
+
 <div class="row">
   <div class="col-sm-8">
 <!-- 배송주소 -->
@@ -88,18 +89,8 @@
               </div>
               <div class="col-sm-9">
                 <form>
-                  <label class="radio-inline"><input type="radio" name="optradio" checked>최근 배송지</label>
-                  <label class="radio-inline"><input type="radio" name="optradio">새로입력</label>
+                  <label class="radio-inline"><input type="radio" name="optradio" checked>기본 배송지</label>
                 </form>
-              </div>
-            </div>
-<!-- 이름 -->
-<div class="row" style="margin-top: 5px;">
-              <div class="col-sm-3">
-                <label>이름</label>
-              </div>
-              <div class="col-sm-3">
-                <input class="form-control" type="text" placeholder="이름">
               </div>
             </div>
 <!-- 배송주소 -->
@@ -110,7 +101,7 @@
               <div class="col-sm-9">
                 <div class="row">
                   <div class="col-sm-4">
-                    <input class="form-control" type="text" placeholder="우편번호" ng-model="readOrder.sigunguCode">
+                    <input class="form-control" type="number" placeholder="우편번호" ng-model="readOrder.deliData.sigungu_code" ng-value="readOrder.orderData[0].sigungu_code">
                   </div>
                   <div class="col-sm-4">
                     <a ng-click="readOrder.readAddress()" class="btn btn-default" >우편번호 찾기</a>
@@ -118,41 +109,26 @@
                 </div>
                 <div class="row" style="margin-top: 5px;">
                     <div class="col-sm-12">
-                      <input class="form-control" type="text" ng-model="readOrder.roadAddress" placeholder="도로명주소를 입력해주세요.">
+                      <input class="form-control" type="text" ng-model="readOrder.deliData.road_address" placeholder="도로명주소를 입력해주세요." ng-value="readOrder.orderData[0].road_address">
                     </div>
                 </div>
                 <div class="row" style="margin-top: 5px;">
                     <div class="col-sm-12">
-                      <input class="form-control" type="text" ng-model="readOrder.jibunAddress" placeholder="지번주소를 입력해주세요.">
+                      <input class="form-control" type="text" ng-model="readOrder.deliData.jibun_address" placeholder="지번주소를 입력해주세요." ng-value="readOrder.orderData[0].jibun_address">
                     </div>
                 </div>
                 <div class="row" style="margin-top: 5px;">
                     <div class="col-sm-12">
-                      <input class="form-control" type="text" ng-model="readOrder.addressDetail" placeholder="상세주소를 입력해주세요.">
+                      <input class="form-control" type="text" ng-model="readOrder.deliData.detail_address" placeholder="상세주소를 입력해주세요." ng-value="readOrder.orderData[0].detail_address">
                     </div>
                 </div>
-              </div>
-            </div>
-            <div class="row" style="margin-top: 5px;">
-              <div class="col-sm-3">
-                <label>핸드폰</label>
-              </div>
-              <div class="col-sm-6">
-                <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
-              </div>
-            </div>
-            <div class="row" style="margin-top: 5px;">
-              <div class="col-sm-3">
-                <label>일반전화</label>
-              </div>
-              <div class="col-sm-6">
-                <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
               </div>
             </div>
           </li>
       </ul>
     </div>
   </div>
+
 <!-- 주문고객 -->
   <div class="col-sm-4">
     <div class="list-group">
@@ -170,7 +146,7 @@
                 <label>이름</label>
               </div>
               <div class="col-sm-8">
-                <input class="form-control" type="text" placeholder="ex) 주문고객이름">
+                <input class="form-control" type="text" ng-model="readOrder.deliData.name_buyer"placeholder="ex) 주문고객이름"  ng-value="readOrder.orderData[0].name_buyer">
               </div>
             </div>
             <div class="row" style="margin-bottom: 5px;">
@@ -178,7 +154,7 @@
                 <label>핸드폰</label>
               </div>
               <div class="col-sm-8">
-                <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
+                <input class="form-control" type="number" ng-model="readOrder.deliData.cellphone_buyer"placeholder="- 없이 입력하세요."  ng-value="readOrder.orderData[0].cellphone_buyer">
               </div>
             </div>
             <div class="row" style="margin-bottom: 5px;">
@@ -186,7 +162,7 @@
                 <label>일반전화</label>
               </div>
               <div class="col-sm-8">
-                <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
+                <input class="form-control" type="number" ng-model="readOrder.deliData.homephone_buyer" placeholder="- 없이 입력하세요."  ng-value="readOrder.orderData[0].homephone_buyer">
               </div>
             </div>
             <div class="row" style="margin-bottom: 5px;">
@@ -194,7 +170,7 @@
                 <label>이메일</label>
               </div>
               <div class="col-sm-8">
-                <input class="form-control" type="text" placeholder="ex) asdfa@ilju.com">
+                <input class="form-control" type="email" ng-model="readOrder.deliData.email_buyer" placeholder="ex) asdfa@ilju.com"  ng-value="readOrder.orderData[0].email_buyer">
               </div>
             </div>
           </li>
@@ -202,6 +178,7 @@
     </div>
   </div>
 </div>
+<br>
 
 
 <label for="list-group">결제정보</label>
@@ -227,11 +204,11 @@
                   <form class="form-inline">
                    <div class="form-group">
                      <label for="focusedInput"></label>
-                     <input class="form-control" type="text" placeholder="ex) 신한은행">
+                     <input ng-model="readOrder.receiptData.bank"  class="form-control" type="text" placeholder="ex) 신한은행">
                    </div>
                    <div class="form-group">
                      <label for="focusedInput"></label>
-                     <input class="form-control" id="focusedInput" type="text" placeholder="임금자를 입력해주세요.">
+                     <input ng-model="readOrder.receiptData.name" class="form-control" id="focusedInput" type="text" placeholder="임금자를 입력해주세요.">
                    </div>
                  </form>
                </div>
@@ -276,13 +253,13 @@
                       <label class="radio-inline"><input type="radio" name="optradio">휴대폰번호</label>
                       <div class="input-group">
                         <span class="input-group-addon">휴대폰번호(소득공제)</span>
-                        <input id="msg" type="text" class="form-control" name="msg" placeholder=" - 없이 입력하세요.">
+                        <input id="msg" type="number" class="form-control" ng-model="readOrder.receiptData.cellphone"placeholder=" - 없이 입력하세요.">
                       </div>
                     <br>
                       <label class="radio-inline"><input type="radio" name="optradio">사업자번호</label>
                       <div class="input-group">
                         <span class="input-group-addon">사업자번호(지출증빙)</span>
-                        <input id="msg" type="text" class="form-control" name="msg" placeholder=" - 없이 입력하세요.">
+                        <input id="msg" type="number" class="form-control" ng-model="readOrder.receiptData.busiNumber" placeholder=" - 없이 입력하세요.">
                       </div>
                     </form>
                   </div>
@@ -337,7 +314,7 @@
               </div>
             </div>
             <div>
-              <button ng-click="readOrder.confirmOrder()" style="width: 100%;"class="btn btn-success">주문하기</button>
+              <button ng-click="readOrder.confirmOrder({daliData: readOrder.deliData, receiptData: readOrder.receiptData})" style="width: 100%;"class="btn btn-success">주문하기</button>
             </div>
           </li>
       </ul>

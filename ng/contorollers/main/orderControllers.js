@@ -1,6 +1,8 @@
 angular.module('orderControllers',['orderServices'])
-.controller('readOrderCtrl', function ($stateParams, $state, $window, Order) {
+.controller('readOrderCtrl', function ($stateParams, $state, $window, Order, $scope) {
   var app = this;
+  var user_id = $scope.main.user.user_id;
+
   app.getItemFail = false;
 
   app.cashReceipt = true;
@@ -17,28 +19,43 @@ angular.module('orderControllers',['orderServices'])
       app.addressDetail = '';
         new daum.Postcode({
             oncomplete: function(data) {
-              app.sigunguCode = data.sigunguCode;
-              app.jibunAddress = data.jibunAddress;
-              app.roadAddress = data.roadAddress;
+              app.deliData = {
+                sigungu_code: data.sigunguCode,
+                jibun_address: data.jibunAddress,
+                road_address: data.roadAddress
+              };
             }
         }).open();
     });
 
   };
 
-  Order.readOrder().then(function(data){
+  Order.readOrderAndDeli().then(function(data){
     app.errorMsg = false;
     if(data.data.success){
+// 등록된 배송지 정보가 없을 때
       if(data.data.result.length===0){
-        app.getItemFail = true;
-        app.errorMsg = '선택된 상품이 없습니다.';
-        $state.go('app');
-      } else {
+        app.delivery = false;
+        Order.readOrder(user_id).then(function(data){
+          var itemPrice = [];
+          app.allItemPrice = 0;
+          app.orderData = data.data.result;
+          for(i=0; i<app.orderData.length; i++){
+            itemPrice[i] = app.orderData[i].price * app.orderData[i].amount;
+          }
+          for(i=0;i<itemPrice.length;i++){
+            app.allItemPrice = app.allItemPrice + itemPrice[i];
+          }
+        });
+      }
+// 등록된 배송지 정보가 있을 때
+      else {
       var itemPrice = [];
+      app.delivery = true;
       app.allItemPrice = 0;
       app.orderData = data.data.result;
       for(i=0; i<app.orderData.length; i++){
-        itemPrice[i] = app.orderData[i].price * app.orderData[i].amount
+        itemPrice[i] = app.orderData[i].price * app.orderData[i].amount;
       }
       for(i=0;i<itemPrice.length;i++){
         app.allItemPrice = app.allItemPrice + itemPrice[i];
@@ -51,8 +68,30 @@ angular.module('orderControllers',['orderServices'])
   });
 
   this.confirmOrder = function(data){
-    console.log(data);
-    // $state.go('app.confirmOrder');
+// 등록된 배송지가 있을 때 put
+    var deliData = '';
+    var receiptData = '';
+    if(app.delivery){
+//    변경사항 없음
+      if(data.daliData === undefined){
+        console.log('변경사항 없음');
+      }
+// 변경사항 있음
+      else {
+        deliData = data.daliData;
+        // deliData.user_id = user_id;
+        Order.updateDelivery(deliData).then(function(data){
+
+        });
+      }
+
+// 등록된 배송지가 없을 때 post
+    } else {
+      deliData = data.daliData;
+      receiptData = data.receiptData;
+      Order.createDelivery(deliData).then(function(data){
+      });
+    }
   };
 
   this.delete = function(data){

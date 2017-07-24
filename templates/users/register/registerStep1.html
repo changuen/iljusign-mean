@@ -1,6 +1,7 @@
-
     <div>
-      <p class="title">개인 가입 약관 동의</p>
+      <h1>개인 가입 약관 동의</h1>
+      <div style="border-bottom: 1px solid #000000"></div>
+      <br>
     </div>
     <div class ="row show-hide-message" ng-show="register.successMsg">
       <div class="alert alert-success">{{register.successMsg}}</div>
@@ -19,8 +20,6 @@
             <label>서비스 약관에 동의합니다. <input id = "termsAgree" name="termsAgree" type="checkbox" ng-model="register.regData.terms" class="input_check"></label>
           </div>
         </div>
-
-
         <div class="box_terms" >
           <h5 class="tit_terms">개인정보 수집 및 이용 동의</h5>
           <div class="cont_terms">
@@ -31,11 +30,11 @@
           </div>
         </div>
       </fieldset>
-
+      <br>
         <div>
           <div class="row">
             <div class="col-sm-12">
-              <button type="submit" class="btn btn-block btn-enroll">동의</button>
+              <button type="submit" class="btn btn-block btn-success input-lg">동의</button>
             </div>
           </div>
         </div>

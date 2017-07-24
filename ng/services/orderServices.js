@@ -1,6 +1,14 @@
 angular.module('orderServices',[])
 .factory('Order', function($http){
   orderFactory = {};
+  
+  orderFactory.updateDelivery = function(deliData){
+    return $http.put('/api/delivery/'+deliData.user_id, deliData);
+  };
+
+  orderFactory.createDelivery = function(deliData){
+    return $http.post('/api/delivery',deliData);
+  };
 
   orderFactory.deleteBasket = function(basket_id){
     return $http.delete('/api/basket/'+basket_id);
@@ -18,7 +26,11 @@ angular.module('orderServices',[])
     return $http.delete('/api/makeOrder/'+item_id);
   };
 
-  orderFactory.readOrder = function(){
+  orderFactory.readOrder = function(user_id){
+    return $http.get('/api/makeOrder/'+user_id);
+  };
+
+  orderFactory.readOrderAndDeli = function(){
     return $http.get('/api/makeOrder');
   };
 

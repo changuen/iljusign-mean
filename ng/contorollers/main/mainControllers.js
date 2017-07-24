@@ -119,6 +119,11 @@ angular.module('mainControllers',['authServices', 'userServices'])
       $timeout(function(){
         Auth.logout();
         app.isLoggedIn = false;
+        app.authorized = false;
+        app.permission = false;
+        app.disabled = false;
+        app.successMsg = false;
+
         hideModal('logout');
         $state.reload();
       }, 1000);
@@ -155,14 +160,12 @@ angular.module('mainControllers',['authServices', 'userServices'])
     if(valid){
       Auth.login(app.loginData).then(function(data){
         if(data.data.success){
-          app.disabled = true;
           app.successMsg = data.data.message;
           $timeout(function(){
-            hideModal('login');
             app.loginData = null;
             app.isLoggedIn = true;
             checkSession();
-            $state.reload();
+            $state.go('app');
           },1000);
         }else {
           if(data.data.expired){
@@ -183,13 +186,6 @@ angular.module('mainControllers',['authServices', 'userServices'])
 
   };
 
-
-  app.login = function(){
-    app.successMsg = false;
-    app.errorMsg = false;
-    app.disabled = false;
-    showModal('login');
-  };
 
   app.logout = function(){
     showModal('logout');

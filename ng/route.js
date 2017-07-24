@@ -57,7 +57,18 @@ $locationProvider.html5Mode(true);
                    controllerAs: 'register'
                   }
                  }
+            })
 
+            .state('app.registerStep3',
+             {
+               url: 'register/step3',
+               views: {
+                 'contents@app': {
+                   templateUrl: '/users/register/registerStep3.html',
+                   controller: 'regCtrl',
+                   controllerAs: 'register'
+                  }
+                 }
             })
 
             .state('app.login', {

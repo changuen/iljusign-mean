@@ -1,7 +1,4 @@
 var router = require('express').Router();
-
-
-
 router.delete('/:item_id', function(req, res, next){
 try{
 
