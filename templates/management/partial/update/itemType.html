@@ -1,0 +1,81 @@
+<div style="margin-top: 25px;"class="text-center">
+  <div class ="row show-hide-message" ng-show="updateItemType.successMsg">
+    <div class="alert alert-success">{{updateItemType.successMsg}}</div>
+  </div>
+  <div class ="row show-hide-message" ng-show="updateItemType.errorMsg">
+    <div class="alert alert-danger">{{updateItemType.errorMsg}}</div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>카테고리</th>
+        <th>분류코드</th>
+        <th>분류코드명</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center">
+        <td>{{updateItemType.updataData.item_id}}</td>
+        <td>
+          <select  ng-disabled="updateItemType.disabled"  class="form-control" name="mySelect" id="mySelect"
+                   ng-options="option.name for option in updateItemType.data.availableOptions track by option.id"
+                   ng-model="updateItemType.data.selectedOption">
+          </select>
+        </td>
+        <td>
+          <input ng-disabled="updateItemType.disabled" type="number" class="form-control" data-ng-model="updateItemType.updataData.type_code">
+        </td>
+        <td>
+          <input ng-disabled="updateItemType.disabled" type="text" class="form-control" data-ng-model="updateItemType.updataData.type_description">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <a ng-click="updateItemType.updateType(updateItemType.updataData);"style="width: 100%;" class="btn btn-warning">분류코드 수정</a>
+    </div>
+  </div>
+
+  <br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>상품명</th>
+        <th>상품옵션</th>
+        <th>상품가격</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center">
+        <td>
+          <input ng-disabled="updateItemType.disabled" type="text" class="form-control"  data-ng-model="updateItemType.updataData.item_name">
+        </td>
+        <td class="text-left" >
+          <div ng-repeat="obj in updateItemType.optionDatas">
+            <input ng-disabled="updateItemType.disabled" type="text" class="form-control" ng-model="updateItemType.optionDatas[$index].kind" style="margin-bottom: 5px;">
+          </div>
+        </td>
+        <td class="text-left">
+          <div ng-repeat="obj in updateItemType.optionDatas">
+            <input ng-disabled="updateItemType.disabled" type="text" class="form-control" ng-model="updateItemType.optionDatas[$index].price" style="margin-bottom: 5px;">
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-sm-12">
+      <a ng-click="updateItemType.updateitemType(updateItemType.updataData);"style="width: 100%;" class="btn btn-danger">상품옵션 수정</a>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+      <div class="col-sm-12">
+        <a ui-sref="app.management.typeAndItems" style="width: 100%;" class="btn btn-success">확인</a>
+      </div>
+  </div>
+</div>

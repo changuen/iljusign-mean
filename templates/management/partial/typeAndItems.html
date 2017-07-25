@@ -17,9 +17,6 @@
                         <th>카테고리</th>
                         <th>분류코드</th>
                         <th>분류코드명</th>
-                        <th>상품명</th>
-                        <th>상품옵션</th>
-                        <th>상품가격</th>
                         <th>비고</th>
                       </tr>
                     </thead>
@@ -29,14 +26,8 @@
                         <td>{{type.name}}</td>
                         <td>{{type.type_code}}</td>
                         <td>{{type.type_description}}</td>
-                        <td>{{type.item_name}}</td>
-                        <td class="text-left" >
-                            <li style="padding-left: 15px;" ng-repeat="kind in type.kind track by $index">{{kind}}</li>
-                        </td>
-                        <td class="text-left">
-                            <li style="padding-left: 15px;" ng-repeat="price in type.price track by $index">{{price}}원</li>
-                        </td>
                         <td>
+                          <button class="btn btn-info" ng-click="readType.copyType(type)"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
                           <button class="btn btn-warning" ui-sref=".update({item_type: type.item_type_id})"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></button>
                           <button class="btn btn-danger" ng-click="readType.deleteType({item_type: type.item_type_id})"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
                         </td>
@@ -90,34 +81,82 @@
 
 
 
+<!-- ================================ 상품 관리표 ====================================== -->
+<uib-tab index="2" heading="상품 관리표">
+  <div class="tabPadding" ng-controller="readItemTypeCtrl as readItemType">
+        <div class ="row show-hide-message" ng-show="readItemType.successMsg">
+          <div class="alert alert-success">{{readItemType.successMsg}}</div>
+        </div>
+        <div class ="row show-hide-message" ng-show="readItemType.errorMsg">
+          <div class="alert alert-danger">{{readItemType.errorMsg}}</div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>카테고리</th>
+                <th>분류코드</th>
+                <th>분류코드명</th>
+                <th>상품명</th>
+                <th>상품옵션</th>
+                <th>상품가격</th>
+                <th>비고</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center" ng-repeat="type in readItemType.typeDatas">
+                <td>{{type.item_id}}</td>
+                <td>{{type.name}}</td>
+                <td>{{type.type_code}}</td>
+                <td>{{type.type_description}}</td>
+                <td>{{type.item_name}}</td>
+                <td class="text-left" >
+                    <li style="padding-left: 15px;" ng-repeat="kind in type.kind track by $index">{{kind}}</li>
+                </td>
+                <td class="text-left">
+                    <li style="padding-left: 15px;" ng-repeat="price in type.price track by $index">{{price}}원</li>
+                </td>
+                <td>
+                  <button class="btn btn-info" ng-click="readItemType.copyItemType(type)"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
+                  <button class="btn btn-warning" ui-sref=".updateItemType({item_id: type.item_id})"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></button>
+                  <button class="btn btn-danger" ng-click="readItemType.deleteType({item_id: type.item_id})"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</uib-tab>
+
 <!-- ================================ 상품 관리 ====================================== -->
-<uib-tab index="2" heading="상품 관리">
-        <div class="tabPadding">
-          <div class ="row show-hide-message" ng-show="items.successMsg">
-            <div class="alert alert-success">{{items.successMsg}}</div>
+<uib-tab index="3" heading="상품 관리">
+        <div class="tabPadding" ng-controller="readItemsCtrl as readItems">
+          <div class ="row show-hide-message" ng-show="readItems.successMsg">
+            <div class="alert alert-success">{{readItems.successMsg}}</div>
           </div>
-          <div class ="row show-hide-message" ng-show="items.errorMsg">
-            <div class="alert alert-danger">{{items.errorMsg}}</div>
+          <div class ="row show-hide-message" ng-show="readItems.errorMsg">
+            <div class="alert alert-danger">{{readItems.errorMsg}}</div>
           </div>
           <div class="row">
           </div>
 
           <div class="row container-fluid">
-            <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="photo in items.itemsData | filter:search |orderBy : data.selectedOption.sort ">
+            <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="photo in readItems.itemsData | filter:search |orderBy : data.selectedOption.sort ">
               <div class="card">
                     <div class="card-image">
-                      <a ui-sref=".readItem({item_id: photo.item_id})" ui-sref-active="active">
+                      <a ui-sref="app.management.typeAndItems.readItem({item_id: photo.item_id})" ui-sref-active="active">
                         <img class="img-responsive" ng-src="{{photo.thumbnail}}">
                       </a>
                     </div>
                     <div class="card-content text-center">
-                      <span><label>{{photo.type_description}}</label>&nbsp;-&nbsp;{{photo.name}}</span>
+                      <span><label>{{photo.type_description}}</label>&nbsp;-&nbsp;{{photo.item_name}}</span>
                     </div>
                     <div class="card-action">
                         <div class="row">
                           <div class="text-center">
                             <button class="btn btn-warning" ui-sref=".updateItem({item_id: photo.item_id})"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></button>
-                            <button class="btn btn-danger" ng-click="items.deleteItem({item_id: photo.item_id})"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
+                            <button class="btn btn-danger" ng-click="readItems.deleteItem({item_id: photo.item_id})"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
                           </div>
                        </div>
                     </div>
@@ -129,7 +168,7 @@
 
 <!-- ================================ 상품 등록 ====================================== -->
 
-<uib-tab index="3" heading="상품 등록" >
+<uib-tab index="4" heading="상품 등록" >
   <div class="tabPadding"   ng-controller="createItemCtrl as createItem">
         <div class="row">
           <div class="col-sm-4">
@@ -276,8 +315,6 @@
                 </div>
               </div>
         </div>
-
-
 
         <br>
         <div class="row">

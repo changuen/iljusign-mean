@@ -36,12 +36,12 @@
           </div>
           <div class="col-sm-4">
             <label for="name">상품명</label><span style="color: #e96725">(필수)</span>
-            <input ng-disabled="updateItem.disabled" type="text" class="form-control" id="name" ng-model="updateItem.itemData.name" placeholder="상품명을 입력해주세요.">
+            <input ng-disabled="updateItem.disabled" type="text" class="form-control" id="name" ng-model="updateItem.itemData.item_name" placeholder="상품명을 입력해주세요.">
           </div>
         </div>
         <br>
         <div>
-            <button style="width: 100%;" ng-click="updateItem.updateItem({name: updateItem.itemData.name, category_id: updateItem.data.selectedOption.id, item_type: updateItem.data2.selectedOption.id})" ng-disabled="updateItem.disabled"  type="submit" class="btn btn-success">상품명 및 카테고리 변경</button>
+            <button style="width: 100%;" ng-click="updateItem.updateItem({item_name: updateItem.itemData.item_name, category_id: updateItem.data.selectedOption.id, item_type: updateItem.data2.selectedOption.id})" ng-disabled="updateItem.disabled"  type="submit" class="btn btn-success">상품명 및 카테고리 변경</button>
         </div>
         <br>
         <div class="row">
@@ -154,7 +154,7 @@
                 </div>
                 <br>
                 <div class="form-group text-center">
-                  <button style="width: 100%;" ui-sref="app.management.items" ng-disabled="updateItem.disabled"  type="submit" class="btn btn-danger">취소</button>
+                  <button style="width: 100%;" ui-sref="app.management.typeAndItems" ng-disabled="updateItem.disabled"  type="submit" class="btn btn-danger">취소</button>
                 </div>
               </div>
         </div>

@@ -80,6 +80,120 @@ $locationProvider.html5Mode(true);
               }
             })
 
+            .state('app.management',
+             {
+               url: 'management',
+               views:{
+                 'content@' : {
+                   templateUrl: '/management/form.html',
+                 },
+                 'menu@app.management': {
+                   templateUrl: '/management/menu.html'
+                 }
+               }
+            })
+
+            .state('app.management.category',
+             {
+               url: 'category',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/category.html',
+                   controller: 'mainMenuCtrl',
+                   controllerAs: 'mainMenu'
+                 }
+               }
+            })
+
+            .state('app.management.typeAndItems',
+             {
+               url: '/typeAndItems',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/typeAndItems.html'
+                 }
+               }
+            })
+
+
+
+            .state('app.management.typeAndItems.update',
+             {
+               url: '/updateType:item_type',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/update/type.html',
+                   controller: 'updateTypeCtrl',
+                   controllerAs: 'updateType'
+                 }
+               }
+            })
+
+            .state('app.management.typeAndItems.updateItemType',
+             {
+               url: '/updateItem:item_id',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/update/itemType.html',
+                   controller: 'updateItemTypeCtrl',
+                   controllerAs: 'updateItemType'
+                 }
+               }
+            })
+
+            .state('app.management.typeAndItems.updateItem',
+             {
+               url: '/update/item:item_id',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/update/item.html',
+                   controller: 'updateItemCtrl',
+                   controllerAs: 'updateItem'
+                 }
+               }
+            })
+
+            .state('app.management.typeAndItems.readItem',
+             {
+               url: ':item_id',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/read/item.html',
+                   controller: 'readItemCtrl',
+                   controllerAs: 'readItem'
+                 }
+               }
+            })
+            .state('app.management.bannerUpload',
+             {
+               url: '/bannerUpload',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/bannerUpload.html'
+                 }
+               }
+            })
+            .state('app.management.orderStatus',
+             {
+               url: '/orderStatus',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/orderStatus.html'
+                 }
+               }
+            })
+            .state('app.management.members',
+             {
+               url: '/members',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/members.html'
+                 }
+               }
+            })
+
+
+
             .state('app.user', {
               url: 'user',
               views: {
@@ -185,105 +299,6 @@ $locationProvider.html5Mode(true);
               }
             })
 
-            .state('app.management',
-             {
-               url: 'management',
-               views:{
-                 'content@' : {
-                   templateUrl: '/management/form.html',
-                 },
-                 'menu@app.management': {
-                   templateUrl: '/management/menu.html'
-                 }
-               }
-            })
-
-            .state('app.management.category',
-             {
-               url: 'category',
-               views:{
-                 'contents@app.management': {
-                   templateUrl: '/management/partial/category.html',
-                   controller: 'mainMenuCtrl',
-                   controllerAs: 'mainMenu'
-                 }
-               }
-            })
-
-
-            .state('app.management.items',
-             {
-               url: '/items',
-               views:{
-                 'contents@app.management': {
-                   templateUrl: '/management/partial/items.html',
-                   controller: 'itemsCtrl',
-                   controllerAs: 'items'
-                 }
-               }
-            })
-
-            .state('app.management.items.update',
-             {
-               url: '/update:item_type',
-               views:{
-                 'contents@app.management': {
-                   templateUrl: '/management/partial/type/update.html',
-                   controller: 'updateTypeCtrl',
-                   controllerAs: 'updateType'
-                 }
-               }
-            })
-            .state('app.management.items.updateItem',
-             {
-               url: '/update/item:item_id',
-               views:{
-                 'contents@app.management': {
-                   templateUrl: '/management/partial/item/update.html',
-                   controller: 'updateItemCtrl',
-                   controllerAs: 'updateItem'
-                 }
-               }
-            })
-
-            .state('app.management.items.readItem',
-             {
-               url: ':item_id',
-               views:{
-                 'contents@app.management': {
-                   templateUrl: '/management/partial/item/read.html',
-                   controller: 'readItemCtrl',
-                   controllerAs: 'readItem'
-                 }
-               }
-            })
-            .state('app.management.bannerUpload',
-             {
-               url: '/bannerUpload',
-               views:{
-                 'contents@app.management': {
-                   templateUrl: '/management/partial/bannerUpload.html'
-                 }
-               }
-            })
-            .state('app.management.orderStatus',
-             {
-               url: '/orderStatus',
-               views:{
-                 'contents@app.management': {
-                   templateUrl: '/management/partial/orderStatus.html'
-                 }
-               }
-            })
-            .state('app.management.members',
-             {
-               url: '/members',
-               views:{
-                 'contents@app.management': {
-                   templateUrl: '/management/partial/members.html'
-                 }
-               }
-            })
 
 
             .state('resetusername',

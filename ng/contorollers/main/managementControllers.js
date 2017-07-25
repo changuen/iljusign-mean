@@ -1,186 +1,6 @@
-angular.module('managementControllers',['adminServices', 'menuServices', 'orderServices'])
-.controller('updateTypeCtrl', function($stateParams, Menu, Admin, $state){
-  var app = this;
-  var item_type = $stateParams.item_type;
-  app.data = {
-   availableOptions: [
-     {id: '0', name: '카테고리를 선택해주세요.'},
-   ],
-   selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
-   };
+angular.module('managementControllers', ['adminServices', 'menuServices', 'orderServices'])
 
-   Admin.readUpdateType(item_type).then(function(data){
-     app.errorMsg = false;
-       if(data.data.success){
-         Menu.readMainMenu().then(function(data){
-           if(data.data.success){
-             var type = data.data.result;
-             for(i=0; i<type.length;i++){
-               app.data.availableOptions[i+1] = {
-                 name: type[i].name,
-                 id: type[i].category_id
-               };
-             }
-           } else {
-             app.errorMsg = data.data.message;
-           }
-         });
-           app.updataData = data.data.result;
-           app.data.selectedOption = {
-             id : app.updataData.category_id
-           };
-       } else {
-         app.errorMsg = data.data.message;
-
-       }
-   });
-
-   this.updateType = function(data){
-     app.updateData = data;
-     app.updateData.category_id = app.data.selectedOption.id;
-     app.updateData.name = app.data.selectedOption.name;
-     Admin.updateUpdateType(app.updateData).then(function(data){
-       app.errorMsg = false;
-       if(data.data.success){
-         app.successMsg = data.data.message;
-         $state.reload();
-       } else {
-         app.errorMsg = data.data.message;
-       }
-     });
-   };
-})
-
-.controller('readTypeCtrl', function(Admin, $state, $window, Menu){
-  var app = this;
-    app.data = {
-     availableOptions: [
-       {id: '0', name: '카테고리를 선택해주세요.'},
-     ],
-     selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
-     };
-
-   this.deleteType = function(data){
-     app.errorMsg = false;
-     var item_type_id = data.item_type;
-     Admin.deleteType(item_type_id).then(function(data){
-       if(data.data.success){
-         app.successMsg = data.data.message;
-         $state.reload();
-       } else {
-         app.errorMsg = data.data.message;
-       }
-     });
-   };
-
-// 상품 분류표
-  Admin.readType().then(function(data){
-    if(data.data.success){
-      Menu.readMainMenu().then(function(data){
-        if(data.data.success){
-          var type = data.data.result;
-          for(i=0; i<type.length;i++){
-            app.data.availableOptions[i+1] = {
-              name: type[i].name,
-              id: type[i].category_id
-            };
-          }
-        } else {
-          app.errorMsg = data.data.message;
-        }
-      });
-      app.typeDatas = data.data.result;
-      var kindDatas = [];
-      for(var i=0; i<data.data.result.length; i++){
-          kindDatas[i] = {
-              kind: app.typeDatas[i].kind.split(','),
-              price: app.typeDatas[i].price.split(',')
-          };
-          app.typeDatas[i].kind = kindDatas[i].kind;
-          app.typeDatas[i].price = kindDatas[i].price;
-      }
-
-    } else {
-      app.errorMsg = data.data.message;
-    }
-  });
-})
-
-.controller('createTypeCtrl', function(Admin, $state, Menu, $window){
-  var app = this;
-  app.data = {
-   availableOptions: [
-     {id: '0', name: '카테고리를 선택해주세요.'},
-   ],
-   selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
-   };
-
-   Menu.readMainMenu().then(function(data){
-     if(data.data.success){
-       var type = data.data.result;
-       for(i=0; i<type.length;i++){
-         app.data.availableOptions[i+1] = {
-           name: type[i].name,
-           id: type[i].category_id
-         };
-       }
-     } else {
-       app.errorMsg = data.data.message;
-     }
-   });
-
-
-  this.createType = function(data){
-    app.errorMsg = false;
-    app.typeData = {
-      category: app.data.selectedOption.id,
-      type_description: data.type_description,
-      type_code: data.type_code
-    };
-
-    Admin.createType(app.typeData).then(function(data){
-      if(data.data.success){
-        app.success = data.data.message;
-        $state.reload();
-      } else {
-        app.errorMsg = data.data.message;
-      }
-
-    });
-  };
-
-  app.kindList = [];
-  app.type_tiny = [];
-  app.type_price = [];
-
-  this.addLine = function(kindData){
-    if(!kindData){
-      $window.alert('정확한 값을 입력해주세요.');
-    } else {
-      if(kindData.kindValue === null || kindData.kindValue === undefined || kindData.kindValue === '')
-      {
-        $window.alert('옵션명을 입력해주세요.');
-      } else if(kindData.kindPrice === null || kindData.kindPrice === undefined || kindData.kindPrice === ''){
-        $window.alert('옵션 가격을 입력해주세요.');
-      } else {
-        app.kindList.push(
-          {
-            kind: kindData.kindValue,
-            price: kindData.kindPrice
-          }
-        );
-        app.type_tiny.push(kindData.kindValue);
-        app.type_price.push(kindData.kindPrice);
-      }
-    }
-
-  };
-})
-
-
-
-
-.controller('itemsCtrl', function(Admin, $state){
+.controller('readItemsCtrl', function(Admin, $state){
   var app = this;
   Admin.readItems().then(function(data){
     app.errorMsg = false;
@@ -203,7 +23,6 @@ angular.module('managementControllers',['adminServices', 'menuServices', 'orderS
       }
     });
   };
-
 })
 
 .controller('readItemCtrl', function(Admin, $stateParams, $scope, Order, $window){
@@ -325,6 +144,7 @@ angular.module('managementControllers',['adminServices', 'menuServices', 'orderS
           };
 
   Admin.readItem(item_id).then(function(data){
+    console.log(data);
     if(data.data.success){
       app.itemData = data.data.result;
       app.data.selectedOption = {
@@ -344,7 +164,7 @@ angular.module('managementControllers',['adminServices', 'menuServices', 'orderS
       } else {
         var updateData = {
           type: data.item_type,
-          name: data.name,
+          item_name: data.item_name,
         };
         $http.put('/api/item/'+item_id, updateData).then(function(data){
           if(data.data.success){
@@ -358,7 +178,7 @@ angular.module('managementControllers',['adminServices', 'menuServices', 'orderS
     } else {
         updateData2 = {
           type: app.itemData.item_type_id,
-          name: data.name,
+          item_name: data.item_name,
         };
         $http.put('/api/item/'+item_id, updateData2).then(function(data){
           if(data.data.success){

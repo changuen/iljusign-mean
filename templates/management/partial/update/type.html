@@ -12,8 +12,6 @@
         <th>카테고리</th>
         <th>분류코드</th>
         <th>분류코드명</th>
-        <th>상품옵션</th>
-        <th>상품가격</th>
       </tr>
     </thead>
     <tbody>
@@ -31,24 +29,19 @@
         <td>
           <input ng-disabled="updateType.disabled" type="text" class="form-control" id="code1" data-ng-model="updateType.updataData.type_description">
         </td>
-        <td>
-          <input ng-disabled="updateType.disabled" type="text" class="form-control" id="code1" data-ng-model="updateType.updataData.kind">
-        </td>
-        <td>
-          <input ng-disabled="updateType.disabled" type="text" class="form-control" id="code1" data-ng-model="updateType.updataData.price">
-        </td>
       </tr>
     </tbody>
   </table>
 
-      <div>
-        <div class="row">
-          <div class="col-sm-6">
-            <a ng-click="updateType.updateType(updateType.updataData);"style="width: 100%;" class="btn btn-success">상품타입수정</a>
-          </div>
-          <div class="col-sm-6">
-            <a ui-sref="app.management.items" style="width: 100%;" class="btn btn-danger">취소</a>
-          </div>
-        </div>
-      </div>
+<div>
+  <div class="row">
+    <div class="col-sm-6">
+      <a ng-click="updateType.updateType(updateType.updataData);"style="width: 100%;" class="btn btn-success">상품타입수정</a>
     </div>
+    <div class="col-sm-6">
+      <a ui-sref="app.management.typeAndItems" style="width: 100%;" class="btn btn-warning">확인</a>
+    </div>
+  </div>
+</div>
+
+</div>

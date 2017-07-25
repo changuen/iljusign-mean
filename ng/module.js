@@ -6,6 +6,7 @@ angular.module('app',[
     'mainControllers',
     'emailControllers',
     'managementControllers',
+    'itemControllers',
     'typeControllers',
     'orderControllers',
     'uiCropper'
