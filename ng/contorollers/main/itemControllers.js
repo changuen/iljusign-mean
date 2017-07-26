@@ -1,4 +1,21 @@
-angular.module('itemControllers',['orderServices'])
+  angular.module('itemControllers',['orderServices'])
+  .filter('sumByKey', function() {
+    return function (input, property) {
+    var i = input instanceof Array ? input.length : 0;
+// if property is not defined, returns length of array
+// if array has zero length or if it is not an array, return zero
+    if (typeof property === 'undefined' || i === 0) {
+        return i;
+// test if property is number so it can be counted
+    }
+     else {
+        var total = 0;
+        while (i--)
+            total += (input[i][property[0]] * input[i][property[1]]);
+        return total;
+    }
+};
+})
 .controller('getTypeItemsCtrl', function ($stateParams, $http) {
   var app = this;
 
@@ -34,18 +51,36 @@ angular.module('itemControllers',['orderServices'])
 
 })
 
-
 .controller('getTypeItemCtrl', function(Admin, $stateParams, $window, $state, Order){
   var app = this;
   var item_id = $stateParams.item_id;
+  app.optionItem = false;
+
   app.data = {
    availableOptions: [
-     {id: '0', name: '카테고리를 선택해주세요.'},
+     {id: 0, name: '카테고리를 선택해주세요.'},
    ],
-   selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
+   selectedOption: {id: 0, name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
    };
 
    app.amount = 1;
+
+   app.optionList = [];
+   this.addItem = function(data){
+     if(data.id === 0){
+        $window.alert('옵션을 선택해주세요.');
+     } else {
+       app.optionItem = true;
+       app.optionList.push(
+           {
+             kind: data.name,
+             price: data.id,
+             amount: 1
+           }
+         );
+
+     }
+   };
 
   this.createBasket = function(data){
     var basketData = {
@@ -88,11 +123,8 @@ angular.module('itemControllers',['orderServices'])
       for(i=0;i<temp.length;i++){
         price[i] = Number(temp[i]);
       }
+
       app.itemData = data.data.result;
-      app.data.selectedOption = {
-        id : price[0],
-        name: kind[0]
-      };
 
       for(i=0; i<price.length; i++){
         app.data.availableOptions[i+1] = {

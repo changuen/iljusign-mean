@@ -22,39 +22,46 @@
     <uib-tabset active="activeJustified" justified="true">
       <uib-tab index="0" heading="상품 정보">
         <div class="tabPadding">
-          <div class="table-responsive">
-      		  <table class="table table-bordered">
-      		    <tbody>
-      		      <tr>
-      		        <td>상품명</td>
-      		        <td>{{getTypeItem.itemData.item_name}}</td>
-      		      </tr>
-      					<tr>
-      						<td>상품가격</td>
-      						<td>{{getTypeItem.data.selectedOption.id}}</td>
-      					</tr>
-                <tr>
-                  <td>옵션</td>
-                  <td>
-                    <select  ng-disabled="getTypeItem.disabled"  class="form-control" name="mySelect" id="mySelect"
-                      ng-options="option.name for option in getTypeItem.data.availableOptions track by option.id"
-                      ng-model="getTypeItem.data.selectedOption">
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>수량</td>
-                  <td>
-                    <input type="number" class="form-control" id="amount" ng-model="getTypeItem.amount">
-                  </td>
-                </tr>
-                <tr>
-                  <td>상품 총 가격</td>
-                  <td><p>{{getTypeItem.amount*getTypeItem.data.selectedOption.id}}원</p></td>
-                </tr>
-      		    </tbody>
-      		  </table>
-      	  </div>
+          <div>
+            <div>
+              <h1>{{getTypeItem.itemData.item_name}}</h1>
+            </div>
+            <div>
+              <label>소비자 가격 : <span style="color: red;">{{getTypeItem.data.selectedOption.id}}</span>원</label>
+            </div>
+            <div>
+              <label>옵션&nbsp;<i class="fa fa-question-circle" aria-hidden="true"></i></label>
+            </div>
+            <div class="input-group">
+              <select  ng-disabled="getTypeItem.disabled"  class="form-control" name="mySelect" id="mySelect"
+                ng-options="option.name for option in getTypeItem.data.availableOptions track by option.id"
+                ng-model="getTypeItem.data.selectedOption">
+              </select>
+              <div class="input-group-btn">
+                <button class="btn btn-default" ng-click="getTypeItem.addItem(getTypeItem.data.selectedOption)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <li style="margin-top: 5px;"class="list-group-item" ng-repeat="list in getTypeItem.optionList">
+              <div class="row">
+                <div class="col-sm-4">
+                  <span>옵션: <label class="control-label" for="option">{{list.kind}}</label></span>
+                </div>
+                <div class="col-sm-4 text-center">
+                  <input type="number" class="form-control col-xs-1 text-center" ng-model="list.amount">
+                </div>
+                <div class="col-sm-4 text-right">
+                  <p>{{list.price * list.amount}}원</p>
+                </div>
+              </div>
+            </li>
+            <br>
+            <div class="text-right" ng-show="getTypeItem.optionItem">
+              <p>총 상품금액 : {{getTypeItem.optionList|sumByKey: ['amount','price']}}원</p>
+            </div>
+          </div>
+          <br>
           <div class="row">
             <div class="col-sm-6">
               <a style="width: 100%;" ng-click="getTypeItem.createBasket({item_id: getTypeItem.itemData.item_id})" class="btn btn-warning">장바구니</a>

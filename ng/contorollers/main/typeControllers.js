@@ -8,6 +8,9 @@ angular.module('typeControllers', ['adminServices', 'menuServices', 'orderServic
    ],
    selectedOption: {id: '0', name: '카테고리를 선택해주세요.'} //This sets the default value of the select in the ui
    };
+
+
+
    Admin.readUpdateItemType(item_id).then(function(data){
      app.errorMsg = false;
        if(data.data.success){
