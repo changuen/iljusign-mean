@@ -164,12 +164,21 @@ $locationProvider.html5Mode(true);
                  }
                }
             })
-            .state('app.management.bannerUpload',
+            .state('app.management.banner',
              {
-               url: '/bannerUpload',
+               url: '/banner',
                views:{
                  'contents@app.management': {
-                   templateUrl: '/management/partial/bannerUpload.html'
+                   templateUrl: '/management/partial/banner.html'
+                 }
+               }
+            })
+            .state('app.management.gallery',
+             {
+               url: '/gallery',
+               views:{
+                 'contents@app.management': {
+                   templateUrl: '/management/partial/gallery.html'
                  }
                }
             })

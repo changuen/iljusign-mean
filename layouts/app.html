@@ -19,7 +19,6 @@
 </head>
 
 <body ng-app="app" ng-controller='mainCtrl as main' ng-show="main.loadme" ng-cloak>
-
 <!-- Expired Token & Logout -->
         <div class="container">
           <div class="modal fade" id="myModal" role="dialog">
@@ -45,13 +44,12 @@
         <div id="wrap" class="mainForm" ui-view>
 
           <div ui-view="header"></div>
-          <div id="body" class="container" >
+          <div id="body" class="container">
             <div id="container" ui-view="content"></div>
           </div>
           <div id="footer" ui-view="footer"></div>
         </div>
-        <!-- <script src="/angular/angular.min.js"></script> -->
-        <!-- <script src="/angular-ui-router/release/angular-ui-router.min.js"></script> -->
+
         <script src="/js/angular.min.js"></script>
         <script src="/js/angular-ui-router.min.js"></script>
         <script src="/jquery/dist/jquery.slim.min.js"></script>
