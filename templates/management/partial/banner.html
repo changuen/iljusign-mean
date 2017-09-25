@@ -6,8 +6,43 @@
       </div>
     </uib-tab>
     <uib-tab index="1" heading="배너등록">
-      <div class="tabPadding" >
-
+        <div class="row">
+              <div class="col-sm-12">
+            <!-- upload.minaThumbnail.dataUrl / 작품을 업로드 했을 때 이미지가 변환되게 ng-show & hide 속성을 추가 -->
+                <div class="text-center">
+                  <div class="jumbotron" ng-hide="uploadBanner.explainThumbnail.dataUrl">
+                      <h2>배너 이미지를 업로드해주세요.</h2>
+                      <p>배너 이미지는 1024*800 사이즈를 권장합니다.</p>
+                  </div>
+                  <div class="image-default">
+                    <img  class="img-responsive center-block" ng-src="{{uploadBanner.explainThumbnail.dataUrl}}">
+                  </div>
+            <!-- 작품이 성공적으로 업로드 완료 되었을 때 숨김 -->
+                  <br>
+                  <div ng-hide="uploadBanner.explainPhoto">
+                    <label class="btn btn-success">이미지 찾기
+                        <input ng-disabled="uploadBanner.disabled"  type="file" file-model="updateBanner.file.upload" name="myfile" style="display: none;" onchange="angular.element(this).scope().updateBanner.explainPhotoChanged(this.files)">
+                    </label>
+                        <button ng-disabled="uploadBanner.disabled"  ng-click="updateBanner.readPhotoExplain()" class="btn btn-default">이미지 업로드</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="row">
+              <div class="col-sm-12">
+                <div id="makeBorder"></div>
+                <div class ="row show-hide-message" ng-show="updateBanner.successMsg">
+                  <div class="alert alert-success">{{updateBanner.successMsg}}</div>
+                </div>
+                <div class ="row show-hide-message" ng-show="updateBanner.errorMsg">
+                  <div class="alert alert-danger">{{updateBanner.errorMsg}}</div>
+                </div>
+                <br>
+                <div class="form-group text-center">
+                  <button style="width: 100%;" ng-click="updateBanner.createPhoto(updateBanner.itemData)" ng-disabled="updateBanner.disabled"  type="submit" class="btn btn-enroll">배너 업로드</button>
+                </div>
+              </div>
+        </div>
       </div>
     </uib-tab>
   </uib-tabset>
