@@ -9,7 +9,8 @@ angular.module('app',[
     'itemControllers',
     'typeControllers',
     'orderControllers',
-    'uiCropper'
+    'uiCropper',
+    'bannerController'
 ]).config(function($httpProvider){
   $httpProvider.interceptors.push('AuthInterceptors');
 });
