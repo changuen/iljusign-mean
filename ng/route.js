@@ -170,7 +170,7 @@ $locationProvider.html5Mode(true);
                views:{
                  'contents@app.management': {
                    templateUrl: '/management/partial/banner.html',
-                   controller: 'updateBannerCtrl',
+                   controller: 'uploadBannerCtrl',
                    controllerAs: 'uploadBanner'
                  }
                }

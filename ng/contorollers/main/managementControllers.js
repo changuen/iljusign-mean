@@ -253,6 +253,7 @@ angular.module('managementControllers', ['adminServices', 'menuServices', 'order
           }
           });
         };
+
   // 작품 설명 이미지 업로드 되었는지 보여주기
       this.explainPhotoChanged = function(files) {
       $scope.$emit('LOAD');
