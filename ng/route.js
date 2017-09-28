@@ -180,7 +180,9 @@ $locationProvider.html5Mode(true);
                url: '/gallery',
                views:{
                  'contents@app.management': {
-                   templateUrl: '/management/partial/gallery.html'
+                   templateUrl: '/management/partial/gallery.html',
+                   controller: 'uploadgalleryCtrl',
+                   controllerAs: 'uploadGallery'
                  }
                }
             })

@@ -2,7 +2,21 @@
   <uib-tabset active="activeForm">
 <!-- 상품분류표 -->
     <uib-tab index="0" heading="배너관리">
-      <div class="tabPadding" >
+      <div class="tabPadding" ng-controller="getBannerCtrl as getBanner">
+          <div class ="row show-hide-message" ng-show="getBanner.successMsg">
+            <div class="alert alert-success">{{getBanner.successMsg}}</div>
+          </div>
+          <div class ="row show-hide-message" ng-show="getBanner.errorMsg">
+            <div class="alert alert-danger">{{getBanner.errorMsg}}</div>
+          </div>
+          <div class="row container-fluid">
+            <div class="col-xs-12" ng-repeat="banner in getBanner.bannerData">
+              <div>
+                <img class="img-responsive" ng-src="{{banner.image_path}}">
+              </div>
+              <br>
+          </div>
+        </div>
       </div>
     </uib-tab>
     <uib-tab index="1" heading="배너등록">
@@ -24,9 +38,9 @@
                 <br>
                 <div>
                   <label class="btn btn-success">이미지 찾기
-                      <input ng-disabled="uploadBanner.disabled"  type="file" file-model="uploadBanner.file.upload" name="myfile" style="display: none;" onchange="angular.element(this).scope().uploadBanner.explainPhotoChanged(this.files)">
+                      <input ng-disabled="uploadBanner.disabled"  type="file" file-model="uploadBanner.file.upload" name="myfile" style="display: none;" onchange="angular.element(this).scope().uploadBanner.readImage(this.files)">
                   </label>
-                      <button ng-disabled="uploadBanner.disabled"  ng-click="uploadBanner.readPhotoExplain()" class="btn btn-default">이미지 업로드</button>
+                      <button ng-disabled="uploadBanner.disabled"  ng-click="uploadBanner.uploadBanner()" class="btn btn-default">이미지 업로드</button>
                 </div>
               </div>
             </div>

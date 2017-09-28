@@ -10,7 +10,8 @@ angular.module('app',[
     'typeControllers',
     'orderControllers',
     'uiCropper',
-    'bannerController'
+    'bannerController',
+    'galleryController'
 ]).config(function($httpProvider){
   $httpProvider.interceptors.push('AuthInterceptors');
 });
