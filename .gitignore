@@ -1,6 +1,6 @@
 *.log
 /mysql.js
-/controllers/api/privacy/*.js
+/controllers/api/privacy/
 /assets/images/items/explain/*.jpg
 /assets/images/items/main/*.jpg
 /assets/images/items/thumbnail/*.png

@@ -4,8 +4,9 @@
 # 사용된 오픈소스
 angular-ui.router, angular-ui-cropper, summernote.js, nodemailer, nodemailer-sendgrid, angular-ui-bootstrap, 다음 우편주소 API
 
-# 웹을 구동시키기위해 읽어 볼 것
-개인정보 보호를 위해 데이터베이스 정보, nodemailer-sendrid, json-webtoken을 모듈화하여 분리
+# install 하기 위해 필요한 정보
+노드 패키지 설치 npm install --save
+
 ../mysql.js, ../controllers/api/privacy/email.js, ../controllers/api/privacy/config.js 파일 필요
 
 <pre><code>
