@@ -57,7 +57,6 @@ this.uploadImage = function(itemTitle){
       imagePath : app.imagePath
     };
     $http.post('/api/gallery', galleryData).then(function(result){
-      console.log(result);
     });
   };
 })
