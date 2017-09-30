@@ -1,5 +1,5 @@
-angular.module('bannerController', [])
-.controller('uploadBannerCtrl', function($scope,$timeout,$http, $window, $state){
+angular.module('galleryController', [])
+.controller('uploadgalleryCtrl', function($scope,$timeout,$http, $window, $state){
 var app = this;
 this.file = {};
 
@@ -24,21 +24,22 @@ $scope.$emit('LOAD');
   };
 
 // 작품 설명  이미지 업로드해서 경로 저장
-this.uploadBanner = function(){
+this.uploadImage = function(itemTitle){
 // 작품 설명  업로드 여부
   $scope.$emit('LOAD');
   app.explainPhoto = false;
   app.disabled = true;
   var fd = new FormData();
+  fd.title = itemTitle;
   fd.append('myfile', app.file.upload);
-    $http.post('/api/banner/', fd,{
+    $http.patch('/api/gallery/', fd, {
     transformRequest: angular.identity,
     headers: {'Content-Type': undefined}
   }).then(function(data){
     if(data.data.success){
+      app.imagePath = data.data.image_path;
       $scope.$emit('UNLOAD');
       $window.alert(data.data.message);
-      $state.reload();
       app.explainPhoto = true;
       app.disabled = false;
     } else {
@@ -50,14 +51,23 @@ this.uploadBanner = function(){
     });
   };
 
+  this.uploadGallery = function(title){
+    galleryData = {
+      title: title,
+      imagePath : app.imagePath
+    };
+    $http.post('/api/gallery', galleryData).then(function(result){
+    });
+  };
 })
 
-.controller('getBannerCtrl', function($http){
+.controller('getGalleryCtrl', function($http){
   var app = this;
 
-  $http.get('/api/banner').then(function(result){
+  $http.get('/api/gallery').then(function(result){
     if(result.data.success){
-        app.bannerData = result.data.bannerData;
+        app.galleryData = result.data.galleryData;
+        console.log(app.galleryData);
     } else {
       console.log("불러오지 못하였습니다.");
     }
