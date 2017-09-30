@@ -3,10 +3,13 @@
 
 /controllers/api/privacy/*.js
 
+/assets/images/*.jpg
 /assets/images/items/explain/*.jpg
 /assets/images/items/main/*.jpg
+/assets/images/items/banner/*.jpg
+/assets/images/items/gallery/*.jpg
 /assets/images/items/thumbnail/*.png
-/assets/images/*.jpg
+
 
 /assets/app.css
 /assets/app.js

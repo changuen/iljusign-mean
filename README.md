@@ -5,9 +5,9 @@
 angular-ui.router, angular-ui-cropper, summernote.js, nodemailer, nodemailer-sendgrid, angular-ui-bootstrap, 다음 우편주소 API
 
 # install 하기 위해 필요한 정보
-노드 패키지 설치 npm install --save
+1. 노드 패키지 설치 npm install --save
 
-../mysql.js, ../controllers/api/privacy/email.js, ../controllers/api/privacy/config.js 파일 필요
+2. ../mysql.js, ../controllers/api/privacy/email.js, ../controllers/api/privacy/config.js 파일 필요
 
 <pre><code>
 mysql.js
@@ -29,3 +29,7 @@ module.exports = {
    secret: '사용자 정의 문자'
 };
 </code></pre>
+
+3. gulp dev 명령어 입력 자동화 빌드 수행
+
+4. http://localhost:3000/ 에서 확인 
