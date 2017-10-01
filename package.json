@@ -2,7 +2,6 @@
   "name": "iljusign",
   "dependencies": {
     "angular": "^1.6.1",
-    "angular-ui-bootstrap": "^2.5.0",
     "base64-img": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.16.0",
