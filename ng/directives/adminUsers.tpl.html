@@ -1,0 +1,34 @@
+<div class="tabPadding" ng-controller="readTypeCtrl as readType">
+      <div class ="row show-hide-message" ng-show="readType.successMsg">
+        <div class="alert alert-success">{{readType.successMsg}}</div>
+      </div>
+      <div class ="row show-hide-message" ng-show="readType.errorMsg">
+        <div class="alert alert-danger">{{readType.errorMsg}}</div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>아이디</th>
+              <th>이메일</th>
+              <th>권한</th>
+              <th>생성시간</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center" ng-repeat="type in readType.typeDatas">
+              <td>{{type.item_type_id}}</td>
+              <td>{{type.name}}</td>
+              <td>{{type.type_code}}</td>
+              <td>{{type.type_description}}</td>
+              <td>
+                <button class="btn btn-info" ng-click="readType.copyType(type)"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button>
+                <button class="btn btn-warning" ui-sref=".update({item_type: type.item_type_id})"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></button>
+                <button class="btn btn-danger" ng-click="readType.deleteType({item_type: type.item_type_id})"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
