@@ -4,48 +4,45 @@ $urlRouterProvider.otherwise('/');
 $locationProvider.hashPrefix('');
 $locationProvider.html5Mode(true);
 
- $stateProvider
-           .state('app', {
+ $stateProvider.state('app', {
              url: '/',
              views:{
                'header': {
                templateUrl: '/menues/header.html'
-               },
+             },
                'content': {
                templateUrl: '/main/form.html'
-               },
-               'menu@app': {
-                 templateUrl: '/menues/mainMenu.html',
-                 controller: 'mainMenuCtrl',
-                 controllerAs: 'mainMenu'
-               },
-               'account@app': {
-                 templateUrl: '/main/account.html'
-               },
-               'contents@app': {
-                 templateUrl: '/main/home.html'
-               },
-               'quickMenu@app': {
-                 templateUrl: '/main/quickMenu.html'
-               },
+             },
                'footer': {
-               templateUrl: '/company/footer.html'
-               }
+                 templateUrl: '/company/footer.html'
+             },
+             'menu@app': {
+               templateUrl: '/menues/mainMenu.html',
+               controller: 'mainMenuCtrl',
+               controllerAs: 'mainMenu'
+             },
+             'account@app': {
+               templateUrl: '/main/account.html'
+             },
+             'contents@app': {
+               templateUrl: '/main/home.html'
+             },
+             'quickMenu@app': {
+               templateUrl: '/main/quickMenu.html'
              }
-            })
-
-            .state('app.registerStep1',
-             {
-               url: 'register/step1',
-               views: {
-                 'contents@app': {
-                   templateUrl: '/users/register/registerStep1.html',
-                   controller: 'regCtrl',
-                   controllerAs: 'register'
-                 }
-               }
-
-            })
+           }
+         })
+         .state('app.registerStep1',
+         {
+           url: 'register/step1',
+           views: {
+             'contents@app': {
+               templateUrl: '/users/register/registerStep1.html',
+               controller: 'regCtrl',
+               controllerAs: 'register'
+             }
+           }
+         })
 
             .state('app.registerStep2',
              {
