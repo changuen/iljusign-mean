@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7fedc56-0ca1-4c7a-930f-85830a1ffe04" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/layouts/admin.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/company/footer.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/content.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/content.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/app.js" afterPath="$PROJECT_DIR$/assets/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/layouts/app.html" afterPath="$PROJECT_DIR$/layouts/app.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ng/directives/footer.tpl.html" afterPath="$PROJECT_DIR$/ng/directives/footer.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ng/route.js" afterPath="$PROJECT_DIR$/ng/route.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/main/home.html" afterPath="$PROJECT_DIR$/templates/main/home.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/mainBanner.js" afterPath="$PROJECT_DIR$/ng/directives/banner.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/mainBanner.tpl.html" afterPath="$PROJECT_DIR$/ng/directives/banner.tpl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/mainHeader.js" afterPath="$PROJECT_DIR$/ng/directives/header.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/mainHeader.tpl.html" afterPath="$PROJECT_DIR$/ng/directives/header.tpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/main/form.html" afterPath="$PROJECT_DIR$/templates/main/form.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,91 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/main/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="banner.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/banner.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fileModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/fileModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/header.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="banner.tpl.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ng/directives/banner.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/footer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/footer.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/header.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/main/form.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -123,8 +38,48 @@
       <file leaf-file-name="app.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/layouts/app.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+            <state relative-caret-position="360">
+              <caret line="47" column="41" lean-forward="true" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ng/directives/content.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content.tpl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ng/directives/content.tpl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="route.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ng/route.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainMenu.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/menues/mainMenu.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -152,11 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/partial-market.html" />
-        <option value="$PROJECT_DIR$/partial-artist-info.html" />
-        <option value="$PROJECT_DIR$/partial-home-ad.html" />
-        <option value="$PROJECT_DIR$/partial-home-artist.html" />
-        <option value="$PROJECT_DIR$/partial-home-gallery.html" />
         <option value="$PROJECT_DIR$/partial-artist_search.html" />
         <option value="$PROJECT_DIR$/partial-artist.html" />
         <option value="$PROJECT_DIR$/partial-gallery.html" />
@@ -196,13 +146,18 @@
         <option value="$PROJECT_DIR$/templates/company/footer.html" />
         <option value="$PROJECT_DIR$/ng/directives/mainHeader.js" />
         <option value="$PROJECT_DIR$/ng/directives/footer.js" />
-        <option value="$PROJECT_DIR$/ng/route.js" />
         <option value="$PROJECT_DIR$/ng/directives/footer.tpl.html" />
-        <option value="$PROJECT_DIR$/layouts/app.html" />
         <option value="$PROJECT_DIR$/ng/directives/header.js" />
         <option value="$PROJECT_DIR$/ng/directives/mainBanner.js" />
         <option value="$PROJECT_DIR$/ng/directives/banner.js" />
         <option value="$PROJECT_DIR$/templates/main/home.html" />
+        <option value="$PROJECT_DIR$/ng/directives/body.tpl.html" />
+        <option value="$PROJECT_DIR$/templates/main/form.html" />
+        <option value="$PROJECT_DIR$/ng/directives/body.js" />
+        <option value="$PROJECT_DIR$/layouts/app.html" />
+        <option value="$PROJECT_DIR$/ng/directives/content.js" />
+        <option value="$PROJECT_DIR$/ng/route.js" />
+        <option value="$PROJECT_DIR$/ng/directives/content.tpl.html" />
       </list>
     </option>
   </component>
@@ -492,7 +447,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76097000" />
+    <option name="totallyTimeSpent" value="76619000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -505,6 +460,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1861" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26220515" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17151767" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -513,7 +469,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2495886" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1954262" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1954262" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -546,9 +502,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/etc/app-router.js" />
-    <entry file="file://$PROJECT_DIR$/etc/app.js" />
-    <entry file="file://$PROJECT_DIR$/etc/index.html" />
     <entry file="file://$PROJECT_DIR$/controllers/api/posts.js" />
     <entry file="file://$PROJECT_DIR$/ng/app.js" />
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -748,22 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ng/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="357" column="25" lean-forward="false" selection-start-line="357" selection-start-column="20" selection-end-line="357" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layouts/app.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ng/directives/fileModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -788,14 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ng/directives/header.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -804,10 +733,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main/form.html">
+    <entry file="file://$PROJECT_DIR$/ng/directives/banner.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="152">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/banner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="80" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -815,23 +760,55 @@
     <entry file="file://$PROJECT_DIR$/templates/main/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+          <caret line="0" column="17" lean-forward="true" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/banner.js">
+    <entry file="file://$PROJECT_DIR$/templates/main/form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/banner.tpl.html">
+    <entry file="file://$PROJECT_DIR$/layouts/app.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="360">
+          <caret line="47" column="41" lean-forward="true" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/content.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="24" lean-forward="true" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/menues/mainMenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>

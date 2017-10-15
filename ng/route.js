@@ -7,9 +7,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider.state('app', {
         url: '/',
         views: {
-            'content': {
-                templateUrl: '/main/form.html'
-            },
             'menu@app': {
                 templateUrl: '/menues/mainMenu.html',
                 controller: 'mainMenuCtrl',
