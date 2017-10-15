@@ -9,7 +9,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         views: {
             'bodyContent@': {
                 templateUrl: '/main/home.html'
-            },
+            }
         }
     })
         .state('app.registerStep1',
@@ -52,7 +52,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: 'login',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/users/login/login.html',
+                    templateUrl: '/users/login/login.html'
                 }
             }
         })
@@ -66,11 +66,20 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             }
         })
 
+        .state('app.gallery', {
+            url: 'gallery',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/categoryes/gallery/home.html'
+                }
+            }
+        })
+
         .state('app.user', {
             url: 'user',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/users/partial/user.html',
+                    templateUrl: '/users/partial/user.html'
                 }
             }
         })
@@ -78,7 +87,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: 'commerce-detail',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/users/partial/commerceDetail.html',
+                    templateUrl: '/users/partial/commerceDetail.html'
                 }
             }
         })
@@ -169,7 +178,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 url: 'management',
                 views: {
                     'bodyContent@app': {
-                        templateUrl: '/management/form.html',
+                        templateUrl: '/management/form.html'
                     },
                     'menu@app.management': {
                         templateUrl: '/management/menu.html'
@@ -337,7 +346,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 url: 'intro',
                 views: {
                     'bodyContent@': {
-                        templateUrl: '/company/intro.html',
+                        templateUrl: '/directives/companyInformation/companyIntroduce.tpl.html',
                         authenticated: false
                     }
                 }
@@ -348,7 +357,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 url: 'terms',
                 views: {
                     'bodyContent@': {
-                        templateUrl: '/company/terms.html',
+                        templateUrl: '/directives/companyInformation/terms.tpl.html',
                         authenticated: false
                     }
                 }
@@ -359,7 +368,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 url: 'privacy',
                 views: {
                     'bodyContent@': {
-                        templateUrl: '/company/privacy.html',
+                        templateUrl: '/directives/companyInformation/privacy.tpl.html',
                         authenticated: false
                     }
                 }

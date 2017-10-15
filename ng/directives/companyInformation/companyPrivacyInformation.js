@@ -1,11 +1,11 @@
 angular.module('app')
-    .directive('userQuickMenu', [function () {
+    .directive('companyPrivacyInformation', [function () {
         return {
             restrict: 'E',
             controller: [function () {
                 var NameCtrl = this;
             }],
-            templateUrl: '/directives/userQuickMenu.tpl.html',
+            templateUrl: '/directives/companyInformation/companyPrivacyInformation.tpl.html',
             link: function (scope, element, attrs, ctrls) {
             }
         };
