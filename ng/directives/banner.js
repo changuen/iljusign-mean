@@ -1,12 +1,12 @@
 angular.module('app')
-    .directive('mainBanner', ['$http', function ($http) {
+    .directive('banner', ['$http', function ($http) {
         return {
             restrict: 'E',
             controller: [ function () {
                 var app = this;
             }],
             controllerAs: 'bannerCtrl',
-            templateUrl: '/directives/mainBanner.tpl.html',
+            templateUrl: '/directives/banner.tpl.html',
             link: function (scope, element, attrs, ctrls) {
                 var appCtrl = ctrls;
 

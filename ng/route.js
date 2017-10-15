@@ -10,9 +10,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             'content': {
                 templateUrl: '/main/form.html'
             },
-            'footer': {
-                templateUrl: '/company/footer.html'
-            },
             'menu@app': {
                 templateUrl: '/menues/mainMenu.html',
                 controller: 'mainMenuCtrl',
