@@ -171,26 +171,32 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             }
         })
 
-
-// 관리자 페이지
-        .state('app.management',
+        // 관리자 페이지
+        .state('app.adminOrderStatus',
             {
-                url: 'management',
+                url: 'adminOrderStatus',
                 views: {
-                    'bodyContent@app': {
-                        templateUrl: '/management/form.html'
-                    },
-                    'menu@app.management': {
-                        templateUrl: '/management/menu.html'
+                    'adminContent@': {
+                        templateUrl: '/management/partial/orderStatus.html'
                     }
                 }
             })
 
-        .state('app.management.category',
+        .state('app.adminMembers',
+            {
+                url: 'members',
+                views: {
+                    'adminContent@': {
+                        templateUrl: '/management/partial/members.html'
+                    }
+                }
+            })
+
+        .state('app.adminCategory',
             {
                 url: 'category',
                 views: {
-                    'contents@app.management': {
+                    'adminContent@': {
                         templateUrl: '/management/partial/category.html',
                         controller: 'mainMenuCtrl',
                         controllerAs: 'mainMenu'
@@ -198,12 +204,37 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             })
 
-        .state('app.management.typeAndItems',
+        .state('app.adminTypeAndItems',
             {
-                url: '/typeAndItems',
+                url: 'typeAndItems',
                 views: {
-                    'contents@app.management': {
+                    'adminContent@': {
                         templateUrl: '/management/partial/typeAndItems.html'
+                    }
+                }
+            })
+
+        .state('app.adminGallery',
+            {
+                url: 'gallery',
+                views: {
+                    'adminContent@': {
+                        templateUrl: '/management/partial/gallery.html',
+                        controller: 'uploadgalleryCtrl',
+                        controllerAs: 'uploadGallery'
+                    }
+                }
+            })
+
+        .state('app.management',
+            {
+                url: 'management',
+                views: {
+                    'adminContent@app': {
+                        templateUrl: '/management/form.html'
+                    },
+                    'menu@app.management': {
+                        templateUrl: '/management/menu.html'
                     }
                 }
             })
@@ -256,47 +287,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                     }
                 }
             })
-        .state('app.management.banner',
-            {
-                url: '/banner',
-                views: {
-                    'contents@app.management': {
-                        templateUrl: '/management/partial/banner.html',
-                        controller: 'uploadBannerCtrl',
-                        controllerAs: 'uploadBanner'
-                    }
-                }
-            })
-        .state('app.management.gallery',
-            {
-                url: '/gallery',
-                views: {
-                    'contents@app.management': {
-                        templateUrl: '/management/partial/gallery.html',
-                        controller: 'uploadgalleryCtrl',
-                        controllerAs: 'uploadGallery'
-                    }
-                }
-            })
-        .state('app.management.orderStatus',
-            {
-                url: '/orderStatus',
-                views: {
-                    'contents@app.management': {
-                        templateUrl: '/management/partial/orderStatus.html'
-                    }
-                }
-            })
-        .state('app.management.members',
-            {
-                url: '/members',
-                views: {
-                    'contents@app.management': {
-                        templateUrl: '/management/partial/members.html'
-                    }
-                }
-            })
-
 
 
         .state('resetusername',

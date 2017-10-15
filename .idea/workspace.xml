@@ -2,40 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7fedc56-0ca1-4c7a-930f-85830a1ffe04" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/companyIntroduce.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/companyIntroduce.tpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/privacy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/privacy.tpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/terms.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/terms.tpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/categoryes/gallery/home.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ng/directives/main/home.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/company/intro.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/company/privacy.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/company/terms.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/menues/mainMenu.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/admin/adminHeader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ng/directives/admin/adminHeader.tpl.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/management/content.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/management/form.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/management/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/management/menu.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/app.js" afterPath="$PROJECT_DIR$/assets/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ng/directives/banner.js" afterPath="$PROJECT_DIR$/ng/directives/banner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ng/directives/menuItem.tpl.html" afterPath="$PROJECT_DIR$/ng/directives/menuItem.tpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ng/controllers/main/mainControllers.js" afterPath="$PROJECT_DIR$/ng/controllers/main/mainControllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ng/directives/main/header.tpl.html" afterPath="$PROJECT_DIR$/ng/directives/main/header.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ng/route.js" afterPath="$PROJECT_DIR$/ng/route.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/main/content.tpl.html" afterPath="$PROJECT_DIR$/templates/main/content.tpl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/admin/bannerController.js" afterPath="$PROJECT_DIR$/ng/controllers/admin/bannerController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/admin/galleryController.js" afterPath="$PROJECT_DIR$/ng/controllers/admin/galleryController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/admin/itemControllers.js" afterPath="$PROJECT_DIR$/ng/controllers/admin/itemControllers.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/admin/managementControllers.js" afterPath="$PROJECT_DIR$/ng/controllers/admin/managementControllers.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/admin/menuControllers.js" afterPath="$PROJECT_DIR$/ng/controllers/admin/menuControllers.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/admin/typeControllers.js" afterPath="$PROJECT_DIR$/ng/controllers/admin/typeControllers.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/main/mainControllers.js" afterPath="$PROJECT_DIR$/ng/controllers/main/mainControllers.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/main/orderControllers.js" afterPath="$PROJECT_DIR$/ng/controllers/main/orderControllers.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/user/emailCtrl.js" afterPath="$PROJECT_DIR$/ng/controllers/user/emailCtrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/contorollers/user/userCtrl.js" afterPath="$PROJECT_DIR$/ng/controllers/user/userCtrl.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/companyPrivacyInformation.js" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/companyPrivacyInformation.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/companyPrivacyInformation.tpl.html" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/companyPrivacyInformation.tpl.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/fileModel.js" afterPath="$PROJECT_DIR$/ng/directives/attribute/fileModel.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/matchPassword.js" afterPath="$PROJECT_DIR$/ng/directives/attribute/matchPassword.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/userQuickMenu.js" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/userQuickMenu.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ng/directives/userQuickMenu.tpl.html" afterPath="$PROJECT_DIR$/ng/directives/companyInformation/userQuickMenu.tpl.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,31 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="terms.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/terms.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userQuickMenu.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/userQuickMenu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="content.tpl.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/main/content.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+            <state relative-caret-position="266">
+              <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -92,61 +50,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="route.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="header.tpl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ng/directives/main/header.tpl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminHeader.tpl.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ng/directives/admin/adminHeader.tpl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="route.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ng/route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state relative-caret-position="189">
+              <caret line="173" column="18" lean-forward="false" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="banner.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/banner.js">
+      <file leaf-file-name="adminHeader.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ng/directives/admin/adminHeader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="companyIntroduce.tpl.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/companyIntroduce.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="16" lean-forward="true" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="companyIntroduce.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/companyIntroduce.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="companyPrivacyInformation.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/companyPrivacyInformation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="7218" lean-forward="false" selection-start-line="0" selection-start-column="7218" selection-end-line="0" selection-end-column="7218" />
+            <state relative-caret-position="19">
+              <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -167,6 +105,8 @@
       <find>terms</find>
       <find>management/orderStatus</find>
       <find>gallery</find>
+      <find>permi</find>
+      <find>orderStatus</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,12 +115,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/register.html" />
-        <option value="$PROJECT_DIR$/db.js" />
-        <option value="$PROJECT_DIR$/templates/posts.html" />
-        <option value="$PROJECT_DIR$/css/app.styl" />
         <option value="$PROJECT_DIR$/ng/directives/mainBanner.tpl.html" />
-        <option value="$PROJECT_DIR$/templates/management/menu.html" />
         <option value="$PROJECT_DIR$/templates/management/login.html" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/ng/directives/mainHeader.tpl.html" />
@@ -213,7 +148,6 @@
         <option value="$PROJECT_DIR$/ng/directives/main/content.tpl.html" />
         <option value="$PROJECT_DIR$/ng/directives/main/home.html" />
         <option value="$PROJECT_DIR$/templates/main/home.html" />
-        <option value="$PROJECT_DIR$/templates/main/content.tpl.html" />
         <option value="$PROJECT_DIR$/ng/directives/companyInformation/introduce.js" />
         <option value="$PROJECT_DIR$/ng/directives/companyInformation/privacy.js" />
         <option value="$PROJECT_DIR$/ng/directives/companyInformation/terms.js" />
@@ -224,8 +158,14 @@
         <option value="$PROJECT_DIR$/ng/directives/companyInformation/companyPrivacyInformation.js" />
         <option value="$PROJECT_DIR$/ng/directives/companyInformation/userQuickMenu.js" />
         <option value="$PROJECT_DIR$/ng/directives/menuItem.tpl.html" />
-        <option value="$PROJECT_DIR$/ng/route.js" />
         <option value="$PROJECT_DIR$/ng/directives/banner.js" />
+        <option value="$PROJECT_DIR$/ng/directives/admin/adminHeader.js" />
+        <option value="$PROJECT_DIR$/ng/controllers/main/mainControllers.js" />
+        <option value="$PROJECT_DIR$/templates/management/menu.html" />
+        <option value="$PROJECT_DIR$/ng/directives/admin/adminHeader.tpl.html" />
+        <option value="$PROJECT_DIR$/ng/directives/main/header.tpl.html" />
+        <option value="$PROJECT_DIR$/templates/main/content.tpl.html" />
+        <option value="$PROJECT_DIR$/ng/route.js" />
       </list>
     </option>
   </component>
@@ -294,6 +234,19 @@
               <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
               <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
               <item name="ng" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
+              <item name="ng" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
+              <item name="ng" type="462c0819:PsiDirectoryNode" />
               <item name="directives" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -301,7 +254,28 @@
               <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
               <item name="ng" type="462c0819:PsiDirectoryNode" />
               <item name="directives" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
+              <item name="ng" type="462c0819:PsiDirectoryNode" />
+              <item name="directives" type="462c0819:PsiDirectoryNode" />
+              <item name="attribute" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
+              <item name="ng" type="462c0819:PsiDirectoryNode" />
+              <item name="directives" type="462c0819:PsiDirectoryNode" />
               <item name="companyInformation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
+              <item name="ng" type="462c0819:PsiDirectoryNode" />
+              <item name="directives" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
@@ -326,13 +300,6 @@
               <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="categoryes" type="462c0819:PsiDirectoryNode" />
-              <item name="gallery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
-              <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="categoryes" type="462c0819:PsiDirectoryNode" />
               <item name="items" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -340,6 +307,19 @@
               <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="management" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="iljusign-mean" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="management" type="462c0819:PsiDirectoryNode" />
+              <item name="partial" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="iljusign-mean" type="b2602c69:ProjectViewProjectNode" />
@@ -392,19 +372,19 @@
     <property name="jsx.switch.disabled" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\iljusign-mean\admin" />
+      <recent name="D:\iljusign-mean\ng\directives\attribute" />
+      <recent name="D:\iljusign-mean\ng\directives\companyInformation" />
+      <recent name="D:\iljusign-mean\ng\directives\main" />
+      <recent name="D:\Web\FullStack\MeanStackTutorial\Chapter6\ng" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\iljusign-mean\templates\main" />
       <recent name="D:\iljusign-mean\layouts" />
       <recent name="C:\AngularJsTest\layout" />
       <recent name="C:\AngularJsTest" />
       <recent name="C:\AngularJsTest\images" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\iljusign-mean\ng\directives\attribute" />
-      <recent name="D:\iljusign-mean\ng\directives\companyInformation" />
-      <recent name="D:\iljusign-mean\ng\directives\main" />
-      <recent name="D:\Web\FullStack\MeanStackTutorial\Chapter6\ng" />
-      <recent name="C:\WebSource\FullStackTest01\etc" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -513,7 +493,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81372000" />
+    <option name="totallyTimeSpent" value="83129000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -528,7 +508,7 @@
     <frame x="-8" y="-8" width="1861" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26330224" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25397697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17151767" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30769232" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -568,52 +548,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/management/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="22" lean-forward="true" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ng/controllers/main/mainControllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2433">
-          <caret line="57" column="16" lean-forward="true" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layouts/admin.html" />
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="45" column="11" lean-forward="true" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/menues/header.html" />
-    <entry file="file://$PROJECT_DIR$/templates/company/footer.html" />
-    <entry file="file://$PROJECT_DIR$/ng/directives/footer.tpl.js" />
-    <entry file="file://$PROJECT_DIR$/ng/directives/main/header.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/main/header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ng/controllers/user/userCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-95">
           <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -628,7 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="13" lean-forward="true" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -660,31 +597,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/company/privacy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/company/terms.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/company/privacy.html" />
+    <entry file="file://$PROJECT_DIR$/templates/company/terms.html" />
     <entry file="file://$PROJECT_DIR$/templates/categoryes/items/item.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -696,35 +617,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/menues/mainMenu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/company/intro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/main/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/menues/mainMenu.html" />
+    <entry file="file://$PROJECT_DIR$/templates/company/intro.html" />
+    <entry file="file://$PROJECT_DIR$/ng/directives/main/home.html" />
     <entry file="file://$PROJECT_DIR$/ng/directives/main/footer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -732,7 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -740,7 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -748,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-39">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -756,15 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main/form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="41" lean-forward="false" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -780,7 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -788,7 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -796,23 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="14" lean-forward="true" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/layouts/app.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/main/content.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="18" lean-forward="true" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -864,10 +729,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main/content.tpl.html">
+    <entry file="file://$PROJECT_DIR$/ng/directives/banner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/companyIntroduce.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+          <caret line="0" column="16" lean-forward="true" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/companyPrivacyInformation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/categoryes/board/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/layouts/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/main/content.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/companyIntroduce.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/controllers/main/mainControllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/admin/adminHeader.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -880,42 +815,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ng/route.js">
+    <entry file="file://$PROJECT_DIR$/ng/directives/admin/adminHeader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        <state relative-caret-position="19">
+          <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/banner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/companyIntroduce.tpl.html">
+    <entry file="file://$PROJECT_DIR$/templates/management/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="16" lean-forward="true" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/companyIntroduce.js">
+    <entry file="file://$PROJECT_DIR$/templates/management/menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="114">
+          <caret line="6" column="25" lean-forward="false" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ng/directives/companyInformation/companyPrivacyInformation.js">
+    <entry file="file://$PROJECT_DIR$/templates/management/content.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="56" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="56" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/management/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/directives/main/header.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main/content.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ng/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="173" column="18" lean-forward="false" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
           <folding />
         </state>
       </provider>

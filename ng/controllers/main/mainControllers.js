@@ -24,6 +24,7 @@ angular.module('mainControllers',['authServices', 'userServices'])
             if(data.data.success){
               if(data.data.permission === 'admin'){
                 app.authorized = true;
+                app.permission = true;
                 app.loadme = true;
               } else if(data.data.permission === 'artist'){
                 app.permission = true;
