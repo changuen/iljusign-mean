@@ -1,9 +1,9 @@
-<div>
-  <div style="height: 305px">
-    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-      <div uib-slide ng-repeat="slide in bannerCtrl.bannerData" index="bannerCtrl.bannerData.id">
-        <img ng-src="{{slide.image_path}}" style="margin:auto;">
-      </div>
+<div ng-controller="CarouselCtrl">
+    <div style="height: 305px">
+        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                <img ng-src="{{slide.image}}" style="width: 100%;">
+            </div>
+        </div>
     </div>
-  </div>
 </div>
