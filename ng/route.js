@@ -247,15 +247,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             })
 
         // 관리자 페이지
-        .state('app.adminLaboratory',
-            {
-                url: 'adminLaboratory',
-                views: {
-                    'adminContent@': {
-                        templateUrl: '/directives/admin/adminLaboratory.tpl.html',
-                    }
-                }
-            })
 
         .state('app.adminOrderStatus',
             {
@@ -310,6 +301,27 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                     }
                 }
             })
+
+        .state('app.adminPersonalOrder',
+            {
+                url: 'adminPersonalOrder',
+                views: {
+                    'adminContent@': {
+                        templateUrl: '/directives/admin/adminPersonalOrder.tpl.html',
+                    }
+                }
+            })
+
+        .state('app.adminLaboratory',
+            {
+                url: 'adminLaboratory',
+                views: {
+                    'adminContent@': {
+                        templateUrl: '/directives/admin/adminLaboratory.tpl.html',
+                    }
+                }
+            })
+
 
         .state('app.management',
             {
