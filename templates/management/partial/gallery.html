@@ -9,6 +9,10 @@
     <uib-tab index="1" heading="갤러리등록">
       <div class="tabPadding" >
 
+      <div class ="row show-hide-message" ng-show="uploadGallery.errorMsg">
+          <div class="alert alert-danger">{{uploadGallery.errorMsg}}</div>
+      </div>
+
       <div class="row">
             <div class="col-sm-12">
               <div>
