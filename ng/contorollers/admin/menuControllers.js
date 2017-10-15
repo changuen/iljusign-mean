@@ -1,13 +1,6 @@
 angular.module('menuControllers',['menuServices'])
 .controller('mainMenuCtrl', function (Menu, $state) {
   var app = this;
-  Menu.readMainMenu().then(function(data){
-    if(data.data.success){
-      app.mainMenues = data.data.result;
-    } else {
-      app.errorMsg = data.data.message;
-    }
-  });
 
   this.createMenu = function(data){
     app.errorMsg = false;

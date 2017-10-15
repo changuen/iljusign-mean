@@ -1,13 +1,13 @@
 var compression = require('compression');
 var express = require('express');
 var bodyParser = require('body-parser');
+
 var app = express();
 
 app.use(compression());
 
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
-
 
 app.use(express.static('image'));
 app.use('/', require('./controllers/static'));
@@ -51,9 +51,9 @@ app.use('/api/renewToken', require('./controllers/api/user/renewToken'));
 app.use('/api/activate', require('./controllers/api/user/activate'));
 app.use('/api/resend', require('./controllers/api/user/resend'));
 
-app.all('/*', function(req, res, next) {
+app.all('/*', function (req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
-    res.sendFile('layouts/app.html', { root: __dirname });
+    res.sendFile('layouts/app.html', {root: __dirname});
 });
 
 app.listen(3000, function () {
