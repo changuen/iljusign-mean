@@ -9,7 +9,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         views: {
             'bodyContent@': {
                 templateUrl: '/main/home.html'
-            },
+            }
         }
     })
         .state('app.registerStep1',
@@ -52,7 +52,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: 'login',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/users/login/login.html',
+                    templateUrl: '/users/login/login.html'
                 }
             }
         })
@@ -61,7 +61,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: 'board',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/categoryes/board/form.html'
+                    templateUrl: '/categoryes/board/home.html'
+                }
+            }
+        })
+
+        .state('app.gallery', {
+            url: 'gallery',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/categoryes/gallery/home.html'
                 }
             }
         })
@@ -70,7 +79,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: 'user',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/users/partial/user.html',
+                    templateUrl: '/users/partial/user.html'
                 }
             }
         })
@@ -78,7 +87,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: 'commerce-detail',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/users/partial/commerceDetail.html',
+                    templateUrl: '/users/partial/commerceDetail.html'
                 }
             }
         })
@@ -102,7 +111,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                     controllerAs: 'subMenu'
                 },
                 'bodyContent@': {
-                    templateUrl: '/categoryes/items/form.html',
+                    templateUrl: '/categoryes/items/home.html',
                     controller: 'getTypeItemsCtrl',
                     controllerAs: 'getTypeItems'
                 }
@@ -112,7 +121,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/item_type=:type_code',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/categoryes/items/form.html',
+                    templateUrl: '/categoryes/items/home.html',
                     controller: 'getTypeItemsCtrl',
                     controllerAs: 'getTypeItems'
                 }
@@ -162,26 +171,108 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             }
         })
 
-
-// 관리자 페이지
-        .state('app.management',
+        .state('resetusername',
             {
-                url: 'management',
+                url: '/resetusername',
+                templateUrl: '/users/reset/username.html',
+                controller: 'usernameCtrl',
+                controllerAs: 'username'
+            })
+
+        .state('resetpassword',
+            {
+                url: '/resetpassword',
+                templateUrl: '/users/reset/password.html',
+                controller: 'passwordCtrl',
+                controllerAs: 'password'
+            })
+
+        .state('reset',
+            {
+                url: '/reset/:token',
+                templateUrl: '/users/reset/newpassword.html',
+                controller: 'resetCtrl',
+                controllerAs: 'reset'
+            })
+
+
+        .state('activate',
+            {
+                url: '/activate/:token',
+                templateUrl: '/users/activation/activate.html',
+                controller: 'emailCtrl',
+                controllerAs: 'email'
+            })
+
+        .state('resend',
+            {
+                url: '/resend',
+                templateUrl: '/users/activation/resend.html',
+                controller: 'resendCtrl',
+                controllerAs: 'resend'
+            })
+
+
+        .state('app.intro',
+            {
+                url: 'intro',
                 views: {
-                    'bodyContent@app': {
-                        templateUrl: '/management/form.html',
-                    },
-                    'menu@app.management': {
-                        templateUrl: '/management/menu.html'
+                    'bodyContent@': {
+                        templateUrl: '/directives/companyInformation/companyIntroduce.tpl.html',
+                        authenticated: false
                     }
                 }
             })
 
-        .state('app.management.category',
+        .state('app.terms',
             {
-                url: 'category',
+                url: 'terms',
                 views: {
-                    'contents@app.management': {
+                    'bodyContent@': {
+                        templateUrl: '/directives/companyInformation/terms.tpl.html',
+                        authenticated: false
+                    }
+                }
+            })
+
+        .state('app.privacy',
+            {
+                url: 'privacy',
+                views: {
+                    'bodyContent@': {
+                        templateUrl: '/directives/companyInformation/privacy.tpl.html',
+                        authenticated: false
+                    }
+                }
+            })
+
+        // 관리자 페이지
+
+        .state('app.adminOrderStatus',
+            {
+                url: 'adminOrderStatus',
+                views: {
+                    'adminContent@': {
+                        templateUrl: '/management/partial/orderStatus.html'
+                    }
+                }
+            })
+
+        .state('app.adminMembers',
+            {
+                url: 'adminMembers',
+                views: {
+                    'adminContent@': {
+                        templateUrl: '/management/partial/members.html'
+                    }
+                }
+            })
+
+        .state('app.adminCategory',
+            {
+                url: 'adminCategory',
+                views: {
+                    'adminContent@': {
                         templateUrl: '/management/partial/category.html',
                         controller: 'mainMenuCtrl',
                         controllerAs: 'mainMenu'
@@ -189,12 +280,48 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             })
 
-        .state('app.management.typeAndItems',
+        .state('app.adminTypeAndItems',
             {
-                url: '/typeAndItems',
+                url: 'adminTypeAndItems',
                 views: {
-                    'contents@app.management': {
+                    'adminContent@': {
                         templateUrl: '/management/partial/typeAndItems.html'
+                    }
+                }
+            })
+
+        .state('app.adminGallery',
+            {
+                url: 'adminGallery',
+                views: {
+                    'adminContent@': {
+                        templateUrl: '/management/partial/gallery.html',
+                        controller: 'uploadgalleryCtrl',
+                        controllerAs: 'uploadGallery'
+                    }
+                }
+            })
+
+        .state('app.adminLaboratory',
+            {
+                url: 'adminLaboratory',
+                views: {
+                    'adminContent@': {
+                        templateUrl: '/directives/admin/adminLaboratory.tpl.html',
+                    }
+                }
+            })
+
+
+        .state('app.management',
+            {
+                url: 'management',
+                views: {
+                    'adminContent@app': {
+                        templateUrl: '/management/home.html'
+                    },
+                    'menu@app.management': {
+                        templateUrl: '/management/menu.html'
                     }
                 }
             })
@@ -246,125 +373,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                         controllerAs: 'readItem'
                     }
                 }
-            })
-        .state('app.management.banner',
-            {
-                url: '/banner',
-                views: {
-                    'contents@app.management': {
-                        templateUrl: '/management/partial/banner.html',
-                        controller: 'uploadBannerCtrl',
-                        controllerAs: 'uploadBanner'
-                    }
-                }
-            })
-        .state('app.management.gallery',
-            {
-                url: '/gallery',
-                views: {
-                    'contents@app.management': {
-                        templateUrl: '/management/partial/gallery.html',
-                        controller: 'uploadgalleryCtrl',
-                        controllerAs: 'uploadGallery'
-                    }
-                }
-            })
-        .state('app.management.orderStatus',
-            {
-                url: '/orderStatus',
-                views: {
-                    'contents@app.management': {
-                        templateUrl: '/management/partial/orderStatus.html'
-                    }
-                }
-            })
-        .state('app.management.members',
-            {
-                url: '/members',
-                views: {
-                    'contents@app.management': {
-                        templateUrl: '/management/partial/members.html'
-                    }
-                }
-            })
-
-
-
-        .state('resetusername',
-            {
-                url: '/resetusername',
-                templateUrl: '/users/reset/username.html',
-                controller: 'usernameCtrl',
-                controllerAs: 'username'
-            })
-
-        .state('resetpassword',
-            {
-                url: '/resetpassword',
-                templateUrl: '/users/reset/password.html',
-                controller: 'passwordCtrl',
-                controllerAs: 'password'
-            })
-
-        .state('reset',
-            {
-                url: '/reset/:token',
-                templateUrl: '/users/reset/newpassword.html',
-                controller: 'resetCtrl',
-                controllerAs: 'reset'
-            })
-
-
-        .state('activate',
-            {
-                url: '/activate/:token',
-                templateUrl: '/users/activation/activate.html',
-                controller: 'emailCtrl',
-                controllerAs: 'email'
-            })
-
-        .state('resend',
-            {
-                url: '/resend',
-                templateUrl: '/users/activation/resend.html',
-                controller: 'resendCtrl',
-                controllerAs: 'resend'
-            })
-
-
-        .state('app.intro',
-            {
-                url: 'intro',
-                views: {
-                    'bodyContent@': {
-                        templateUrl: '/company/intro.html',
-                        authenticated: false
-                    }
-                }
-            })
-
-        .state('app.terms',
-            {
-                url: 'terms',
-                views: {
-                    'bodyContent@': {
-                        templateUrl: '/company/terms.html',
-                        authenticated: false
-                    }
-                }
-            })
-
-        .state('app.privacy',
-            {
-                url: 'privacy',
-                views: {
-                    'bodyContent@': {
-                        templateUrl: '/company/privacy.html',
-                        authenticated: false
-                    }
-                }
             });
-
 });
 
 app.run(function ($rootScope, User, $state) {

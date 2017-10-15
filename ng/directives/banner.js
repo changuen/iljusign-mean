@@ -13,7 +13,6 @@ angular.module('app')
 
                 $http.get('/api/banner').then(function(result){
                     if(result.data.success){
-                        console.log(appCtrl.bannerData);
                         appCtrl.bannerData = result.data.bannerData;
                     } else {
                         console.log("불러오지 못하였습니다.");
