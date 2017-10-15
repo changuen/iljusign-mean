@@ -7,27 +7,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider.state('app', {
         url: '/',
         views: {
-            'menu@app': {
-                templateUrl: '/menues/mainMenu.html',
-                controller: 'mainMenuCtrl',
-                controllerAs: 'mainMenu'
-            },
-            'account@app': {
-                templateUrl: '/main/account.html'
-            },
-            'contents@app': {
+            'bodyContent@': {
                 templateUrl: '/main/home.html'
             },
-            'quickMenu@app': {
-                templateUrl: '/main/quickMenu.html'
-            }
         }
     })
         .state('app.registerStep1',
             {
                 url: 'register/step1',
                 views: {
-                    'contents@app': {
+                    'bodyContent@': {
                         templateUrl: '/users/register/registerStep1.html',
                         controller: 'regCtrl',
                         controllerAs: 'register'
@@ -39,7 +28,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             {
                 url: 'register/step2',
                 views: {
-                    'contents@app': {
+                    'bodyContent@': {
                         templateUrl: '/users/register/registerStep2.html',
                         controller: 'regCtrl',
                         controllerAs: 'register'
@@ -51,7 +40,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             {
                 url: 'register/step3',
                 views: {
-                    'contents@app': {
+                    'bodyContent@app': {
                         templateUrl: '/users/register/registerStep3.html',
                         controller: 'regCtrl',
                         controllerAs: 'register'
@@ -62,17 +51,124 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('app.login', {
             url: 'login',
             views: {
-                'contents@app': {
+                'bodyContent@': {
                     templateUrl: '/users/login/login.html',
                 }
             }
         })
 
+        .state('app.board', {
+            url: 'board',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/categoryes/board/form.html'
+                }
+            }
+        })
+
+        .state('app.user', {
+            url: 'user',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/users/partial/user.html',
+                }
+            }
+        })
+        .state('app.commerceDetail', {
+            url: 'commerce-detail',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/users/partial/commerceDetail.html',
+                }
+            }
+        })
+        .state('app.basket', {
+            url: 'basket',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/users/partial/basket.html',
+                    controller: 'basketCtrl',
+                    controllerAs: 'basket'
+                }
+            }
+        })
+
+        .state('app.category', {
+            url: 'category=:category_id',
+            views: {
+                'subMenu@app': {
+                    templateUrl: '/menues/subMenu.html',
+                    controller: 'subMenuCtrl',
+                    controllerAs: 'subMenu'
+                },
+                'bodyContent@': {
+                    templateUrl: '/categoryes/items/form.html',
+                    controller: 'getTypeItemsCtrl',
+                    controllerAs: 'getTypeItems'
+                }
+            }
+        })
+        .state('app.category.item_type', {
+            url: '/item_type=:type_code',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/categoryes/items/form.html',
+                    controller: 'getTypeItemsCtrl',
+                    controllerAs: 'getTypeItems'
+                }
+            }
+        })
+        .state('app.category.item_type.show', {
+            url: '/item:item_id',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/categoryes/items/item.html',
+                    controller: 'getTypeItemCtrl',
+                    controllerAs: 'getTypeItem'
+                }
+            }
+        })
+
+        .state('app.category.show', {
+            url: '/item:item_id',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/categoryes/items/item.html',
+                    controller: 'getTypeItemCtrl',
+                    controllerAs: 'getTypeItem'
+                }
+            }
+        })
+
+        .state('app.makeOrder', {
+            url: 'makeOrder',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/order/makeOrder.html',
+                    controller: 'readOrderCtrl',
+                    controllerAs: 'readOrder'
+                }
+            }
+        })
+
+        .state('app.confirmOrder', {
+            url: 'confirmOrder',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/order/confirmOrder.html',
+                    controller: 'readOrderCtrl',
+                    controllerAs: 'readOrderCtrl'
+                }
+            }
+        })
+
+
+// 관리자 페이지
         .state('app.management',
             {
                 url: 'management',
                 views: {
-                    'content@': {
+                    'bodyContent@app': {
                         templateUrl: '/management/form.html',
                     },
                     'menu@app.management': {
@@ -193,111 +289,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             })
 
 
-        .state('app.user', {
-            url: 'user',
-            views: {
-                'contents@app': {
-                    templateUrl: '/users/partial/user.html',
-                }
-            }
-        })
-        .state('app.commerceDetail', {
-            url: 'commerce-detail',
-            views: {
-                'contents@app': {
-                    templateUrl: '/users/partial/commerceDetail.html',
-                }
-            }
-        })
-        .state('app.basket', {
-            url: 'basket',
-            views: {
-                'contents@app': {
-                    templateUrl: '/users/partial/basket.html',
-                    controller: 'basketCtrl',
-                    controllerAs: 'basket'
-                }
-            }
-        })
-
-        .state('app.category', {
-            url: 'category=:category_id',
-            views: {
-                'subMenu@app': {
-                    templateUrl: '/menues/subMenu.html',
-                    controller: 'subMenuCtrl',
-                    controllerAs: 'subMenu'
-                },
-                'contents@app': {
-                    templateUrl: '/categoryes/items/form.html',
-                    controller: 'getTypeItemsCtrl',
-                    controllerAs: 'getTypeItems'
-                }
-            }
-        })
-        .state('app.category.item_type', {
-            url: '/item_type=:type_code',
-            views: {
-                'contents@app': {
-                    templateUrl: '/categoryes/items/form.html',
-                    controller: 'getTypeItemsCtrl',
-                    controllerAs: 'getTypeItems'
-                }
-            }
-        })
-        .state('app.category.item_type.show', {
-            url: '/item:item_id',
-            views: {
-                'contents@app': {
-                    templateUrl: '/categoryes/items/item.html',
-                    controller: 'getTypeItemCtrl',
-                    controllerAs: 'getTypeItem'
-                }
-            }
-        })
-
-        .state('app.category.show', {
-            url: '/item:item_id',
-            views: {
-                'contents@app': {
-                    templateUrl: '/categoryes/items/item.html',
-                    controller: 'getTypeItemCtrl',
-                    controllerAs: 'getTypeItem'
-                }
-            }
-        })
-
-        .state('app.makeOrder', {
-            url: 'makeOrder',
-            views: {
-                'contents@app': {
-                    templateUrl: '/order/makeOrder.html',
-                    controller: 'readOrderCtrl',
-                    controllerAs: 'readOrder'
-                }
-            }
-        })
-
-        .state('app.confirmOrder', {
-            url: 'confirmOrder',
-            views: {
-                'contents@app': {
-                    templateUrl: '/order/confirmOrder.html',
-                    controller: 'readOrderCtrl',
-                    controllerAs: 'readOrderCtrl'
-                }
-            }
-        })
-
-        .state('app.board', {
-            url: 'board',
-            views: {
-                'contents@app': {
-                    templateUrl: '/categoryes/board/form.html'
-                }
-            }
-        })
-
 
         .state('resetusername',
             {
@@ -345,7 +336,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             {
                 url: 'intro',
                 views: {
-                    'content@': {
+                    'bodyContent@': {
                         templateUrl: '/company/intro.html',
                         authenticated: false
                     }
@@ -356,7 +347,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             {
                 url: 'terms',
                 views: {
-                    'content@': {
+                    'bodyContent@': {
                         templateUrl: '/company/terms.html',
                         authenticated: false
                     }
@@ -367,7 +358,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             {
                 url: 'privacy',
                 views: {
-                    'content@': {
+                    'bodyContent@': {
                         templateUrl: '/company/privacy.html',
                         authenticated: false
                     }
