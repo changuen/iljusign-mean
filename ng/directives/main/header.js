@@ -5,7 +5,7 @@ angular.module('app')
             controller: [ function () {
                 var app = this;
             }],
-            templateUrl: '/directives/header.tpl.html',
+            templateUrl: '/directives/main/header.tpl.html',
             link: function (scope, element, attrs, ctrls) {
                 var appCtrl = ctrls;
             }
