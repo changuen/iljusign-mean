@@ -13,9 +13,7 @@
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-left">
-                <!-- 메뉴 타입 -->
-                <!-- <li ng-repeat="header in headers"><a ui-sref="app.{{header.description_eng}}({code: 0})" ui-sref-active="active">{{header.description}}</a></li> -->
-                <li ng-show="main.authorized"><a ui-sref="app.management.orderStatus">관리자 페이지</a></li>
+                <li ng-show="main.authorized"><a ui-sref="app.adminOrderStatus">관리자 페이지</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -28,7 +26,6 @@
                         <li><a ui-sref="app.commerceDetail" ui-sref-active="active">주문정보</a></li>
                         <li><a ui-sref="app.basket" ui-sref-active="active">장바구니</a></li>
                         <li role="separator" class="divider"></li>
-                        <!-- <li class="dropdown-header">Nav header</li> -->
                         <li><a href="/" ng-click="main.logout()">접속 종료</a></li>
                     </ul>
                 </li>
