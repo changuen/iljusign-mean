@@ -112,8 +112,9 @@ try{
         var insertSql = 'INSERT INTO gallery set ?';
 
         var insertValue = {
-          title: req.body.title,
-          image_path: req.body.imagePath
+            caption: req.body.caption,
+            url: req.body.thumbUrl,
+            thumbUrl: req.body.thumbUrl
         };
 
         connection.query(insertSql, insertValue, function (error, results, next) {
@@ -133,9 +134,5 @@ catch(ex){
   return next(ex);
 }
 });
-
-
-
-
 
 module.exports = router;

@@ -247,6 +247,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             })
 
         // 관리자 페이지
+        .state('app.adminLaboratory',
+            {
+                url: 'adminLaboratory',
+                views: {
+                    'adminContent@': {
+                        templateUrl: '/directives/admin/adminLaboratory.tpl.html',
+                    }
+                }
+            })
+
         .state('app.adminOrderStatus',
             {
                 url: 'adminOrderStatus',
@@ -259,7 +269,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
         .state('app.adminMembers',
             {
-                url: 'members',
+                url: 'adminMembers',
                 views: {
                     'adminContent@': {
                         templateUrl: '/management/partial/members.html'
@@ -269,7 +279,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
         .state('app.adminCategory',
             {
-                url: 'category',
+                url: 'adminCategory',
                 views: {
                     'adminContent@': {
                         templateUrl: '/management/partial/category.html',
@@ -281,7 +291,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
         .state('app.adminTypeAndItems',
             {
-                url: 'typeAndItems',
+                url: 'adminTypeAndItems',
                 views: {
                     'adminContent@': {
                         templateUrl: '/management/partial/typeAndItems.html'
@@ -291,7 +301,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
         .state('app.adminGallery',
             {
-                url: 'gallery',
+                url: 'adminGallery',
                 views: {
                     'adminContent@': {
                         templateUrl: '/management/partial/gallery.html',

@@ -20,7 +20,7 @@ angular.module('app')
                 });
 
                 galleryCtrl.openLightboxModal = function (index) {
-                    Lightbox.openModal(galleryCtrl.galleryData, 0);
+                    Lightbox.openModal(galleryCtrl.galleryData, index);
                 };
             }
         };

@@ -2,22 +2,8 @@
   <uib-tabset active="activeForm">
 <!-- 상품분류표 -->
     <uib-tab index="0" heading="갤러리관리">
-      <div class="tabPadding" ng-controller="getGalleryCtrl as getGallery">
-          <div class ="row show-hide-message" ng-show="getGallery.successMsg">
-            <div class="alert alert-success">{{getGallery.successMsg}}</div>
-          </div>
-          <div class ="row show-hide-message" ng-show="getGallery.errorMsg">
-            <div class="alert alert-danger">{{getGallery.errorMsg}}</div>
-          </div>
-          <div class="row container-fluid">
-            <div class="col-xs-4" ng-repeat="gallery in getGallery.galleryData">
-              <p>{{gallery.title}}</p>
-              <div>
-                <img class="img-responsive" ng-src="{{gallery.image_path}}">
-              </div>
-              <br>
-          </div>
-        </div>
+      <div class="tabPadding">
+          <gallery-content></gallery-content>
       </div>
     </uib-tab>
     <uib-tab index="1" heading="갤러리등록">
