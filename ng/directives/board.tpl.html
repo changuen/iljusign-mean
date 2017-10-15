@@ -1,0 +1,26 @@
+<div class="row show-hide-message" ng-show="readType.successMsg">
+    <div class="alert alert-success">{{readType.successMsg}}</div>
+</div>
+<div class="row show-hide-message" ng-show="readType.errorMsg">
+    <div class="alert alert-danger">{{readType.errorMsg}}</div>
+</div>
+<div>
+    <button ng-click="boardCtrl.writeArticle()">시안의뢰하기</button>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성시간</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" ng-repeat="type in readType.typeDatas">
+
+        </tr>
+        </tbody>
+    </table>
+</div>

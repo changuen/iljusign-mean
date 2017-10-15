@@ -61,7 +61,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: 'board',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/categoryes/board/form.html'
+                    templateUrl: '/categoryes/board/home.html'
                 }
             }
         })
@@ -111,7 +111,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                     controllerAs: 'subMenu'
                 },
                 'bodyContent@': {
-                    templateUrl: '/categoryes/items/form.html',
+                    templateUrl: '/categoryes/items/home.html',
                     controller: 'getTypeItemsCtrl',
                     controllerAs: 'getTypeItems'
                 }
@@ -121,7 +121,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/item_type=:type_code',
             views: {
                 'bodyContent@': {
-                    templateUrl: '/categoryes/items/form.html',
+                    templateUrl: '/categoryes/items/home.html',
                     controller: 'getTypeItemsCtrl',
                     controllerAs: 'getTypeItems'
                 }
@@ -302,16 +302,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             })
 
-        .state('app.adminPersonalOrder',
-            {
-                url: 'adminPersonalOrder',
-                views: {
-                    'adminContent@': {
-                        templateUrl: '/directives/admin/adminPersonalOrder.tpl.html',
-                    }
-                }
-            })
-
         .state('app.adminLaboratory',
             {
                 url: 'adminLaboratory',
@@ -328,7 +318,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 url: 'management',
                 views: {
                     'adminContent@app': {
-                        templateUrl: '/management/form.html'
+                        templateUrl: '/management/home.html'
                     },
                     'menu@app.management': {
                         templateUrl: '/management/menu.html'
