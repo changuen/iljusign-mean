@@ -171,6 +171,81 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             }
         })
 
+        .state('resetusername',
+            {
+                url: '/resetusername',
+                templateUrl: '/users/reset/username.html',
+                controller: 'usernameCtrl',
+                controllerAs: 'username'
+            })
+
+        .state('resetpassword',
+            {
+                url: '/resetpassword',
+                templateUrl: '/users/reset/password.html',
+                controller: 'passwordCtrl',
+                controllerAs: 'password'
+            })
+
+        .state('reset',
+            {
+                url: '/reset/:token',
+                templateUrl: '/users/reset/newpassword.html',
+                controller: 'resetCtrl',
+                controllerAs: 'reset'
+            })
+
+
+        .state('activate',
+            {
+                url: '/activate/:token',
+                templateUrl: '/users/activation/activate.html',
+                controller: 'emailCtrl',
+                controllerAs: 'email'
+            })
+
+        .state('resend',
+            {
+                url: '/resend',
+                templateUrl: '/users/activation/resend.html',
+                controller: 'resendCtrl',
+                controllerAs: 'resend'
+            })
+
+
+        .state('app.intro',
+            {
+                url: 'intro',
+                views: {
+                    'bodyContent@': {
+                        templateUrl: '/directives/companyInformation/companyIntroduce.tpl.html',
+                        authenticated: false
+                    }
+                }
+            })
+
+        .state('app.terms',
+            {
+                url: 'terms',
+                views: {
+                    'bodyContent@': {
+                        templateUrl: '/directives/companyInformation/terms.tpl.html',
+                        authenticated: false
+                    }
+                }
+            })
+
+        .state('app.privacy',
+            {
+                url: 'privacy',
+                views: {
+                    'bodyContent@': {
+                        templateUrl: '/directives/companyInformation/privacy.tpl.html',
+                        authenticated: false
+                    }
+                }
+            })
+
         // 관리자 페이지
         .state('app.adminOrderStatus',
             {
@@ -286,84 +361,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                         controllerAs: 'readItem'
                     }
                 }
-            })
-
-
-        .state('resetusername',
-            {
-                url: '/resetusername',
-                templateUrl: '/users/reset/username.html',
-                controller: 'usernameCtrl',
-                controllerAs: 'username'
-            })
-
-        .state('resetpassword',
-            {
-                url: '/resetpassword',
-                templateUrl: '/users/reset/password.html',
-                controller: 'passwordCtrl',
-                controllerAs: 'password'
-            })
-
-        .state('reset',
-            {
-                url: '/reset/:token',
-                templateUrl: '/users/reset/newpassword.html',
-                controller: 'resetCtrl',
-                controllerAs: 'reset'
-            })
-
-
-        .state('activate',
-            {
-                url: '/activate/:token',
-                templateUrl: '/users/activation/activate.html',
-                controller: 'emailCtrl',
-                controllerAs: 'email'
-            })
-
-        .state('resend',
-            {
-                url: '/resend',
-                templateUrl: '/users/activation/resend.html',
-                controller: 'resendCtrl',
-                controllerAs: 'resend'
-            })
-
-
-        .state('app.intro',
-            {
-                url: 'intro',
-                views: {
-                    'bodyContent@': {
-                        templateUrl: '/directives/companyInformation/companyIntroduce.tpl.html',
-                        authenticated: false
-                    }
-                }
-            })
-
-        .state('app.terms',
-            {
-                url: 'terms',
-                views: {
-                    'bodyContent@': {
-                        templateUrl: '/directives/companyInformation/terms.tpl.html',
-                        authenticated: false
-                    }
-                }
-            })
-
-        .state('app.privacy',
-            {
-                url: 'privacy',
-                views: {
-                    'bodyContent@': {
-                        templateUrl: '/directives/companyInformation/privacy.tpl.html',
-                        authenticated: false
-                    }
-                }
             });
-
 });
 
 app.run(function ($rootScope, User, $state) {
