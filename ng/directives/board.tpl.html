@@ -5,7 +5,7 @@
     <div class="alert alert-danger">{{readType.errorMsg}}</div>
 </div>
 <div>
-    <button ng-click="boardCtrl.writeArticle()" ui-sref="app.writeArticle">시안의뢰하기</button>
+    <button ui-sref="app.writeArticle">시안의뢰하기</button>
 </div>
 <div class="table-responsive">
     <table class="table table-bordered">
@@ -13,13 +13,18 @@
         <tr>
             <th>#</th>
             <th>제목</th>
+            <th>내용</th>
             <th>작성자</th>
             <th>작성시간</th>
         </tr>
         </thead>
         <tbody>
-        <tr class="text-center" ng-repeat="type in readType.typeDatas">
-
+        <tr class="text-center" ng-repeat="article in boardCtrl.boardData">
+            <th>{{article.id}}</th>
+            <th>{{article.title}}</th>
+            <th>{{article.content}}</th>
+            <th></th>
+            <th>{{article.created}}</th>
         </tr>
         </tbody>
     </table>
