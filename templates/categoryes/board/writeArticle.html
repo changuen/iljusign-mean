@@ -1,0 +1,15 @@
+<form name="writeBoardForm" ng-submit="main.doLogin(loginData, writeBoardForm.$valid)" novalidate>
+    <label>제목</label>
+    <div>
+        <input placeholder="제목을 입력해주세요." class="form-control" type="text" name="title" ng-model="boardData.title" required>
+    </div>
+    <br>
+    <label>내용</label>
+    <div>
+        <input ng-disabled="main.disabled" placeholder="내용을 입력해주세요." class="form-control" type="text" name="content" ng-model="boardData.content" required>
+    </div>
+    <br>
+    <div>
+        <button ng-disabled="main.disabled" class="btn btn-success btn-block" type="submit">시안의뢰하기</button>
+    </div>
+</form>
