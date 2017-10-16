@@ -65,6 +65,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             }
         })
+        .state('app.writeArticle', {
+            url: 'board/writeAtricle',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/categoryes/board/writeArticle.html',
+                    controller: 'createBoardController',
+                    controllerAs: 'createBoardCtrl'
+                }
+            }
+        })
 
         .state('app.gallery', {
             url: 'gallery',
