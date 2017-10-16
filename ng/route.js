@@ -70,8 +70,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             views: {
                 'bodyContent@': {
                     templateUrl: '/categoryes/board/writeArticle.html',
-                    controller: '',
-                    controllerAs: ''
+                    controller: 'createBoardController',
+                    controllerAs: 'createBoardCtrl'
                 }
             }
         })

@@ -12,7 +12,8 @@ angular.module('app',[
     'uiCropper',
     'bannerController',
     'galleryServices',
-    'bootstrapLightbox'
+    'bootstrapLightbox',
+    'boardController'
 ]).config(function($httpProvider){
   $httpProvider.interceptors.push('AuthInterceptors');
 });
