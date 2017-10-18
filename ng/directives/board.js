@@ -1,5 +1,5 @@
 angular.module('app')
-    .directive('board', [function () {
+    .directive('board', ['$http', function ($http) {
         return {
             restrict: 'E',
             controller: [function () {
@@ -9,9 +9,15 @@ angular.module('app')
             templateUrl: '/directives/board.tpl.html',
             link: function (scope, element, attrs, ctrls) {
                 var boardCtrl = ctrls;
-                boardCtrl.writeArticle = function () {
-                    console.log("작동 중입니다.");
-                }
+
+                $http.get('/api/board').then(function (result) {
+                    if (result.data.success) {
+                        boardCtrl.boardData = result.data.boardData;
+
+                    } else {
+
+                    }
+                })
             }
         };
     }])
