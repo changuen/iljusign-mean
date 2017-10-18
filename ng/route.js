@@ -40,7 +40,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             {
                 url: 'register/step3',
                 views: {
-                    'bodyContent@app': {
+                    'bodyContent@': {
                         templateUrl: '/users/register/registerStep3.html',
                         controller: 'regCtrl',
                         controllerAs: 'register'
@@ -65,6 +65,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             }
         })
+
         .state('app.writeArticle', {
             url: 'board/writeAtricle',
             views: {
@@ -72,6 +73,17 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                     templateUrl: '/categoryes/board/writeArticle.html',
                     controller: 'createBoardController',
                     controllerAs: 'createBoardCtrl'
+                }
+            }
+        })
+
+        .state('app.board.show', {
+            url: '/:article_id',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/categoryes/board/articleContent.html',
+                    controller: 'readBoardController',
+                    controllerAs: 'readBoardCtrl'
                 }
             }
         })

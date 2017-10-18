@@ -5,22 +5,28 @@
     <div class="alert alert-danger">{{readType.errorMsg}}</div>
 </div>
 <div>
-    <button ng-click="boardCtrl.writeArticle()" ui-sref="app.writeArticle">시안의뢰하기</button>
+    <button ui-sref="app.writeArticle">시안의뢰하기</button>
 </div>
-<div class="table-responsive">
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성시간</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="text-center" ng-repeat="type in readType.typeDatas">
-
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성시간</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center" ng-repeat="article in boardCtrl.boardData">
+                <th>{{article.id}}</th>
+                <th ui-sref="app.board.show({article_id: article.id})">
+                    {{article.title}}
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </th>
+                <th>{{article.username}}</th>
+                <th>{{article.created  |  date:'yyyy/MM/dd h:mma'}}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
