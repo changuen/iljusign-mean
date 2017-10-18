@@ -20,11 +20,12 @@
             <tbody>
             <tr class="text-center" ng-repeat="article in boardCtrl.boardData">
                 <th>{{article.id}}</th>
-                <th>{{article.title}}
-                    <span>{{article.private}}</span>
+                <th ui-sref="app.board.show({article_id: article.id})">
+                    {{article.title}}
+                    <i class="fa fa-lock" aria-hidden="true"></i>
                 </th>
-                <th>{{article.author}}</th>
-                <th>{{article.created}}</th>
+                <th>{{article.username}}</th>
+                <th>{{article.created  |  date:'yyyy/MM/dd h:mma'}}</th>
             </tr>
             </tbody>
         </table>

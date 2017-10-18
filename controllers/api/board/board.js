@@ -27,7 +27,6 @@ router.post('/', function (req, res, next) {
                         if (err) {
                             throw err;
                         } else {
-                            console.log(results);
                             if (results) {
                                 res.status(201).send({success: true, message: '등록 성공!'});
                             } else {
@@ -55,8 +54,7 @@ router.get('/', function (req, res, next) {
                 return next(err);
             }
             else {
-
-                var selectSql = 'select * from board';
+                var selectSql = 'select board.*, users.username from board inner join users on board.author = users.user_id';
                 connection.query(selectSql, function (error, results, next) {
                     if (err) {
                         throw err;
@@ -78,5 +76,36 @@ router.get('/', function (req, res, next) {
     }
 });
 
+router.get('/:article_id', function (req, res, next) {
+    try {
+
+        req.getConnection(function (err, connection) {
+            if (err) {
+                console.error('SQL Connection error: ', err);
+                return next(err);
+            }
+            else {
+                var article_id = req.params.article_id;
+                var selectSql = 'select * from board where id = ?';
+                connection.query(selectSql, article_id, function (err, result, next) {
+                    if (err) {
+                        res.send(err);
+                    }
+                    else {
+                        if (!result) {
+                            res.json({success: false, message: '정보를 불러오지 못 하였습니다.'});
+                        } else {
+                            res.json({success: true, message: '정보를 불러왔습니다.', articleData: result[0]});
+                        }
+                    }
+                });
+            }
+        });
+    }
+    catch (ex) {
+        console.error("Internal error: " + ex);
+        return next(ex);
+    }
+});
 
 module.exports = router;

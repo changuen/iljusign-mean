@@ -1,0 +1,15 @@
+<div ng-if="main.user.user_id === readBoardCtrl.articleData.author">
+    <p>{{readBoardCtrl.articleData | json}}</p>
+    <p>번호 {{readBoardCtrl.articleData.id}}</p>
+    <p>제목 {{readBoardCtrl.articleData.title}}</p>
+    <p>내용 {{readBoardCtrl.articleData.content}}</p>
+    <p>작성자 {{readBoardCtrl.articleData.author}}</p>
+</div>
+
+<div ng-if="main.user.user_id !== readBoardCtrl.articleData.author">
+    <p>다른 사용자의 글을 확인할 수 없습니다.</p>
+</div>
+
+<div ng-if="!main.user.user_id">
+    <p>로그인 후 서비스를 이용하실 수 있습니다.</p>
+</div>
