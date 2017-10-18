@@ -7,25 +7,25 @@
 <div>
     <button ui-sref="app.writeArticle">시안의뢰하기</button>
 </div>
-<div class="table-responsive">
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>제목</th>
-            <th>내용</th>
-            <th>작성자</th>
-            <th>작성시간</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="text-center" ng-repeat="article in boardCtrl.boardData">
-            <th>{{article.id}}</th>
-            <th>{{article.title}}</th>
-            <th>{{article.content}}</th>
-            <th></th>
-            <th>{{article.created}}</th>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성시간</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center" ng-repeat="article in boardCtrl.boardData">
+                <th>{{article.id}}</th>
+                <th>{{article.title}}
+                    <span>{{article.private}}</span>
+                </th>
+                <th>{{article.author}}</th>
+                <th>{{article.created}}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>

@@ -9,6 +9,7 @@ router.post('/', function (req, res, next) {
                 return next(err);
             }
             else {
+                console.log(req.params);
                 if (req.body.title === '' || req.body.title === undefined || req.body.title === null) {
                     res.status(201).send({success: false, message: '제목을 입력해주세요.'});
                 } else if (req.body.content === '' || req.body.content === undefined || req.body.type === null) {
@@ -18,7 +19,10 @@ router.post('/', function (req, res, next) {
                     var insertValue = {
                         title: req.body.title,
                         content: req.body.content,
+                        private: 0,
+                        author: req.decoded.user_id
                     };
+                    console.log(insertValue);
                     connection.query(insertSql, insertValue, function (error, results, next) {
                         if (err) {
                             throw err;

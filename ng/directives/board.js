@@ -11,8 +11,9 @@ angular.module('app')
                 var boardCtrl = ctrls;
 
                 $http.get('/api/board').then(function (result) {
-                    if(result.data.success){
+                    if (result.data.success) {
                         boardCtrl.boardData = result.data.boardData;
+
                     } else {
 
                     }

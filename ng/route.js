@@ -40,7 +40,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             {
                 url: 'register/step3',
                 views: {
-                    'bodyContent@app': {
+                    'bodyContent@': {
                         templateUrl: '/users/register/registerStep3.html',
                         controller: 'regCtrl',
                         controllerAs: 'register'
