@@ -1,0 +1,24 @@
+<input type="text" ng-model="commentCtrl.comment">
+<button class="btn" ng-click="commentCtrl.writeCommet(commentCtrl.comment);">답변등록</button>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>내용</th>
+            <th>작성자</th>
+            <th>작성시간</th>
+        </tr>
+        </thead>
+        <tbody>
+        <p>{{commentCtrl.commentData}}</p>
+        <tr class="text-center" ng-repeat="comment in commentCtrl.commentData | filter: comment">
+            <th>{{comment.id}}</th>
+            <th>{{comment.comment}}</th>
+            <th>{{comment.author_id}}</th>
+            <th>{{comment.created | date:'yyyy/MM/dd h:mma'}}</th>
+        </tr>
+        </tbody>
+    </table>
+</div>

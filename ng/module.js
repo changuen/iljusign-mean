@@ -1,4 +1,4 @@
-angular.module('app',[
+angular.module('app', [
     'ui.router',
     'ui.bootstrap',
     'menuControllers',
@@ -14,6 +14,6 @@ angular.module('app',[
     'galleryServices',
     'bootstrapLightbox',
     'boardController'
-]).config(function($httpProvider){
-  $httpProvider.interceptors.push('AuthInterceptors');
+]).config(function ($httpProvider) {
+    $httpProvider.interceptors.push('AuthInterceptors');
 });

@@ -57,6 +57,15 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             }
         })
 
+        .state('app.payment', {
+            url: 'payment',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/payment/paymentStep.html'
+                }
+            }
+        })
+
         .state('app.board', {
             url: 'board',
             views: {
@@ -192,6 +201,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 }
             }
         })
+
 
         .state('resetusername',
             {
