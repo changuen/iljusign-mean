@@ -13,7 +13,8 @@ angular.module('app')
                 var goodsCtrl = ctrls;
 
                 $http.get('/api/goods').then(function (result) {
-                    console.log(result);
+                    goodsCtrl.goodsDatas = result.data.goodsData;
+                    console.log(goodsCtrl.goodsDatas);
                 })
             }
         };
