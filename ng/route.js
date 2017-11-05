@@ -12,6 +12,18 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             }
         }
     })
+
+        .state('app.paymentStep', {
+            url: 'paymentSession',
+            views: {
+                'bodyContent@': {
+                    templateUrl: '/payment/payment.html',
+                    controller: 'paymentCtrl',
+                    controllerAs: 'payment'
+                }
+            }
+        })
+
         .state('app.registerStep1',
             {
                 url: 'register/step1',
@@ -53,15 +65,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             views: {
                 'bodyContent@': {
                     templateUrl: '/users/login/login.html'
-                }
-            }
-        })
-
-        .state('app.payment', {
-            url: 'payment',
-            views: {
-                'bodyContent@': {
-                    templateUrl: '/payment/paymentStep.html'
                 }
             }
         })

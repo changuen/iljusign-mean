@@ -51,7 +51,7 @@ angular.module('itemControllers', ['orderServices'])
 
     })
 
-    .controller('getTypeItemCtrl', function (Admin, $stateParams, $window, $state, Order) {
+    .controller('getTypeItemCtrl', ['Admin', '$stateParams', '$window', '$state', 'Order', function (Admin, $stateParams, $window, $state, Order) {
         var app = this;
         var item_id = $stateParams.item_id;
         app.optionItem = false;
@@ -104,13 +104,16 @@ angular.module('itemControllers', ['orderServices'])
                 price: data.price
             };
 
+            console.log(orderData);
+
             Order.createOrder(orderData).then(function (data) {
-                if (data.data.success) {
-                    app.successMsg = data.data.message;
-                    $state.go('app.payment');
-                } else {
-                    app.errorMsg = data.data;
-                }
+                console.log(data);
+                // if (data.data.success) {
+                //     app.successMsg = data.data.message;
+                //     $state.go('app.paymentStep');
+                // } else {
+                //     app.errorMsg = data.data;
+                // }
             });
 
         };
@@ -137,4 +140,4 @@ angular.module('itemControllers', ['orderServices'])
             }
         });
 
-    });
+    }]);

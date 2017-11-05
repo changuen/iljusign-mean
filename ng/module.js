@@ -13,7 +13,8 @@ angular.module('app', [
     'bannerController',
     'galleryServices',
     'bootstrapLightbox',
-    'boardController'
+    'boardController',
+    'paymentControllers'
 ]).config(function ($httpProvider) {
     $httpProvider.interceptors.push('AuthInterceptors');
 });
