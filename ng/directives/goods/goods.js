@@ -15,7 +15,5 @@ angular.module('app')
                 $http.get('/api/goods').then(function (result) {
                     goodsCtrl.goodsDatas = result.data.goodsData;
                     console.log(goodsCtrl.goodsDatas);
-                })
-            }
         };
     }]);

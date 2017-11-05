@@ -12,7 +12,7 @@
 
 <form name="regForm" ng-submit="register.regStep3(register.regData, regForm.$valid, confirmed)" novalidate>
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div ng-class = "{'has-success': (regForm.username.$valid && !regForm.username.$pristine), 'has-error': (!regForm.username.$valid && !regForm.username.$pristine) ||
               (!regForm.username.$valid && regForm.$submitted)}">
               <label >아이디</label>&nbsp;<i class="fa fa-question-circle" aria-hidden="true"></i>
@@ -24,11 +24,24 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div ng-class = "{'has-success': (regForm.email.$valid && !regForm.email.$pristine), 'has-error': (!regForm.email.$valid && !regForm.email.$pristine) ||
               (!regForm.email.$valid && regForm.$submitted)}">
               <label>이메일</label>&nbsp;<i class="fa fa-question-circle" aria-hidden="true"></i>
               <input ng-disabled="register.disabled"  placeholder="이메일을 입력해주세요." class="form-control" type="email" name="email" ng-model="register.regData.email" ng-minlength="5" ng-maxlength="30" ng-pattern="/^\w+@[a-zA-z_]+?\.[a-zA-Z]{2,3}$/" required>
+              <ul ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) || (!regForm.email.$pristine && regForm.email.$error.minlength) ||
+              (!regForm.email.$pristine && regForm.email.$error.maxlength)" class="help-block" >
+                <li>Must contain "@"</li>
+                <li>Must not contain any special characters</li>
+                <li>Must be at least 5 characters but no more than 30</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div ng-class = "{'has-success': (regForm.email.$valid && !regForm.email.$pristine), 'has-error': (!regForm.email.$valid && !regForm.email.$pristine) ||
+              (!regForm.email.$valid && regForm.$submitted)}">
+              <label>휴대폰</label>&nbsp;<i class="fa fa-question-circle" aria-hidden="true"></i>
+              <input ng-disabled="register.disabled"  placeholder="휴대폰 번호를 입력해주세요." class="form-control" type="email" name="email" ng-model="register.regData.email" ng-minlength="5" ng-maxlength="30" ng-pattern="/^\w+@[a-zA-z_]+?\.[a-zA-Z]{2,3}$/" required>
               <ul ng-show="(!regForm.email.$pristine && regForm.email.$error.pattern) || (!regForm.email.$pristine && regForm.email.$error.minlength) ||
               (!regForm.email.$pristine && regForm.email.$error.maxlength)" class="help-block" >
                 <li>Must contain "@"</li>

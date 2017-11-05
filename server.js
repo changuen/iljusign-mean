@@ -59,6 +59,6 @@ app.all('/*', function (req, res, next) {
     res.sendFile('layouts/app.html', {root: __dirname});
 });
 
-app.listen(3000, function () {
-    console.log('Server listening on', 3000);
+app.listen(5000, function () {
+    console.log('Server listening on', 5000);
 });
