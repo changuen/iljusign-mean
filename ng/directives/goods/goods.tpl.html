@@ -1,0 +1,18 @@
+<div class ="row show-hide-message" ng-show="galleryCtrl.errorMsg">
+    <div class="alert alert-danger">{{galleryCtrl.errorMsg}}</div>
+</div>
+
+<div class="row container-fluid">
+    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="image in galleryCtrl.galleryData">
+        <div class="card">
+            <div class="card-image">
+                <a ng-click="galleryCtrl.openLightboxModal($index)">
+                    <img class="img-thumbnail" ng-src="{{image.thumbUrl}}">
+                </a>
+            </div>
+            <div class="card-content">
+                <p>{{image.caption}}</p>
+            </div>
+        </div>
+    </div>
+</div>
