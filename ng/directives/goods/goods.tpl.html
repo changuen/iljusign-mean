@@ -1,0 +1,28 @@
+<div class ="row show-hide-message" ng-show="getTypeItems.successMsg">
+    <div class="alert alert-success">{{getTypeItems.successMsg}}</div>
+</div>
+<div class ="row show-hide-message" ng-show="getTypeItems.errorMsg">
+    <div class="alert alert-danger">{{getTypeItems.errorMsg}}</div>
+</div>
+<div class="row container-fluid">
+    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="photo in getTypeItems.itemsData">
+        <div class="card">
+            <div class="card-image">
+                <a ui-sref=".show({item_id: photo.item_id})" ui-sref-active="active">
+                    <img class="img-responsive" ng-src="{{photo.thumbnail}}">
+                </a>
+            </div>
+            <div class="card-content">
+
+                <p><span style="color: red">{{photo.type_description}}</span> - {{photo.item_name}}</p>
+            </div>
+            <div class="card-action">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12" style="text-align:left">
+                        <p class="text-left">{{photo.price}}원</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
