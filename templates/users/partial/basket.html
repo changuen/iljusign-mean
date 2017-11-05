@@ -25,7 +25,7 @@
                     <tr class="text-center" ng-repeat = "item in basket.basketData">
                       <td>
                         <a ui-sref="app.category.show({item_id: item.item_id})" ui-sref-active="active">
-                          {{item.name}}
+                          {{item.item_name}}
                         </a>
                       </td>
                       <td>
@@ -35,11 +35,11 @@
                         </select>
                       </td>
                       <td>
-                        <input style="margin: auto; width: 100px;" type="number" class="form-control" id="amount" ng-model="basket.amount">
+                        <input style="margin: auto; width: 100px;" type="number" class="form-control" id="amount" ng-model="item.count">
                       </td>
                       <td>{{basket.data[$index].selectedOption.id}}원</td>
                       <td>
-                        <p>{{basket.amount * basket.data[$index].selectedOption.id}}원</p>
+                        <p>{{item.count * basket.data[$index].selectedOption.id}}원</p>
                       </td>
                       <td>
                         <div>
@@ -57,3 +57,7 @@
     </uib-tab>
   </uib-tabset>
 </form>
+
+<div>
+  총 결제금액
+</div>

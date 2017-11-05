@@ -55,7 +55,7 @@ try{
           kind_of: req.body.kind_of,
           price: req.body.price
         };
-
+        console.log(insertValue);
         connection.query(insertSql, insertValue, function (error, results, next) {
             if(err){
               throw err;

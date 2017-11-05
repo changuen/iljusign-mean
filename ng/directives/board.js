@@ -14,11 +14,22 @@ angular.module('app')
                     if (result.data.success) {
                         boardCtrl.boardData = result.data.boardData;
                         var date = moment(boardCtrl.boardData[0].created, 'YYYY-MM-DD');
-                        console.log(date.format('YYYY-MM-DD'));
+                        boardCtrl.totalItems = boardCtrl.boardData.length;
                     } else {
 
                     }
-                })
+                });
+
+                boardCtrl.currentPage = 1;
+                boardCtrl.itemsPerPage = 7;
+
+                boardCtrl.setPage = function (pageNo) {
+                    boardCtrl.currentPage = pageNo;
+                };
+
+                boardCtrl.pageChanged = function() {
+                    console.log('Page changed to: ' + boardCtrl.currentPage);
+                };
             }
         };
     }])
