@@ -1,18 +1,25 @@
-<div class ="row show-hide-message" ng-show="galleryCtrl.errorMsg">
-    <div class="alert alert-danger">{{galleryCtrl.errorMsg}}</div>
-</div>
-
 <div class="row container-fluid">
-    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="image in galleryCtrl.galleryData">
+    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="goods in goodsCtrl.goodsDatas | limitTo: '16'">
         <div class="card">
             <div class="card-image">
-                <a ng-click="galleryCtrl.openLightboxModal($index)">
-                    <img class="img-thumbnail" ng-src="{{image.thumbUrl}}">
+                <a ui-sref=".show({item_id: goods.item_id})" ui-sref-active="active">
+                    <img class="img-responsive" ng-src="{{goods.thumbnail}}">
                 </a>
             </div>
             <div class="card-content">
-                <p>{{image.caption}}</p>
+
+                <p><span style="color: red">{{goods.kind}}</span> - {{goods.item_name}}</p>
+            </div>
+            <div class="card-action">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12" style="text-align:left">
+                        <p class="text-left">{{goods.price}}원</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+<div style="margin: 35px 15px 15px 15px;">
+    <button class="btn" style="width: 100%;"> 전체보기</button>
 </div>
