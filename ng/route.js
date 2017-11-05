@@ -209,17 +209,26 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('resetusername',
             {
                 url: '/resetusername',
-                templateUrl: '/users/reset/username.html',
-                controller: 'usernameCtrl',
-                controllerAs: 'username'
+                views: {
+                    'bodyContent@': {
+                        templateUrl: '/users/reset/username.html',
+                        controller: 'usernameCtrl',
+                        controllerAs: 'username'
+                    }
+                }
             })
 
         .state('resetpassword',
             {
                 url: '/resetpassword',
-                templateUrl: '/users/reset/password.html',
-                controller: 'passwordCtrl',
-                controllerAs: 'password'
+                views: {
+                    'bodyContent@': {
+                        templateUrl: '/users/reset/password.html',
+                        controller: 'passwordCtrl',
+                        controllerAs: 'password'
+                    }
+                }
+
             })
 
         .state('reset',
@@ -229,7 +238,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 controller: 'resetCtrl',
                 controllerAs: 'reset'
             })
-
 
         .state('activate',
             {

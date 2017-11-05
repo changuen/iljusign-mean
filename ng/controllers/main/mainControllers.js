@@ -236,18 +236,11 @@ angular.module('mainControllers', ['authServices', 'userServices'])
         };
 
         app.resetusername = function () {
-            hideModal('login');
-            $timeout(function () {
                 $state.go('resetusername');
-            }, 500);
         };
 
         app.resetpassword = function () {
-            hideModal('login');
-            $timeout(function () {
                 $state.go('resetpassword');
-            }, 500);
-
         };
 
     });

@@ -1,101 +1,59 @@
 <form name="outerForm" class="tab-form-demo">
-  <uib-tabset active="activeForm">
-    <uib-tab index="0" heading="회원정보">
-        <div class="tabPadding">
-              <div class ="row show-hide-message" ng-show="basket.successMsg">
-                <div class="alert alert-success">{{basket.successMsg}}</div>
-              </div>
-              <div class ="row show-hide-message" ng-show="basket.errorMsg">
-                <div class="alert alert-danger">{{basket.errorMsg}}</div>
-              </div>
-        </div>
-    </uib-tab>
-    <uib-tab index="1" heading="배송정보">
-        <div class="tabPadding">
-              <div class ="row show-hide-message" ng-show="basket.successMsg">
-                <div class="alert alert-success">{{basket.successMsg}}</div>
-              </div>
-              <div class ="row show-hide-message" ng-show="basket.errorMsg">
-                <div class="alert alert-danger">{{basket.errorMsg}}</div>
-              </div>
+    <uib-tabset active="activeForm">
+        <uib-tab index="0" heading="개인정보수정">
+            <div class="tabPadding">
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-3">
+                        <label>이름</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" placeholder="이름">
+                    </div>
+                    <div>
+                        <button class="btn">수정</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-3">
+                        <label>이메일</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
+                    </div>
+                    <div>
+                        <button class="btn">수정</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-3">
+                        <label>휴대폰</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
+                    </div>
+                    <div>
+                        <button class="btn">수정</button>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="비밀번호변경">
+            <div class="tabPadding">
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-12">
+                        <input class="form-control" type="text" placeholder="현재 비밀번호를 입력하세요.">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-sm-12">
+                        <input class="form-control" type="text" placeholder="새로운 비밀번호를 입력하세요.">
+                    </div>
+                </div>
+                <div>
+                    <button style="width: 100%;" class="btn btn-success">비밀번호 변경</button>
+                </div>
+            </div>
 
-              <div class="list-group">
-                <ul class="list-group">
-                    <li class="list-group-item active">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <label>배송정보</label>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="list-group-item">
-
-          <!-- 배송주소 -->
-                      <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-3">
-                          <label>배송주소</label>
-                        </div>
-                        <div class="col-sm-9">
-                          <div class="row">
-                            <div class="col-sm-4">
-                              <input class="form-control" type="text" placeholder="우편번호" ng-model="readOrder.sigunguCode">
-                            </div>
-                            <div class="col-sm-4">
-                              <a ng-click="readOrder.readAddress()" class="btn btn-default" >우편번호 찾기</a>
-                            </div>
-                          </div>
-                          <div class="row" style="margin-top: 5px;">
-                              <div class="col-sm-12">
-                                <input class="form-control" type="text" ng-model="readOrder.roadAddress" placeholder="도로명주소를 입력해주세요.">
-                              </div>
-                          </div>
-                          <div class="row" style="margin-top: 5px;">
-                              <div class="col-sm-12">
-                                <input class="form-control" type="text" ng-model="readOrder.jibunAddress" placeholder="지번주소를 입력해주세요.">
-                              </div>
-                          </div>
-                          <div class="row" style="margin-top: 5px;">
-                              <div class="col-sm-12">
-                                <input class="form-control" type="text" ng-model="readOrder.addressDetail" placeholder="상세주소를 입력해주세요.">
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </li>
-                    <li class="list-group-item">
-                      <!-- 이름 -->
-                      <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-3">
-                          <label>이름</label>
-                        </div>
-                        <div class="col-sm-3">
-                          <input class="form-control" type="text" placeholder="이름">
-                        </div>
-                      </div>
-                      <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-3">
-                          <label>핸드폰</label>
-                        </div>
-                        <div class="col-sm-6">
-                          <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
-                        </div>
-                      </div>
-                      <div class="row" style="margin-top: 5px;">
-                        <div class="col-sm-3">
-                          <label>일반전화</label>
-                        </div>
-                        <div class="col-sm-6">
-                          <input class="form-control" type="text" placeholder="- 없이 입력하세요.">
-                        </div>
-                      </div>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <button style="width: 100%;"class="btn btn-success">배송정보 등록</button>
-              </div>
-        </div>
-    </uib-tab>
-  </uib-tabset>
+        </uib-tab>
+    </uib-tabset>
 </form>

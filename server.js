@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static('image'));
 app.use('/', require('./controllers/static'));
 
+app.use('/api/goods', require('./controllers/api/comment/comment'));
 app.use('/api/comment', require('./controllers/api/comment/comment'));
 app.use('/api/board', require('./controllers/api/board/board'));
 app.use('/api/banner', require('./controllers/api/banner/banner'));
@@ -58,6 +59,6 @@ app.all('/*', function (req, res, next) {
     res.sendFile('layouts/app.html', {root: __dirname});
 });
 
-app.listen(3000, function () {
-    console.log('Server listening on', 3000);
+app.listen(5000, function () {
+    console.log('Server listening on', 5000);
 });
