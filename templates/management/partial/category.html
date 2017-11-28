@@ -23,10 +23,10 @@
         <tbody>
           <tr ng-repeat= "menu in mainMenu.mainMenues">
             <td class="text-center">
-                <input ng-disabled="mainMenu.disabled" type="text" class="form-control" id="kind" data-ng-model="menu.category_id" placeholder="ex) 실사소재, 시트소재">
+                <input ng-disabled="mainMenu.disabled" type="text" class="form-control" data-ng-model="menu.category_id" placeholder="ex) 실사소재, 시트소재">
             </td>
             <td>
-                <input ng-disabled="mainMenu.disabled" type="text" class="form-control" id="kind" data-ng-model="menu.name" placeholder="ex) 실사소재, 시트소재">
+                <input ng-disabled="mainMenu.disabled" type="text" class="form-control" data-ng-model="menu.name" placeholder="ex) 실사소재, 시트소재">
             </td>
             <td class="text-center">
                 <button class="btn btn-warning" ng-click="mainMenu.update({category_id: menu.category_id, name: menu.name})"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></button>

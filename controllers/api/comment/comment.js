@@ -15,8 +15,8 @@ router.post('/', function(req, res, next){
 
                 var insertValue = {
                     board_id: req.body.boardId,
-                    comment: req.body.comment
-                    // author_id: req.decoded.user_id
+                    comment: req.body.comment,
+                    author_id: req.decoded.user_id
                 };
 
                 connection.query(insertSql, insertValue, function (err, result, next) {
